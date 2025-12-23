@@ -1,0 +1,19 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #213547;
+    margin-top: 15px;
+    padding: 10px;
+    height: 70px;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 10px;
+}
+
+.navbar li {
+    color: #f9f9f9;
+    list-style-type: none;
+}
