@@ -1,19 +1,80 @@
 .navbar {
+    position: relative;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
-    background-color: #213547;
-    margin-top: 15px;
-    padding: 10px;
-    height: 70px;
+    background-color: var(--dark-blue);
+    margin-top: 1.3rem;
+    padding: 1.3rem;
+    height: 10rem;
+    z-index: 0;
 }
 
 .navbar ul {
     display: flex;
-    gap: 10px;
+    gap: 0.7rem;
 }
 
 .navbar li {
-    color: #f9f9f9;
+
     list-style-type: none;
+    z-index: 2;
+
+}
+
+/*.navbar a {
+    color: var(--not-white);
+    text-decoration: none;
+}*/
+
+.default-menu-link {
+    color: var(--not-white);
+    text-decoration: none;
+}
+
+.active-menu-link {
+    color: var(--not-white);
+    text-decoration: underline;
+}
+
+.magic-logo {
+    position: absolute;
+    left: calc(50% - 100px);
+    top: -20px;
+    z-index: 1;
+    width: 12.5rem;
+    opacity: 0.4;
+}
+
+.logout-button {
+    z-index: 2;
+}
+
+@media screen and (min-width: 769px) {
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background-color: var(--dark-blue);
+        margin-top: 1.3rem;
+        padding: 1.3rem;
+        height: 4.5rem;
+    }
+
+    .logout-button {
+        z-index: 2;
+    }
+
+    .magic-logo {
+        position: absolute;
+        left: calc(50% - 100px);
+        top: -1.2rem;
+        z-index: 1;
+        width: 7rem;
+    }
+
 }

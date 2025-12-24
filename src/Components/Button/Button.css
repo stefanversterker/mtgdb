@@ -1,0 +1,20 @@
+.button {
+    width: 11rem;
+    height: 3rem;
+    background-color: var(--light-blue);
+    color: var(--not-black);
+    font-size: 1.6rem;
+    font-weight: lighter;
+    border: none;
+    border-radius: 3rem;
+    cursor: pointer;
+
+}
+
+.button:hover {
+    box-shadow: inset 2px 2px 10px var(--dark-blue);
+}
+
+.button:active {
+    box-shadow: inset 4px 4px 10px var(--dark-blue);
+}
