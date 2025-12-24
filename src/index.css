@@ -1,22 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /*colors*/
 :root {
-
+    --not-black: #150000;
+    --not-white: #fbf2f2;
+    --dark-blue: #486284;
+    --light-blue: #DEE5ED;
+    --green: #76BD5A;
+    --red: #FF7C7C;
+    --light-grey: #D9D9D9;
+    --dark-grey: #666666;
 }
 
 /*reset*/
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 /*Guide Borders*/
-.red-border {border: 2px dashed red}
-.green-border {border: 2px dashed green}
-.blue-border {border: 2px dashed blue}
-.orange-border {border: 2px dashed orange}
-.purple-border {border: 2px dashed purple}
-.brown-border {border: 2px dashed brown}
-.pink-border {border: 2px dashed deeppink}
-.yellow-border {border: 2px dashed yellow}
+.red-border {
+    border: 2px dashed red
+}
+
+.green-border {
+    border: 2px dashed green
+}
+
+.blue-border {
+    border: 2px dashed blue
+}
+
+.orange-border {
+    border: 2px dashed orange
+}
+
+.purple-border {
+    border: 2px dashed purple
+}
+
+.brown-border {
+    border: 2px dashed brown
+}
+
+.pink-border {
+    border: 2px dashed deeppink
+}
+
+.yellow-border {
+    border: 2px dashed yellow
+}
+
+/*Typography*/
+p {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Alkalami", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+button, input {
+    font-family: inherit;
+}
