@@ -1,0 +1,25 @@
+.card-search-container {
+    height: 100%
+}
+
+
+.key-cmc {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%
+}
+
+.card-spec-dropdowns {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%
+}
+
+.card-flow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}

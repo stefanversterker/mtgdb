@@ -4,9 +4,9 @@ import './DecksOverview.css'
 function DecksOverview() {
     return (
 
-        <>
+        <main className="main-container blue-border">
             <h1>DecksOverview</h1>
-        </>
+        </main>
     )
 }
 

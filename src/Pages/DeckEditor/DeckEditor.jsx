@@ -4,9 +4,9 @@ import './DeckEditor.css'
 function DeckEditor() {
     return (
 
-        <>
+        <main className="main-container blue-border">
             <h1>DeckEditor</h1>
-        </>
+        </main>
     )
 }
 

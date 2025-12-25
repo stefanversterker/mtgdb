@@ -4,9 +4,9 @@ import './CollectionEditor.css'
 function CollectionEditor() {
     return (
 
-        <>
+        <main className="main-container blue-border">
             <h1>CollectionEditor</h1>
-        </>
+        </main>
     )
 }
 

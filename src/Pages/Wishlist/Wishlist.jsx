@@ -4,9 +4,9 @@ import './Wishlist.css'
 function Wishlist() {
     return (
 
-        <>
+        <main className="main-container blue-border">
             <h1>Wishlist</h1>
-        </>
+        </main>
     )
 }
 

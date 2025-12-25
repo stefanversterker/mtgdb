@@ -14,7 +14,7 @@ function App() {
 
 
     return (
-        <div className="main-container red-border">
+        <div className="app-container red-border">
             <NavBar/>
 
             <Routes>

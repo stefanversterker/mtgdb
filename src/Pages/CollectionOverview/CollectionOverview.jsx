@@ -4,9 +4,9 @@ import './CollectionOverview.css'
 function CollectionOverview() {
     return (
 
-        <>
+        <main className="main-container blue-border">
             <h1>CollectionOverview</h1>
-        </>
+        </main>
     )
 }
 

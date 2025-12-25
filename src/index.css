@@ -3,8 +3,9 @@
 /*colors*/
 :root {
     --not-black: #150000;
-    --not-white: #fbf2f2;
+    --not-white: #fdfafa;
     --dark-blue: #486284;
+    --veil-blue: rgba(72, 98, 132, 0.3);
     --light-blue: #DEE5ED;
     --green: #76BD5A;
     --red: #FF7C7C;
@@ -53,7 +54,7 @@
 }
 
 /*Typography*/
-p, button {
+p, button, input {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -64,8 +65,4 @@ h1, h2, h3, h4 {
     font-family: "Alkalami", serif;
     font-weight: lighter;
     font-style: normal;
-}
-
-input {
-    font-family: inherit;
 }
