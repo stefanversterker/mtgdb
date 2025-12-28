@@ -1,0 +1,11 @@
+.card-counter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.5rem;
+    width: 2rem;
+    color: var(--not-black);
+    background-color: var(--light-grey);
+    border-radius: 5px;
+    box-shadow: -2px 2px 0 var(--not-black);
+}
