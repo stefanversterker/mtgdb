@@ -1,8 +1,10 @@
 .veil {
     display: flex;
     flex-direction: column;
+
     gap: 0.5rem;
     height: 100%;
+    width: 100%;
     background-color: var(--veil-blue);
     border-radius: 1rem;
     /*margin: 1rem;*/

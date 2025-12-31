@@ -6,7 +6,7 @@ import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 function CardInDataBase({children}) {
     return (
 
-        <article>
+        <li>
             <Card>
                 {children}
                 <div className="button-container purple-border">
@@ -15,7 +15,7 @@ function CardInDataBase({children}) {
                     />
                 </div>
             </Card>
-        </article>
+        </li>
     )
 }
 

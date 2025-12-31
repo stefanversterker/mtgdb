@@ -2,22 +2,13 @@ import './CardSearch.css'
 import Veil from "../Veil/Veil.jsx";
 import Input from "../Input/Input.jsx";
 import Dropdown from "../Dropdown/Dropdown.jsx";
-import manaWhite from "/src/assets/symbols/mana-white.svg?react";
-import Card from "../Card/Card.jsx";
-import CardInDataBase from "../CardInDataBase/CardInDataBase.jsx";
-import CardInCollection from "../CardInCollection/CardInCollection.jsx";
-import icy_manipulator from "/src/assets/testcards/icy_manipulator__s6__cn249_lnen.jpg"
-import lake_of_the_dead from "/src/assets/testcards/lake_of_the_dead__s46__cn140_lnen.jpg"
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
-function CardSearch() {
+function CardSearch({children}) {
     return (
 
         <section className="card-search-container orange-border">
-            <title>
-                <h1>Database</h1>
-            </title>
             <section className="search-menu brown-border">
                 <Veil>
                     <div className="key-cmc">
@@ -73,85 +64,9 @@ function CardSearch() {
             </section>
             <section className="card-flow-container pink-border">
                 <Veil>
-                    <div className="card-flow green-border">
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-
-                        <CardInDataBase>
-                            <img src={icy_manipulator} alt="ijzige manipulator"/>
-                        </CardInDataBase>
-
-
-
-
-
-
-                    </div>
+                    <ul className="card-flow green-border">
+                        {children}
+                    </ul>
                 </Veil>
             </section>
 

@@ -1,0 +1,7 @@
+.all-decks-container {
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 50rem;
+    overflow-y: clip;
+}

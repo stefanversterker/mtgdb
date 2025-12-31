@@ -8,7 +8,7 @@ import CardCounter from "../CardCounter/CardCounter.jsx";
 function CardInCollection({children}) {
     return (
 
-        <article>
+        <li>
             <Card>
                 {children}
                 <div className="button-container">
@@ -25,7 +25,7 @@ function CardInCollection({children}) {
                     </div>
                 </div>
             </Card>
-        </article>
+        </li>
     )
 }
 

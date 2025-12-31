@@ -29,3 +29,9 @@
     top: 3px;*/
 
 }
+
+.deck-summary-button {
+    width: 1.5rem;
+    background-color: var(--light-grey);
+    border: none;
+}

@@ -1,11 +1,14 @@
 import './DecksOverview.css'
+import DeckSearch from "../../Components/DeckSearch/DeckSearch.jsx";
 /*import { Routes, Route } from 'react-router-dom';*/
 
 function DecksOverview() {
     return (
 
         <main className="main-container blue-border">
-            <h1>DecksOverview</h1>
+            <section className="pink-border all-decks-container">
+                <DeckSearch></DeckSearch>
+            </section>
         </main>
     )
 }

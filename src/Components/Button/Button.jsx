@@ -1,12 +1,12 @@
 import './Button.css'
 /*import { Routes, Route } from 'react-router-dom';*/
 
-function Button() {
+function Button({buttonContent}) {
     return (
 
         <div>
             <button className="button" type="button">
-                Button
+                {buttonContent}
             </button>
         </div>
     )
