@@ -71,7 +71,7 @@
 
     .magic-logo {
         position: absolute;
-        left: calc(50% - 100px);
+        left: calc(50% - 57px);
         top: -1.2rem;
         z-index: 1;
         width: 7rem;

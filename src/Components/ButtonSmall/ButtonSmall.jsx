@@ -1,12 +1,18 @@
 import './ButtonSmall.css'
+
 /*import { Routes, Route } from 'react-router-dom';*/
 
-function ButtonSmall({buttonContent, className,}) {
+function ButtonSmall({buttonContent, className, onClick}) {
     return (
 
         <div className="button-small">
             <button className={className}
-                    type="button">{buttonContent}</button>
+                    type="button"
+                    onClick={onClick}
+            >
+                {buttonContent}
+            </button>
+
         </div>
     )
 }

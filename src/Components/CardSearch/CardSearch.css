@@ -6,6 +6,12 @@
     width: 48.75rem;
 }
 
+.card-search-header {
+    display: flex;
+    justify-content: space-between;
+    color: var(--dark-blue);
+}
+
 .search-menu {
 
 }

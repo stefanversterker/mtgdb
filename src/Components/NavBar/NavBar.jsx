@@ -19,7 +19,7 @@ function NavBar() {
                     <img className="magic-logo" src={magic} alt="letter m in magic the gathering font"/>
                 </figure>
                 <div className="logout-button">
-                    <Button/>
+                    <Button buttonContent="Log out"/>
                 </div>
             </nav>
         </>

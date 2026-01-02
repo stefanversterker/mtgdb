@@ -9,11 +9,14 @@ import ManaColorless from "/src/assets/symbols/mana-colorless.svg?react";
 import ManaGreen from "/src/assets/symbols/mana-green.svg?react";
 import ManaRed from "/src/assets/symbols/mana-red.svg?react";
 import ManaWhite from "/src/assets/symbols/mana-white.svg?react";
-import SymbolContainer from "../SymbolContainer/SymbolContainer.jsx";
+import { useNavigate } from "react-router-dom";
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
 function DeckContainer({deckName}) {
+
+    const navigate = useNavigate();
+
     return (
 
         <div className="purple-border deck-box">
@@ -42,15 +45,16 @@ function DeckContainer({deckName}) {
                 <div className="orange-border deck-summary-buttons">
                     <ButtonSmall
                         className="button-small deck-summary-button"
-                        buttonContent=<EditPencil/>
+                        buttonContent={<EditPencil/>}
+                        onClick={ () => navigate("/deck-editor")}
                     />
                     <ButtonSmall
                         className="button-small deck-summary-button"
-                        buttonContent=<Duplicate/>
+                        buttonContent={<Duplicate/>}
                     />
                     <ButtonSmall
                         className="button-small deck-summary-button"
-                        buttonContent=<Trash/>
+                        buttonContent={<Trash/>}
                     />
                 </div>
             </div>

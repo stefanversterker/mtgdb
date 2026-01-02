@@ -5,10 +5,14 @@ import Dropdown from "../Dropdown/Dropdown.jsx";
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
-function CardSearch({children}) {
+function CardSearch({children, displayTitle, button}) {
     return (
 
         <section className="card-search-container orange-border">
+            <header className="card-search-header">
+                <h2>{displayTitle}</h2>
+                {button}
+            </header>
             <section className="search-menu brown-border">
                 <Veil>
                     <div className="key-cmc">

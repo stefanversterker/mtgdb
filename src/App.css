@@ -9,7 +9,7 @@
 .main-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     gap: 0.5rem;
     height: calc(100% - 155px);
     width: 100%;
@@ -20,7 +20,7 @@
     .main-container {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
         gap: 0.5rem;
         height: calc(100% - 93px);
         width: 100%;

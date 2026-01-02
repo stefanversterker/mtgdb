@@ -2,7 +2,7 @@
 
 /*colors*/
 :root {
-    --not-black: #150000;
+    --not-black: #230000;
     --not-white: #fdfafa;
     --dark-blue: #486284;
     --veil-blue: rgba(72, 98, 132, 0.3);
@@ -54,7 +54,7 @@
 }*/
 
 /*!Typography!*/
-p, button, input {
+p, button, input, details, summary {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;

@@ -1,4 +1,5 @@
 import './Wishlist.css'
+import CardTypeDropdown from "../../Components/CardTypeDropdown/CardTypeDropdown.jsx";
 /*import { Routes, Route } from 'react-router-dom';*/
 
 function Wishlist() {

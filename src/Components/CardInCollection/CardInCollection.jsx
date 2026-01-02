@@ -2,27 +2,18 @@ import './CardInCollection.css'
 import Card from "../Card/Card.jsx";
 import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 import CardCounter from "../CardCounter/CardCounter.jsx";
+import CardManagement from "../CardManagement/CardManagement.jsx";
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
-function CardInCollection({children}) {
+function CardInCollection({children, management}) {
     return (
 
         <li>
             <Card>
                 {children}
                 <div className="button-container">
-                    <div className="card-management">
-                        <CardCounter/>
-                        <ButtonSmall
-                            className="button-small red-minus"
-                            buttonContent="-"
-                        />
-                        <ButtonSmall
-                            className="button-small green-plus"
-                            buttonContent="+"
-                        />
-                    </div>
+                    {management}
                 </div>
             </Card>
         </li>

@@ -1,0 +1,5 @@
+.card-management {
+    display: flex;
+    gap: 5px;
+    margin: 0 4px;
+}

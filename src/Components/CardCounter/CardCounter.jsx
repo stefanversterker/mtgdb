@@ -1,11 +1,11 @@
 import './CardCounter.css'
 /*import { Routes, Route } from 'react-router-dom';*/
 
-function CardCounter() {
+function CardCounter({cardAmount, children}) {
     return (
 
         <div className="card-counter-container">
-            10
+            {cardAmount}
         </div>
     )
 }
