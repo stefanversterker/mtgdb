@@ -9,13 +9,20 @@ import lake_of_the_dead from "/src/assets/testcards/lake_of_the_dead__s46__cn140
 import CardInCollection from "../../Components/CardInCollection/CardInCollection.jsx";
 import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
 import CardCounter from "../../Components/CardCounter/CardCounter.jsx";
+import Veil from "../../Components/Veil/Veil.jsx";
+import Button from "../../Components/Button/Button.jsx";
+import {NavLink} from "react-router-dom";
+
 /*import { Routes, Route } from 'react-router-dom';*/
 
 function Home() {
     return (
 
         <main className="main-container blue-border">
-            <h2>home</h2>
+            <ul>
+                <li><NavLink className={({ isActive }) => isActive ? 'active-menu-link' : 'default-menu-link'}to="/sign-up"><h2>SignUp</h2></NavLink></li>
+                <li><NavLink className={({ isActive }) => isActive ? 'active-menu-link' : 'default-menu-link'}to="/log-in"><h2>LogIn</h2></NavLink></li>
+            </ul>
         </main>
     )
 }
