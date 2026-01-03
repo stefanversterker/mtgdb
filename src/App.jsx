@@ -15,6 +15,8 @@ import LogIn from "./Pages/LogIn/LogIn.jsx";
 function App() {
 
 
+
+
     return (
         <div className="app-container red-border">
             <NavBar/>
