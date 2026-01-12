@@ -5,8 +5,8 @@
 .form-input {
     background-color: var(--not-white);
     border: none;
-    border-radius: 10px;
-    height: 3rem;
+    border-radius: 7px;
+    height: 2rem;
     width: 100%;
     padding: 5px;
 }

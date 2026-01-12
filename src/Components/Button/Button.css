@@ -1,18 +1,19 @@
 .button {
-    width: 11rem;
-    height: 3rem;
+    max-width: 11rem;
+    height: 2rem;
+    padding: 0 0.5rem;
     background-color: var(--light-blue);
     color: var(--not-black);
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: lighter;
     border: none;
-    border-radius: 3rem;
+    border-radius: 7px;
     cursor: pointer;
-
+    box-shadow: inset 1px 1px 6px var(--dark-blue);
 }
 
 .button:hover {
-    box-shadow: inset 2px 2px 10px var(--dark-blue);
+    box-shadow: inset 2px 2px 8px var(--dark-blue);
 }
 
 .button:active {

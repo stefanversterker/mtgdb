@@ -2,6 +2,13 @@ import './CardSearch.css'
 import Veil from "../Veil/Veil.jsx";
 import Input from "../Input/Input.jsx";
 import Dropdown from "../Dropdown/Dropdown.jsx";
+import ManaBlack from "/src/assets/symbols/mana-black.svg?react";
+import ManaBlue from "/src/assets/symbols/mana-blue.svg?react";
+import ManaColorless from "/src/assets/symbols/mana-colorless.svg?react";
+import ManaGreen from "/src/assets/symbols/mana-green.svg?react";
+import ManaRed from "/src/assets/symbols/mana-red.svg?react";
+import ManaWhite from "/src/assets/symbols/mana-white.svg?react";
+import Button from "../Button/Button.jsx";
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
@@ -10,7 +17,7 @@ function CardSearch({children, displayTitle, button}) {
 
         <section className="card-search-container orange-border">
             <header className="card-search-header">
-                <h2>{displayTitle}</h2>
+                <h1>{displayTitle}</h1>
                 {button}
             </header>
             <section className="search-menu brown-border">
@@ -24,45 +31,35 @@ function CardSearch({children, displayTitle, button}) {
                         />
                     </div>
                     <div className="card-spec-dropdowns">
-                        <Dropdown
-                            option1Value=""
-                            option1Name="Card type"
-                            option2Value="Artifact"
-                            option2Name="Artifact"
-                            option3Value="Creature"
-                            option3Name="Creature"
-                            option4Value="Enchantment"
-                            option4Name="Enchantment"
-                            option5Value="Instant"
-                            option5Name="Instant"
-                            option6Value="Land"
-                            option6Name="Land"
-                            option7Value="Plainswalker"
-                            option7Name="Plainswalker"
-                            option8Value="Sorcery"
-                            option8Name="Sorcery"
-                        />
-                        <Dropdown
-                            option1Value="" option1Name="Color"
-                            option2Value="White" option2Name="White"
-                            option3Value="Blue" option3Name="Blue"
-                            option4Value="Black" option4Name="Black"
-                            option5Value="Red" option5Name="Red"
-                            option6Value="Green" option6Name="Green"
-                            option7Value="Colorless" option7Name="Colorless"
-                        />
-                        <Dropdown
-                            option1Value=""
-                            option1Name="Sort"
-                            option2Value="Alphabetical: A-Z"
-                            option2Name="Alphabetical: A-Z"
-                            option3Value="Alphabetical: Z-A"
-                            option3Name="Alphabetical: Z-A"
-                            option4Value="CMC: low-high"
-                            option4Name="CMC: low-high"
-                            option5Value="CMC: high-low"
-                            option5Name="CMC: high-low"
-                        />
+                        <Dropdown>
+                            <option value="choose">--choose a card type--</option>
+                            <option value="artifact">artifact</option>
+                            <option value="artifact-creature">artifact creature</option>
+                            <option value="creature">creature</option>
+                            <option value="enchantment">enchantment</option>
+                            <option value="instant">instant</option>
+                            <option value="land">land</option>
+                            <option value="plainswalker">plainswalker</option>
+                            <option value="sorcery">sorcery</option>
+                        </Dropdown>
+                        <Dropdown>
+                            <option value="choose">--choose a color--</option>
+                            <option value="white">white</option>
+                            <option value="blue">blue</option>
+                            <option value="black">black</option>
+                            <option value="red">red</option>
+                            <option value="green">green</option>
+                            <option value="colorless">colorless</option>
+                        </Dropdown>
+                    </div>
+                    <div className="sort-search">
+                        <Dropdown>
+                        <option value="a-b">sort: A-B</option>
+                        <option value="b-a">sort: B-A</option>
+                        <option value="cmc-lo-hi">sort: cmc, 0-10</option>
+                        <option value="cmc-hi-lo">sort: cmc, 10-0</option>
+                    </Dropdown>
+                        <Button buttonContent="Search"></Button>
                     </div>
                 </Veil>
             </section>

@@ -9,7 +9,7 @@ function CardTypeDropdown({children,cardType, counter}) {
     return (
 
         <article>
-            <details className="dropdown-container purple-border">
+            <details open className="dropdown-container purple-border">
                 <summary className="summary-container">
                     <h3>{cardType}</h3>
                     {counter}

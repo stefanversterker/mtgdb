@@ -19,12 +19,12 @@ function DeckContainer({deckName}) {
 
     return (
 
-        <div className="purple-border deck-box">
-            <div className="deck-title green-border">
+        <li className="deck-box">
+            <div className="deck-title">
                 <h3>{deckName}</h3>
             </div>
             <div className="symbols-and-buttons">
-                <div className="purple-border mana-symbols">
+                <div className="mana-symbols">
                     <figure className="symbol-container">
                         <ManaWhite className="mana-symbol"/>
                     </figure>
@@ -42,7 +42,7 @@ function DeckContainer({deckName}) {
                     </figure>
 
                 </div>
-                <div className="orange-border deck-summary-buttons">
+                <div className="deck-summary-buttons">
                     <ButtonSmall
                         className="button-small deck-summary-button"
                         buttonContent={<EditPencil/>}
@@ -58,7 +58,7 @@ function DeckContainer({deckName}) {
                     />
                 </div>
             </div>
-        </div>
+        </li>
     )
 }
 

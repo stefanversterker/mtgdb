@@ -7,8 +7,6 @@ import icy_manipulator from "../../assets/testcards/icy_manipulator__s6__cn249_l
 
 function LightBox({open, setOpen}) {
 
-
-
     return (
 
         <>

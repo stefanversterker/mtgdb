@@ -18,62 +18,75 @@ function DeckEditWindow() {
 
         <section className="orange-border card-type-container">
             <header className="deck-editor-title">
-                <h2>Deck editor</h2>
+                <h1>Deck editor</h1>
                 <Button buttonContent="Save" onClick={ () => navigate("/decks-overview")}></Button>
             </header>
             <section>
                 <Veil>
-                    <CardTypeDropdown cardType="Deck stats"> Nifty mana curve graph</CardTypeDropdown>
+                    <CardTypeDropdown cardType="Deck stats"> Snazzy mana curve graph</CardTypeDropdown>
                 </Veil>
             </section>
             <section className="pink-border card-type-dropdown-flow">
                 <Veil>
                 <div className="green-border dropdown-menu-container">
                     <CardTypeDropdown cardType="Artifacts" counter={<CardCounter cardAmount="8"/>}>
-                        <CardListItem cardName="Jet Medallion" management={<CardManagement
-                            counter={<CardCounter cardAmount="4"/>}/>}></CardListItem>
-                        <CardListItem cardName="The Rack" management={<CardManagement
-                            counter={<CardCounter cardAmount="2"/>}/>}></CardListItem>
+                        <CardListItem cardName="Jet Medallion"
+                                      cardAmount="4"
+                        />
+                        <CardListItem cardName="The Rack"
+                                      cardAmount="2"
+                        />
                     </CardTypeDropdown>
 
                    <CardTypeDropdown cardType="Creatures" counter={<CardCounter cardAmount="8"/>}>
-                        <CardListItem cardName="Hypnotic Specter" management={<CardManagement
-                            counter={<CardCounter cardAmount="4"/>}/>}></CardListItem>
-                        <CardListItem cardName="Sengir Vampire" management={<CardManagement
-                            counter={<CardCounter cardAmount="2"/>}/>}></CardListItem>
+                       <CardListItem cardName="Hypnotic Specter"
+                                     cardAmount="4"
+                       />
+                       <CardListItem cardName="Sengir Vampire"
+                                     cardAmount="2"
+                       />
                     </CardTypeDropdown>
 
                     <CardTypeDropdown cardType="Enchantments" counter={<CardCounter cardAmount="8"/>}>
-                        <CardListItem cardName="Megrim" management={<CardManagement
-                            counter={<CardCounter cardAmount="4"/>}/>}></CardListItem>
-                        <CardListItem cardName="Liliana's Caress" management={<CardManagement
-                            counter={<CardCounter cardAmount="4"/>}/>}></CardListItem>
+                        <CardListItem cardName="Megrim"
+                                      cardAmount="4"
+                        />
+                        <CardListItem cardName="Liliana's Caress"
+                                      cardAmount="4"
+                        />
                     </CardTypeDropdown>
 
                     <CardTypeDropdown cardType="Instants" counter={<CardCounter cardAmount="8"/>}>
-                        <CardListItem cardName="Dark Ritual" management={<CardManagement
-                            counter={<CardCounter cardAmount="4"/>}/>}></CardListItem>
-                        <CardListItem cardName="Terror" management={<CardManagement
-                            counter={<CardCounter cardAmount="4"/>}/>}></CardListItem>
+                        <CardListItem cardName="Dark Ritual"
+                                      cardAmount="4"
+                        />
+                        <CardListItem cardName="Terror"
+                                      cardAmount="4"
+                        />
                     </CardTypeDropdown>
 
                     <CardTypeDropdown cardType="Lands" counter={<CardCounter cardAmount="8"/>}>
-                        <CardListItem cardName="Swamp" management={<CardManagement
-                            counter={<CardCounter cardAmount="20"/>}/>}></CardListItem>
-                        <CardListItem cardName="Lake of the Dead" management={<CardManagement
-                            counter={<CardCounter cardAmount="2"/>}/>}></CardListItem>
+                        <CardListItem cardName="Swamp"
+                                      cardAmount="20"
+                        />
+                        <CardListItem cardName="Lake of the Dead"
+                                      cardAmount="2"
+                        />
                     </CardTypeDropdown>
 
                     <CardTypeDropdown cardType="Plainswalkers" counter={<CardCounter cardAmount="2"/>}>
-                        <CardListItem cardName="Liliana of the Dark Realms" management={<CardManagement
-                            counter={<CardCounter cardAmount="2"/>}/>}></CardListItem>
+                        <CardListItem cardName="Liliana of the Dark Realms"
+                                      cardAmount="2"
+                        />
                     </CardTypeDropdown>
 
                     <CardTypeDropdown cardType="Sorceries" counter={<CardCounter cardAmount="8"/>}>
-                        <CardListItem cardName="Stupor" management={<CardManagement
-                            counter={<CardCounter cardAmount="4"/>}/>}></CardListItem>
-                        <CardListItem cardName="Ostracise" management={<CardManagement
-                            counter={<CardCounter cardAmount="4"/>}/>}></CardListItem>
+                        <CardListItem cardName="Stupor"
+                                      cardAmount="4"
+                        />
+                        <CardListItem cardName="Ostracise"
+                                      cardAmount="4"
+                        />
                     </CardTypeDropdown>
                 </div>
             </Veil></section>

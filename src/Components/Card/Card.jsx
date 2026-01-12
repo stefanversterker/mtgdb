@@ -4,12 +4,15 @@ import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
-function Card({children}) {
+function Card({children, management}) {
     return (
 
-        <article className="card-container">
-            {children}
-        </article>
+        <li className="card-container">
+                {children}
+                <div className="button-container">
+                    {management}
+                </div>
+        </li>
     )
 }
 
