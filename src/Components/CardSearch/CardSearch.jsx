@@ -9,6 +9,7 @@ import ManaGreen from "/src/assets/symbols/mana-green.svg?react";
 import ManaRed from "/src/assets/symbols/mana-red.svg?react";
 import ManaWhite from "/src/assets/symbols/mana-white.svg?react";
 import Button from "../Button/Button.jsx";
+import CmcCounter from "../CmcCounter/CmcCounter.jsx";
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
@@ -22,12 +23,9 @@ function CardSearch({children, displayTitle, button}) {
             </header>
             <section className="search-menu brown-border">
                 <Veil>
-                    <div className="key-cmc">
+                    <div className="key-search">
                         <Input
                             placeHolder="Card name"
-                        />
-                        <Input
-                            placeHolder="CMC"
                         />
                     </div>
                     <div className="card-spec-dropdowns">
@@ -52,13 +50,17 @@ function CardSearch({children, displayTitle, button}) {
                             <option value="colorless">colorless</option>
                         </Dropdown>
                     </div>
-                    <div className="sort-search">
+                    <div className="sort-cmc-search-container">
                         <Dropdown>
-                        <option value="a-b">sort: A-B</option>
-                        <option value="b-a">sort: B-A</option>
-                        <option value="cmc-lo-hi">sort: cmc, 0-10</option>
-                        <option value="cmc-hi-lo">sort: cmc, 10-0</option>
-                    </Dropdown>
+                            <option value="a-b">sort: A-B</option>
+                            <option value="b-a">sort: B-A</option>
+                            <option value="cmc-lo-hi">sort: cmc, 0-10</option>
+                            <option value="cmc-hi-lo">sort: cmc, 10-0</option>
+                        </Dropdown>
+                        <div className="cmc-counter-container">
+                            <CmcCounter counterTitle="min cmc"></CmcCounter>
+                            <CmcCounter counterTitle="max cmc"></CmcCounter>
+                        </div>
                         <Button buttonContent="Search"></Button>
                     </div>
                 </Veil>
