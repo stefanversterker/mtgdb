@@ -1,13 +1,13 @@
 import './Button.css'
 /*import { Routes, Route } from 'react-router-dom';*/
 
-function Button({buttonContent, onClick, className}) {
+function Button({buttonContent, onClick, className, type}) {
     return (
 
         <div>
             <button
                 className={`button ${className}`}
-                type="button"
+                type={type}
                 onClick={onClick}
             >
                 {buttonContent}

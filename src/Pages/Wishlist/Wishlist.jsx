@@ -1,5 +1,5 @@
 import './Wishlist.css'
-import CardTypeDropdown from "../../Components/CardTypeDropdown/CardTypeDropdown.jsx";
+import DropdownContainer from "../../Components/DropdownContainer/DropdownContainer.jsx";
 import CardSearch from "../../Components/CardSearch/CardSearch.jsx";
 import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
 import CardCounter from "../../Components/CardCounter/CardCounter.jsx";

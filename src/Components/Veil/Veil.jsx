@@ -1,12 +1,15 @@
 import './Veil.css'
 /*import { Routes, Route } from 'react-router-dom';*/
 
-function Veil({children, className}) {
+function Veil({children, className, veilTitle}) {
     return (
 
-        <div className={`veil ${className}`}>
-            {children}
-        </div>
+
+
+            <div className={`veil ${className}`}>
+                {children}
+            </div>
+
     )
 }
 

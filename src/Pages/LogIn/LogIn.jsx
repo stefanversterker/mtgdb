@@ -1,5 +1,5 @@
 import './LogIn.css'
-import CardTypeDropdown from "../../Components/CardTypeDropdown/CardTypeDropdown.jsx";
+import DropdownContainer from "../../Components/DropdownContainer/DropdownContainer.jsx";
 import Veil from "../../Components/Veil/Veil.jsx";
 import Input from "../../Components/Input/Input.jsx";
 import Button from "../../Components/Button/Button.jsx";

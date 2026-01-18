@@ -10,6 +10,7 @@ import ManaGreen from "/src/assets/symbols/mana-green.svg?react";
 import ManaRed from "/src/assets/symbols/mana-red.svg?react";
 import ManaWhite from "/src/assets/symbols/mana-white.svg?react";
 import { useNavigate } from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
@@ -19,46 +20,48 @@ function DeckContainer({deckName}) {
 
     return (
 
-        <li className="deck-box">
-            <div className="deck-title">
-                <h3>{deckName}</h3>
-            </div>
-            <div className="symbols-and-buttons">
-                <div className="mana-symbols">
-                    <figure className="symbol-container">
-                        <ManaWhite className="mana-symbol"/>
-                    </figure>
-                    <figure className="symbol-container">
-                        <ManaBlue className="mana-symbol"/>
-                    </figure>
-                    <figure className="symbol-container">
-                        <ManaBlack className="mana-symbol"/>
-                    </figure>
-                    <figure className="symbol-container">
-                        <ManaRed className="mana-symbol"/>
-                    </figure>
-                    <figure className="symbol-container">
-                        <ManaGreen className="mana-symbol"/>
-                    </figure>
+        <Link to="/deck-editor">
+            <li className="deck-box">
+                <div className="deck-title">
+                    <h3>{deckName}</h3>
+                </div>
+                <div className="symbols-and-buttons">
+                    <div className="mana-symbols">
+                        <figure className="symbol-container">
+                            <ManaWhite className="mana-symbol"/>
+                        </figure>
+                        <figure className="symbol-container">
+                            <ManaBlue className="mana-symbol"/>
+                        </figure>
+                        <figure className="symbol-container">
+                            <ManaBlack className="mana-symbol"/>
+                        </figure>
+                        <figure className="symbol-container">
+                            <ManaRed className="mana-symbol"/>
+                        </figure>
+                        <figure className="symbol-container">
+                            <ManaGreen className="mana-symbol"/>
+                        </figure>
 
+                    </div>
+                    <div className="deck-summary-buttons">
+                        <ButtonSmall
+                            className="button-small deck-summary-button"
+                            buttonContent={<EditPencil/>}
+                            onClick={() => navigate("/deck-editor")}
+                        />
+                        <ButtonSmall
+                            className="button-small deck-summary-button"
+                            buttonContent={<Duplicate/>}
+                        />
+                        <ButtonSmall
+                            className="button-small deck-summary-button"
+                            buttonContent={<Trash/>}
+                        />
+                    </div>
                 </div>
-                <div className="deck-summary-buttons">
-                    <ButtonSmall
-                        className="button-small deck-summary-button"
-                        buttonContent={<EditPencil/>}
-                        onClick={ () => navigate("/deck-editor")}
-                    />
-                    <ButtonSmall
-                        className="button-small deck-summary-button"
-                        buttonContent={<Duplicate/>}
-                    />
-                    <ButtonSmall
-                        className="button-small deck-summary-button"
-                        buttonContent={<Trash/>}
-                    />
-                </div>
-            </div>
-        </li>
+            </li>
+        </Link>
     )
 }
 

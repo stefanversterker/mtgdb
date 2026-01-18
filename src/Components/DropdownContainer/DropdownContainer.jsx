@@ -1,18 +1,18 @@
-import './CardTypeDropdown.css'
+import './DropdownContainer.css'
 import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 import CardListItem from "../CardListItem/CardListItem.jsx";
 import CardCounter from "../CardCounter/CardCounter.jsx";
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
-function CardTypeDropdown({children,cardType, counter}) {
+function DropdownContainer({children,summaryLeft, summaryRight}) {
     return (
 
         <article>
             <details open className="dropdown-container purple-border">
                 <summary className="summary-container">
-                    <h3>{cardType}</h3>
-                    {counter}
+                    <h3>{summaryLeft}</h3>
+                    {summaryRight}
                 </summary>
                 <div className="dropdown-content">
                     <ul>
@@ -24,4 +24,4 @@ function CardTypeDropdown({children,cardType, counter}) {
     )
 }
 
-export default CardTypeDropdown
+export default DropdownContainer

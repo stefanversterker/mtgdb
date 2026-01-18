@@ -1,5 +1,4 @@
 import './Input.css'
-/*import { Routes, Route } from 'react-router-dom';*/
 
 function Input({htmlFor, labelText, type, id, name, value, onChange, placeHolder}) {
     return (

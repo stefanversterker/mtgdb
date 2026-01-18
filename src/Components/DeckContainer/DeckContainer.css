@@ -8,7 +8,17 @@
     gap: 0.5rem;
     background-color: var(--not-white);
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
+}
+
+.deck-box:hover {
+    box-shadow: inset 2px 2px 3px  var(--dark-grey), inset -1px -1px 3px var(--dark-grey);
+    cursor: pointer;
+}
+
+.deck-box:active {
+    box-shadow: inset 2px 2px 5px  var(--dark-grey), inset -1px -1px 5px var(--dark-grey);
+    cursor: pointer;
 }
 
 .deck-summary-buttons {
@@ -23,6 +33,8 @@
     display: flex;
     /*width: 65%;*/
     flex-shrink: 1;
+    color: var(--not-black);
+    text-decoration: none;
 }
 
 .mana-symbols {
@@ -64,7 +76,7 @@
         height: 3rem;
         background-color: var(--not-white);
         border-radius: 5px;
-        padding: 5px;
+        padding: 8px;
     }
 
     .symbols-and-buttons {

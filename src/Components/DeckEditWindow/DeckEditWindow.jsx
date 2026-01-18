@@ -1,6 +1,6 @@
 import './DeckEditWindow.css'
 import Veil from "../Veil/Veil.jsx";
-import CardTypeDropdown from "../CardTypeDropdown/CardTypeDropdown.jsx";
+import DropdownContainer from "../DropdownContainer/DropdownContainer.jsx";
 import CardListItem from "../CardListItem/CardListItem.jsx";
 import CardCounter from "../CardCounter/CardCounter.jsx";
 import CardManagement from "../CardManagement/CardManagement.jsx";
@@ -23,71 +23,71 @@ function DeckEditWindow() {
             </header>
             <section>
                 <Veil>
-                    <CardTypeDropdown cardType="Deck stats"> Snazzy mana curve graph</CardTypeDropdown>
+                    <DropdownContainer summaryLeft="Deck stats"> Snazzy mana curve graph</DropdownContainer>
                 </Veil>
             </section>
             <section className="pink-border card-type-dropdown-flow">
                 <Veil>
                 <div className="green-border dropdown-menu-container">
-                    <CardTypeDropdown cardType="Artifacts" counter={<CardCounter cardAmount="8"/>}>
+                    <DropdownContainer summaryLeft="Artifacts" summaryRight={<CardCounter cardAmount="8"/>}>
                         <CardListItem cardName="Jet Medallion"
                                       cardAmount="4"
                         />
                         <CardListItem cardName="The Rack"
                                       cardAmount="2"
                         />
-                    </CardTypeDropdown>
+                    </DropdownContainer>
 
-                   <CardTypeDropdown cardType="Creatures" counter={<CardCounter cardAmount="8"/>}>
+                   <DropdownContainer summaryLeft="Creatures" summaryRight={<CardCounter cardAmount="8"/>}>
                        <CardListItem cardName="Hypnotic Specter"
                                      cardAmount="4"
                        />
                        <CardListItem cardName="Sengir Vampire"
                                      cardAmount="2"
                        />
-                    </CardTypeDropdown>
+                    </DropdownContainer>
 
-                    <CardTypeDropdown cardType="Enchantments" counter={<CardCounter cardAmount="8"/>}>
+                    <DropdownContainer summaryLeft="Enchantments" summaryRight={<CardCounter cardAmount="8"/>}>
                         <CardListItem cardName="Megrim"
                                       cardAmount="4"
                         />
                         <CardListItem cardName="Liliana's Caress"
                                       cardAmount="4"
                         />
-                    </CardTypeDropdown>
+                    </DropdownContainer>
 
-                    <CardTypeDropdown cardType="Instants" counter={<CardCounter cardAmount="8"/>}>
+                    <DropdownContainer summaryLeft="Instants" summaryRight={<CardCounter cardAmount="8"/>}>
                         <CardListItem cardName="Dark Ritual"
                                       cardAmount="4"
                         />
                         <CardListItem cardName="Terror"
                                       cardAmount="4"
                         />
-                    </CardTypeDropdown>
+                    </DropdownContainer>
 
-                    <CardTypeDropdown cardType="Lands" counter={<CardCounter cardAmount="8"/>}>
+                    <DropdownContainer summaryLeft="Lands" summaryRight={<CardCounter cardAmount="8"/>}>
                         <CardListItem cardName="Swamp"
                                       cardAmount="20"
                         />
                         <CardListItem cardName="Lake of the Dead"
                                       cardAmount="2"
                         />
-                    </CardTypeDropdown>
+                    </DropdownContainer>
 
-                    <CardTypeDropdown cardType="Plainswalkers" counter={<CardCounter cardAmount="2"/>}>
+                    <DropdownContainer summaryLeft="Plainswalkers" summaryRight={<CardCounter cardAmount="2"/>}>
                         <CardListItem cardName="Liliana of the Dark Realms"
                                       cardAmount="2"
                         />
-                    </CardTypeDropdown>
+                    </DropdownContainer>
 
-                    <CardTypeDropdown cardType="Sorceries" counter={<CardCounter cardAmount="8"/>}>
+                    <DropdownContainer summaryLeft="Sorceries" summaryRight={<CardCounter cardAmount="8"/>}>
                         <CardListItem cardName="Stupor"
                                       cardAmount="4"
                         />
                         <CardListItem cardName="Ostracise"
                                       cardAmount="4"
                         />
-                    </CardTypeDropdown>
+                    </DropdownContainer>
                 </div>
             </Veil></section>
         </section>
