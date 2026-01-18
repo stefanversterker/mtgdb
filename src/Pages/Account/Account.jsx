@@ -8,6 +8,7 @@ import ButtonEdit from "../../Components/ButtonEdit/ButtonEdit.jsx";
 import Input from "../../Components/Input/Input.jsx";
 import TextArea from "../../Components/TextArea/TextArea.jsx";
 import UserInfoForm from "../../Components/UserInfoForm/UserInfoForm.jsx";
+import UserCard from "../../Components/UserCard/UserCard.jsx";
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
@@ -18,7 +19,9 @@ function Account({userFirstName, userLastName, userCreatureType, userBio}) {
             <section className="account-container">
                 <h1 className="section-title">My Card</h1>
                 <Veil className="user-card container" veilTitle="My Card">
+                    <UserCard>
 
+                    </UserCard>
                 </Veil>
             </section>
             <section className="account-container">
