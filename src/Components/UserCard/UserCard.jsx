@@ -1,5 +1,6 @@
 import './UserCard.css'
 import user_card from '/src/assets/card.png'
+import nacho from '/src/assets/testcards/img_nacho_yawn.jpeg'
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
@@ -14,7 +15,7 @@ function UserCard() {
                 <h1 className="user-input">User Name</h1>
             </article>
             <figure className="user-image-container pink-border">
-
+                <img src={nacho} alt="nacho"/>
             </figure>
             <article className="creature-type-container purple-border">
                 <h1 className="user-input">Creature type</h1>
