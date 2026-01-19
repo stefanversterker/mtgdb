@@ -9,6 +9,7 @@ import Input from "../../Components/Input/Input.jsx";
 import TextArea from "../../Components/TextArea/TextArea.jsx";
 import UserInfoForm from "../../Components/UserInfoForm/UserInfoForm.jsx";
 import UserCard from "../../Components/UserCard/UserCard.jsx";
+import Button from "../../Components/Button/Button.jsx";
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
@@ -17,19 +18,13 @@ function Account({userFirstName, userLastName, userCreatureType, userBio}) {
 
         <main className="main-container blue-border">
             <section className="account-container">
-                <h1 className="section-title">My Card</h1>
+                <header className="user-card-header">
+                    <h1 className="section-title">My Card</h1>
+                    <Button buttonContent="Edit"
+                            type="button"/>
+                </header>
                 <Veil className="user-card container" veilTitle="My Card">
-                    <UserCard>
-
-                    </UserCard>
-                </Veil>
-            </section>
-            <section className="account-container">
-                <h1 className="section-title">User Info</h1>
-                <Veil className="user-info container" veilTitle="User Info">
-                    <DropdownContainer summaryLeft="Personal details" summaryRight={<ButtonEdit/>}>
-                        <UserInfoForm></UserInfoForm>
-                    </DropdownContainer>
+                    <UserCard/>
                 </Veil>
             </section>
         </main>
