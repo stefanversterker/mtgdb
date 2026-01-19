@@ -11,8 +11,6 @@ function NavBar() {
             <nav className="navbar">
                 <ul>
                     <li><NavLink className={({ isActive }) => isActive ? 'active-menu-link' : 'default-menu-link'}to="/"><h2>Home</h2></NavLink></li>
-                    <li><NavLink className={({ isActive }) => isActive ? 'active-menu-link' : 'default-menu-link'}to="/collection-overview"><h2>Collection</h2></NavLink></li>
-                    <li><NavLink className={({ isActive }) => isActive ? 'active-menu-link' : 'default-menu-link'}to="/decks-overview"><h2>Decks</h2></NavLink></li>
                     <li><NavLink className={({ isActive }) => isActive ? 'active-menu-link' : 'default-menu-link'}to="/wishlist"><h2>Wishlist</h2></NavLink></li>
                 </ul>
                 <figure>
