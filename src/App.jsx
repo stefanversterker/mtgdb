@@ -9,8 +9,13 @@ import DecksOverview from './Pages/DecksOverview/DecksOverview.jsx';
 import DeckEditor from './Pages/DeckEditor/DeckEditor.jsx';
 import Wishlist from './Pages/Wishlist/Wishlist.jsx';
 import bgWhite from './assets/bgWhite.png';
+import SignUp from "./Pages/SignUp/SignUp.jsx";
+import LogIn from "./Pages/LogIn/LogIn.jsx";
+import Account from "./Pages/Account/Account.jsx";
 
 function App() {
+
+
 
 
     return (
@@ -24,6 +29,10 @@ function App() {
                 <Route path="/decks-overview" element={<DecksOverview/>}/>
                 <Route path="/deck-editor" element={<DeckEditor/>}/>
                 <Route path="/wishlist" element={<Wishlist/>}/>
+                <Route path="/account" element={<Account/>}/>
+                <Route path="/sign-up" element={<SignUp/>}/>
+                <Route path="/log-in" element={<LogIn/>}/>
+
             </Routes>
         </div>
     )

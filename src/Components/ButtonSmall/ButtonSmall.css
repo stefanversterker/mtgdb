@@ -4,7 +4,10 @@
     border-radius: 5px;
     box-shadow: -2px 2px 0 var(--not-black);
     cursor: pointer;
-    z-index: 2;
+}
+
+.button-small:hover {
+
 }
 
 .button-small:active {
@@ -24,8 +27,15 @@
 .add-button {
     background-color: var(--green);
     width: 3rem;
-    position: absolute;
-    /*left: -3.2rem;
-    top: 3px;*/
-
 }
+
+.deck-summary-button {
+    width: 1.5rem;
+    background-color: var(--light-grey);
+    border: none;
+}
+
+.lightbox {
+    width: 1.5rem;
+}
+

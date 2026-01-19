@@ -1,0 +1,10 @@
+.account-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 48.75rem;
+}
+
+.section-title {
+    color: var(--dark-blue);
+}

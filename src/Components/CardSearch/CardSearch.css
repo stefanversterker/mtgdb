@@ -1,16 +1,21 @@
+/*orange*/
 .card-search-container {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    height: calc(100% - 5rem);
-    max-width: 48.75rem;
+    height: 100%;
+    width: 48.75rem;
 }
 
-.search-menu {
 
+.card-search-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    color: var(--dark-blue);
 }
 
-.key-cmc {
+.key-search {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
@@ -19,13 +24,14 @@
 
 .card-spec-dropdowns {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 0.5rem;
     width: 100%
 }
 
+/*pink*/
 .card-flow-container {
-    height: calc(100% - 7rem);
+    overflow: hidden;
 }
 
 .card-flow {
@@ -35,6 +41,34 @@
     gap: 0.5rem;
     flex-wrap: wrap;
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     overflow-y: scroll;
+}
+
+.sort-cmc-search-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cmc-counter-container {
+    display: flex;
+    text-align: end;
+}
+
+@media screen and (min-width: 900px) {
+    .card-spec-dropdowns {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        width: 100%
+    }
+
+    .sort-cmc-search-container {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+
 }

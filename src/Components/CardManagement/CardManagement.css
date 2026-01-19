@@ -1,0 +1,28 @@
+.card-management {
+    display: flex;
+    gap: 5px;
+    margin: 0 4px;
+}
+
+.lightbox {
+    background-color: var(--dark-blue);
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*transition: opacity 0.5s;*/
+}
+
+.button-container:hover {
+    opacity: 1;
+    transition: opacity 0.3s;
+}

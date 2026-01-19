@@ -1,0 +1,63 @@
+.user-card-container {
+    position: relative;
+}
+
+.user-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.user-card img {
+    width: 100%;
+}
+
+.user-input {
+    font-size: 100%;
+}
+
+.user-name-container {
+    position: absolute;
+    top: 5%;
+    left: 8%;
+    width: 57%;
+    height: 5%;
+    font-size: clamp(3px, 2vw, 32px);
+}
+
+.user-image-container {
+    position: absolute;
+    top: 11.6%;
+    left: 7.8%;
+    width: 84.5%;
+    height: 44.2%;
+    overflow: clip;
+}
+
+.creature-type-container {
+    position: absolute;
+    top: 56.65%;
+    left: 7.8%;
+    width: 84.5%;
+    height: 5%;
+    font-size: clamp(3px, 2vw, 32px);
+}
+
+.user-bio-container {
+    position: absolute;
+    top: 63%;
+    left: 7.8%;
+    width: 84.5%;
+    height: 28%;
+    font-size: clamp(3px, 1.8vw, 32px);
+    padding: 1%;
+}
+
+.user-bio {
+    font-family: Merriweather, serif;
+    font-style: italic;
+    font-size: 0.8em;
+
+}
+
