@@ -15,6 +15,7 @@ import ButtonMagnify from "../../Components/ButtonMagnify/ButtonMagnify.jsx";
 import DeckContainer from "../../Components/DeckContainer/DeckContainer.jsx";
 import { useNavigate } from "react-router-dom";
 import {useState} from 'react'
+import Welcome from "../../Components/Welcome/Welcome.jsx";
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
@@ -35,13 +36,10 @@ function Home() {
 
     return (
 
-        <main className="main-container blue-border">
+        <div className="main-container blue-border">
             <Button buttonContent="l" onClick={() => {logInOut()}}/>
             {!loggedIn ?
-            <ul>
-                <li><NavLink className={({ isActive }) => isActive ? 'active-menu-link' : 'default-menu-link'}to="/sign-up"><h2>SignUp</h2></NavLink></li>
-                <li><NavLink className={({ isActive }) => isActive ? 'active-menu-link' : 'default-menu-link'}to="/log-in"><h2>LogIn</h2></NavLink></li>
-            </ul>
+            <Welcome/>
                 :
             <section className="main-container">
                 <CardSearch displayTitle="My Collection"
@@ -144,7 +142,7 @@ function Home() {
                     </article>
                 </div>
             </section>}
-        </main>
+        </div>
     )
 }
 
