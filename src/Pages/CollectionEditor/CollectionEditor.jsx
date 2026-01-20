@@ -70,7 +70,7 @@ function CollectionEditor() {
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
             </CardSearch>
-            <CardSearch displayTitle="Collection editor" button={<Button buttonContent="Save" onClick={ () => navigate("/")}/>}>
+            <CardSearch displayTitle="Collection editor" button={<Button buttonContent="Save" onClick={ () => navigate("/collection-overview")}/>}>
                 <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>

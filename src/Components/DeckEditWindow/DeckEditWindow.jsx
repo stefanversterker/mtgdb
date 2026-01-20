@@ -19,7 +19,7 @@ function DeckEditWindow() {
         <section className="orange-border card-type-container">
             <header className="deck-editor-title">
                 <h1>Deck editor</h1>
-                <Button buttonContent="Save" onClick={ () => navigate("/")}></Button>
+                <Button buttonContent="Save" onClick={ () => navigate("/decks-overview")}></Button>
             </header>
             <section>
                 <Veil>

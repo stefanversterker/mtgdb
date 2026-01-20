@@ -8,9 +8,3 @@
 .section-title {
     color: var(--dark-blue);
 }
-
-.user-card-header {
-    display: flex;
-    justify-content: space-between;
-
-}
