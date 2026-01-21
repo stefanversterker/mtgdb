@@ -24,7 +24,9 @@ function Account({userFirstName, userLastName, userCreatureType, userBio}) {
                             type="button"/>
                 </header>
                 <Veil className="user-card container" veilTitle="My Card">
-                    <UserCard/>
+                    <UserCard>
+
+                    </UserCard>
                 </Veil>
             </section>
         </main>
