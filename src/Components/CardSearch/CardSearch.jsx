@@ -9,7 +9,6 @@ import ManaGreen from "/src/assets/symbols/mana-green.svg?react";
 import ManaRed from "/src/assets/symbols/mana-red.svg?react";
 import ManaWhite from "/src/assets/symbols/mana-white.svg?react";
 import Button from "../Button/Button.jsx";
-import CmcCounter from "../CmcCounter/CmcCounter.jsx";
 import ManaRangeSlider from "../ManaRangeSlider/ManaRangeSlider.jsx";
 
 /*import { Routes, Route } from 'react-router-dom';*/

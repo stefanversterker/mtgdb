@@ -6,7 +6,7 @@ import CardSearch from "../../Components/CardSearch/CardSearch.jsx";
 import icy_manipulator from "/src/assets/testcards/icy_manipulator__s6__cn249_lnen.jpg"
 import lake_of_the_dead from "/src/assets/testcards/lake_of_the_dead__s46__cn140_lnen.jpg"
 import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
-import CardCounter from "../../Components/CardCounter/CardCounter.jsx";
+import CounterBox from "../../Components/CounterBox/CounterBox.jsx";
 import Veil from "../../Components/Veil/Veil.jsx";
 import Button from "../../Components/Button/Button.jsx";
 import {NavLink} from "react-router-dom";
@@ -44,76 +44,76 @@ function Home() {
             <section className="main-container">
                 <CardSearch displayTitle="My Collection"
                            button={<Button buttonContent="Edit" onClick={() => navigate("/collection-editor")}/>}>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="2"/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
                     <img src={icy_manipulator} alt="ijzige manipulator"/>
                 </Card>
             </CardSearch>
@@ -125,18 +125,18 @@ function Home() {
                     <article className="decks-flow-container pink-border">
                         <Veil>
                             <ul className="orange-border decks-flow">
-                                <DeckContainer deckName="Boerenkool met worst"></DeckContainer>
-                                <DeckContainer deckName="My Brain Hurts"></DeckContainer>
-                                <DeckContainer deckName="Elves and Dragons"></DeckContainer>
-                                <DeckContainer deckName="Disposablito"></DeckContainer>
-                                <DeckContainer deckName="You're still here...why?"></DeckContainer>
-                                <DeckContainer deckName="Wear your brown trousers"></DeckContainer>
-                                <DeckContainer deckName="You fight like a dairy farmer"></DeckContainer>
-                                <DeckContainer deckName="Run forest, RUN!"></DeckContainer>
-                                <DeckContainer deckName="Teenage mutant ninja goblins"></DeckContainer>
-                                <DeckContainer deckName="Hold my beer"></DeckContainer>
-                                <DeckContainer deckName="This might sting a little"></DeckContainer>
-                                <DeckContainer deckName="Deck the halls with boughs of holly"></DeckContainer>
+                                <DeckContainer deckName="Boerenkool met worst" cardAmount="60"></DeckContainer>
+                                <DeckContainer deckName="My Brain Hurts" cardAmount="60"></DeckContainer>
+                                <DeckContainer deckName="Elves and Dragons" cardAmount="60"></DeckContainer>
+                                <DeckContainer deckName="Disposablito" cardAmount="60"></DeckContainer>
+                                <DeckContainer deckName="You're still here...why?" cardAmount="60"></DeckContainer>
+                                <DeckContainer deckName="Wear your brown trousers" cardAmount="60"></DeckContainer>
+                                <DeckContainer deckName="You fight like a dairy farmer" cardAmount="60"></DeckContainer>
+                                <DeckContainer deckName="Run forest, RUN!" cardAmount="60"></DeckContainer>
+                                <DeckContainer deckName="Teenage mutant ninja goblins" cardAmount="60"></DeckContainer>
+                                <DeckContainer deckName="Hold my beer" cardAmount="60"></DeckContainer>
+                                <DeckContainer deckName="This might sting a little" cardAmount="60"></DeckContainer>
+                                <DeckContainer deckName="Deck the halls with boughs of holly" cardAmount="60"></DeckContainer>
                             </ul>
                         </Veil>
                     </article>

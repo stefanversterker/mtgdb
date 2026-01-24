@@ -2,7 +2,7 @@ import './DeckEditWindow.css'
 import Veil from "../Veil/Veil.jsx";
 import DropdownContainer from "../DropdownContainer/DropdownContainer.jsx";
 import CardListItem from "../CardListItem/CardListItem.jsx";
-import CardCounter from "../CardCounter/CardCounter.jsx";
+import CounterBox from "../CounterBox/CounterBox.jsx";
 import CardManagement from "../CardManagement/CardManagement.jsx";
 import Dropdown from "../Dropdown/Dropdown.jsx";
 import Button from "../Button/Button.jsx";
@@ -29,7 +29,7 @@ function DeckEditWindow() {
             <section className="pink-border card-type-dropdown-flow">
                 <Veil>
                 <div className="green-border dropdown-menu-container">
-                    <DropdownContainer summaryLeft="Artifacts" summaryRight={<CardCounter cardAmount="8"/>}>
+                    <DropdownContainer summaryLeft="Artifacts" summaryRight={<CounterBox cardAmount="8"/>}>
                         <CardListItem cardName="Jet Medallion"
                                       cardAmount="4"
                         />
@@ -38,7 +38,7 @@ function DeckEditWindow() {
                         />
                     </DropdownContainer>
 
-                   <DropdownContainer summaryLeft="Creatures" summaryRight={<CardCounter cardAmount="8"/>}>
+                   <DropdownContainer summaryLeft="Creatures" summaryRight={<CounterBox cardAmount="8"/>}>
                        <CardListItem cardName="Hypnotic Specter"
                                      cardAmount="4"
                        />
@@ -47,7 +47,7 @@ function DeckEditWindow() {
                        />
                     </DropdownContainer>
 
-                    <DropdownContainer summaryLeft="Enchantments" summaryRight={<CardCounter cardAmount="8"/>}>
+                    <DropdownContainer summaryLeft="Enchantments" summaryRight={<CounterBox cardAmount="8"/>}>
                         <CardListItem cardName="Megrim"
                                       cardAmount="4"
                         />
@@ -56,7 +56,7 @@ function DeckEditWindow() {
                         />
                     </DropdownContainer>
 
-                    <DropdownContainer summaryLeft="Instants" summaryRight={<CardCounter cardAmount="8"/>}>
+                    <DropdownContainer summaryLeft="Instants" summaryRight={<CounterBox cardAmount="8"/>}>
                         <CardListItem cardName="Dark Ritual"
                                       cardAmount="4"
                         />
@@ -65,7 +65,7 @@ function DeckEditWindow() {
                         />
                     </DropdownContainer>
 
-                    <DropdownContainer summaryLeft="Lands" summaryRight={<CardCounter cardAmount="8"/>}>
+                    <DropdownContainer summaryLeft="Lands" summaryRight={<CounterBox cardAmount="8"/>}>
                         <CardListItem cardName="Swamp"
                                       cardAmount="20"
                         />
@@ -74,13 +74,13 @@ function DeckEditWindow() {
                         />
                     </DropdownContainer>
 
-                    <DropdownContainer summaryLeft="Plainswalkers" summaryRight={<CardCounter cardAmount="2"/>}>
+                    <DropdownContainer summaryLeft="Plainswalkers" summaryRight={<CounterBox cardAmount="2"/>}>
                         <CardListItem cardName="Liliana of the Dark Realms"
                                       cardAmount="2"
                         />
                     </DropdownContainer>
 
-                    <DropdownContainer summaryLeft="Sorceries" summaryRight={<CardCounter cardAmount="8"/>}>
+                    <DropdownContainer summaryLeft="Sorceries" summaryRight={<CounterBox cardAmount="8"/>}>
                         <CardListItem cardName="Stupor"
                                       cardAmount="4"
                         />

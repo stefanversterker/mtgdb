@@ -1,7 +1,7 @@
 import './DropdownContainer.css'
 import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 import CardListItem from "../CardListItem/CardListItem.jsx";
-import CardCounter from "../CardCounter/CardCounter.jsx";
+import CounterBox from "../CounterBox/CounterBox.jsx";
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
