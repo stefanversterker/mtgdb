@@ -5,15 +5,13 @@ import './ButtonSmall.css'
 function ButtonSmall({buttonContent, className, onClick}) {
     return (
 
-        <div className="button-small">
-            <button className={className}
+
+            <button className={`button-small ${className}`}
                     type="button"
                     onClick={onClick}
             >
                 {buttonContent}
             </button>
-
-        </div>
     )
 }
 
