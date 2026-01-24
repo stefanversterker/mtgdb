@@ -7,7 +7,6 @@
     width: 48.75rem;
 }
 
-
 .card-search-header {
     display: flex;
     justify-content: space-between;
@@ -56,6 +55,10 @@
     text-align: end;
 }
 
+.cmc-slider {
+    width: 100%;
+}
+
 @media screen and (min-width: 900px) {
     .card-spec-dropdowns {
         display: flex;
@@ -66,6 +69,7 @@
 
     .sort-cmc-search-container {
         display: flex;
+        justify-content: space-between;
         flex-direction: row;
         gap: 0.5rem;
     }
