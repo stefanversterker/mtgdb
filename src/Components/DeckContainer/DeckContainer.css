@@ -23,7 +23,7 @@
 
 .deck-summary-buttons {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     /*width: 15%;*/
     gap: 0.5rem;
     flex-shrink: 0;
@@ -39,15 +39,15 @@
 
 .mana-symbols {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     gap: 0.3rem;
     /*width: 20%;*/
 }
 .symbol-container {
     display: flex;
     justify-content: flex-start;
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 .mana-symbol {
@@ -56,17 +56,21 @@
     align-items: flex-start;
     width: 100%;
     height: auto;
-    z-index: 1;
 }
 
 .symbols-and-buttons {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     width: 100%;
     gap: 1rem;
 }
 
-@media screen and (min-width: 769px) {
+a {
+    text-decoration: none;
+}
+
+@media screen and (min-width: 1000px) {
     .deck-box {
         display: flex;
         flex-direction: row;
@@ -81,6 +85,7 @@
 
     .symbols-and-buttons {
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         flex-basis: fit-content;
         gap: 1rem;

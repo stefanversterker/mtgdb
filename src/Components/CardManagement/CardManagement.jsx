@@ -1,6 +1,6 @@
 import './CardManagement.css'
 import React from "react";
-import CardCounter from "../CardCounter/CardCounter.jsx";
+import CounterBox from "../CounterBox/CounterBox.jsx";
 import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 import LightBox from "../LightBox/LightBox.jsx";
 import MagnifyingGlass from "/src/assets/symbols/magnifying-glass.svg?react";

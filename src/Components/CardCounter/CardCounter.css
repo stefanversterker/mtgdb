@@ -1,11 +1,20 @@
-.card-counter-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 1.5rem;
-    width: 2rem;
-    color: var(--not-black);
-    background-color: var(--light-grey);
-    border-radius: 5px;
-    box-shadow: -2px 2px 0 var(--not-black);
+.card-counter-box {
+    display:flex;
+    width: 100%
+}
+
+.button-minus {
+    background-color: var(--red);
+    width: 1.5rem;
+    border-radius: 5px 0 0 5px;
+}
+
+.button-plus {
+    background-color: var(--green);
+    width: 1.5rem;
+    border-radius: 0 5px 5px 0;
+}
+
+.trash-icon {
+    width: 80%;
 }

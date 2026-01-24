@@ -9,7 +9,7 @@ import ManaGreen from "/src/assets/symbols/mana-green.svg?react";
 import ManaRed from "/src/assets/symbols/mana-red.svg?react";
 import ManaWhite from "/src/assets/symbols/mana-white.svg?react";
 import Button from "../Button/Button.jsx";
-import CmcCounter from "../CmcCounter/CmcCounter.jsx";
+import ManaRangeSlider from "../ManaRangeSlider/ManaRangeSlider.jsx";
 
 /*import { Routes, Route } from 'react-router-dom';*/
 
@@ -57,11 +57,10 @@ function CardSearch({children, displayTitle, button}) {
                             <option value="cmc-lo-hi">sort: cmc, 0-10</option>
                             <option value="cmc-hi-lo">sort: cmc, 10-0</option>
                         </Dropdown>
-                        <div className="cmc-counter-container">
-                            <CmcCounter counterTitle="min cmc"></CmcCounter>
-                            <CmcCounter counterTitle="max cmc"></CmcCounter>
+                        <div className="cmc-slider">
+                            <ManaRangeSlider></ManaRangeSlider>
                         </div>
-                        <Button buttonContent="Search"></Button>
+                        {/*<Button buttonContent="Search"></Button>*/}
                     </div>
                 </Veil>
             </section>
