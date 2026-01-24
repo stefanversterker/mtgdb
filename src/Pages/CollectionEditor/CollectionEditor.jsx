@@ -71,52 +71,64 @@ function CollectionEditor() {
                 </Card>
             </CardSearch>
             <CardSearch displayTitle="Collection editor" button={<Button buttonContent="Save" onClick={ () => navigate("/")}/>}>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-                <Card management={<CardManagement><CardCounter cardAmount="1"/><ButtonMinus/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                    <img src={lake_of_the_dead} alt="meer des doods"/>
+                </Card>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                    <img src={lake_of_the_dead} alt="meer des doods"/>
+                </Card>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                    <img src={lake_of_the_dead} alt="meer des doods"/>
+                </Card>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
+                    <img src={lake_of_the_dead} alt="meer des doods"/>
+                </Card>
+                <Card management={<CardManagement><ButtonMinus/><CardCounter cardAmount="1"/><ButtonPlus/><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
 
