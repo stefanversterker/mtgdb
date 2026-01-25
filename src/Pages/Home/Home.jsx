@@ -8,7 +8,7 @@ import Veil from "../../Components/Veil/Veil.jsx";
 import Button from "../../Components/Button/Button.jsx";
 import Card from "../../Components/Card/Card.jsx";
 import ButtonMagnify from "../../Components/ButtonMagnify/ButtonMagnify.jsx";
-import DeckContainer from "../../Components/DeckContainer/DeckContainer.jsx";
+import DeckOverviewContainer from "../../Components/DeckOverviewContainer/DeckOverviewContainer.jsx";
 import { useNavigate } from "react-router-dom";
 import {useState} from 'react'
 import Welcome from "../../Components/Welcome/Welcome.jsx";
@@ -119,18 +119,18 @@ function Home() {
                     <article className="decks-flow-container pink-border">
                         <Veil>
                             <ul className="orange-border decks-flow">
-                                <DeckContainer deckName="Boerenkool met worst" cardAmount="60"></DeckContainer>
-                                <DeckContainer deckName="My Brain Hurts" cardAmount="60"></DeckContainer>
-                                <DeckContainer deckName="Elves and Dragons" cardAmount="60"></DeckContainer>
-                                <DeckContainer deckName="Disposablito" cardAmount="60"></DeckContainer>
-                                <DeckContainer deckName="You're still here...why?" cardAmount="60"></DeckContainer>
-                                <DeckContainer deckName="Wear your brown trousers" cardAmount="60"></DeckContainer>
-                                <DeckContainer deckName="You fight like a dairy farmer" cardAmount="60"></DeckContainer>
-                                <DeckContainer deckName="Run forest, RUN!" cardAmount="60"></DeckContainer>
-                                <DeckContainer deckName="Teenage mutant ninja goblins" cardAmount="60"></DeckContainer>
-                                <DeckContainer deckName="Hold my beer" cardAmount="60"></DeckContainer>
-                                <DeckContainer deckName="This might sting a little" cardAmount="60"></DeckContainer>
-                                <DeckContainer deckName="Deck the halls with boughs of holly" cardAmount="60"></DeckContainer>
+                                <DeckOverviewContainer deckName="Boerenkool met worst" cardAmount="60"></DeckOverviewContainer>
+                                <DeckOverviewContainer deckName="My Brain Hurts" cardAmount="60"></DeckOverviewContainer>
+                                <DeckOverviewContainer deckName="Elves and Dragons" cardAmount="60"></DeckOverviewContainer>
+                                <DeckOverviewContainer deckName="Disposablito" cardAmount="60"></DeckOverviewContainer>
+                                <DeckOverviewContainer deckName="You're still here...why?" cardAmount="60"></DeckOverviewContainer>
+                                <DeckOverviewContainer deckName="Wear your brown trousers" cardAmount="60"></DeckOverviewContainer>
+                                <DeckOverviewContainer deckName="You fight like a dairy farmer" cardAmount="60"></DeckOverviewContainer>
+                                <DeckOverviewContainer deckName="Run forest, RUN!" cardAmount="60"></DeckOverviewContainer>
+                                <DeckOverviewContainer deckName="Teenage mutant ninja goblins" cardAmount="60"></DeckOverviewContainer>
+                                <DeckOverviewContainer deckName="Hold my beer" cardAmount="60"></DeckOverviewContainer>
+                                <DeckOverviewContainer deckName="This might sting a little" cardAmount="60"></DeckOverviewContainer>
+                                <DeckOverviewContainer deckName="Deck the halls with boughs of holly" cardAmount="60"></DeckOverviewContainer>
                             </ul>
                         </Veil>
                     </article>

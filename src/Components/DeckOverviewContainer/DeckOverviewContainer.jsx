@@ -1,4 +1,4 @@
-import './DeckContainer.css';
+import './DeckOverviewContainer.css';
 import ManaBlack from "/src/assets/symbols/mana-black.svg?react";
 import ManaBlue from "/src/assets/symbols/mana-blue.svg?react";
 import ManaColorless from "/src/assets/symbols/mana-colorless.svg?react";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CounterBox from "../CounterBox/CounterBox.jsx";
 
-function DeckContainer({deckName, cardAmount}) {
+function DeckOverviewContainer({deckName, cardAmount}) {
 
     const navigate = useNavigate();
 
@@ -47,4 +47,4 @@ function DeckContainer({deckName, cardAmount}) {
     )
 }
 
-export default DeckContainer
+export default DeckOverviewContainer

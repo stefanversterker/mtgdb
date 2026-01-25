@@ -3,13 +3,3 @@
     justify-content: space-between;
     margin: 3px;
 }
-
-.red-minus {
-    background-color: var(--red);
-    width: 1.5rem;
-}
-
-.green-plus {
-    background-color: var(--green);
-    width: 1.5rem;
-}
