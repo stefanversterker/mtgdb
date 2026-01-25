@@ -1,4 +1,4 @@
-import './Account.css'
+import './AccountEditor.css'
 import Veil from "../../Components/Veil/Veil.jsx";
 import Dropdown from "../../Components/Dropdown/Dropdown.jsx";
 import DropdownDetailSummary from "../../Components/DropdownDetailSummary/DropdownDetailSummary.jsx";
@@ -11,28 +11,15 @@ import UserCard from "../../Components/UserCard/UserCard.jsx";
 import Button from "../../Components/Button/Button.jsx";
 import { useNavigate } from "react-router-dom";
 
-function Account({userFirstName, userLastName, userCreatureType, userBio}) {
-
+function AccountEditor() {
     const navigate = useNavigate();
 
     return (
 
         <main className="main-container blue-border">
-            <section className="account-container">
-                <header className="user-card-header">
-                    <h1 className="section-title">My Card</h1>
-                    <Button buttonContent="Edit"
-                            type="button"
-                            onClick={() => navigate("/account/edit-account")}/>
-                </header>
-                <Veil className="user-card container" veilTitle="My Card">
-                    <UserCard>
-
-                    </UserCard>
-                </Veil>
-            </section>
+                <UserInfoForm onSubmit={() => navigate("/account")}/>
         </main>
     )
 }
 
-export default Account
+export default AccountEditor

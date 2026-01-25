@@ -3,9 +3,13 @@ import DropdownDetailSummary from "../../Components/DropdownDetailSummary/Dropdo
 import Veil from "../../Components/Veil/Veil.jsx";
 import Input from "../../Components/Input/Input.jsx";
 import Button from "../../Components/Button/Button.jsx";
-/*import { Routes, Route } from 'react-router-dom';*/
+import { useNavigate } from "react-router-dom";
+
 
 function LogIn() {
+
+    const navigate = useNavigate();
+
     return (
 
         <main className="main-container blue-border">
@@ -19,8 +23,7 @@ function LogIn() {
                             <Input labelText="email address:"></Input>
                             <Input labelText="enter password:"></Input>
                             <Input labelText="confirm password:"></Input>
-                            <Button buttonContent="Log In"></Button>
-
+                            <Button buttonContent="Log In" onClick={() => navigate("/")}></Button>
                         </form>
                     </Veil>
                 </div>

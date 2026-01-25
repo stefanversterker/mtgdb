@@ -1,7 +1,7 @@
 .button {
     max-width: 11rem;
-    height: 2rem;
-    padding: 0 0.5rem;
+    height: contain;
+    padding: 0.2rem 0.5rem;
     background-color: var(--light-blue);
     color: var(--not-black);
     font-size: 1.4rem;
