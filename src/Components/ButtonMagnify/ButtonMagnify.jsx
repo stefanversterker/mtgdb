@@ -4,7 +4,7 @@ import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 import LightBox from "../LightBox/LightBox.jsx";
 import MagnifyingGlass from "/src/assets/symbols/magnifying-glass.svg?react";
 
-function ButtonMagnify() {
+function ButtonMagnify({lightBoxSource}) {
 
     const [open, setOpen] = React.useState(false);
 
@@ -17,7 +17,7 @@ function ButtonMagnify() {
                 onClick={() => setOpen(true)}
             />
 
-            <LightBox open={open} setOpen={setOpen}/>
+            <LightBox open={open} setOpen={setOpen} lightboxSource={lightBoxSource}/>
         </>
     )
 }

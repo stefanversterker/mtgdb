@@ -4,7 +4,7 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import icy_manipulator from "../../assets/testcards/icy_manipulator__s6__cn249_lnen.jpg";
 
-function LightBox({open, setOpen}) {
+function LightBox({open, setOpen, lightboxSource}) {
 
     return (
 
@@ -13,7 +13,7 @@ function LightBox({open, setOpen}) {
                 open={open}
                 close={() => setOpen(false)}
                 slides={[
-                    { src: icy_manipulator },
+                    { src: lightboxSource },
                 ]}
             />
         </>
