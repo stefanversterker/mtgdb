@@ -1,11 +1,6 @@
-import './DropdownContainer.css'
-import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
-import CardListItem from "../CardListItem/CardListItem.jsx";
-import CounterBox from "../CounterBox/CounterBox.jsx";
+import './DropdownDetailSummary.css'
 
-/*import { Routes, Route } from 'react-router-dom';*/
-
-function DropdownContainer({children,summaryLeft, summaryRight}) {
+function DropdownDetailSummary({children,summaryLeft, summaryRight}) {
     return (
 
         <article>
@@ -24,4 +19,4 @@ function DropdownContainer({children,summaryLeft, summaryRight}) {
     )
 }
 
-export default DropdownContainer
+export default DropdownDetailSummary

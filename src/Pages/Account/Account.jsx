@@ -1,7 +1,7 @@
 import './Account.css'
 import Veil from "../../Components/Veil/Veil.jsx";
 import Dropdown from "../../Components/Dropdown/Dropdown.jsx";
-import DropdownContainer from "../../Components/DropdownContainer/DropdownContainer.jsx";
+import DropdownDetailSummary from "../../Components/DropdownDetailSummary/DropdownDetailSummary.jsx";
 import ButtonSmall from "../../Components/ButtonSmall/ButtonSmall.jsx";
 import ButtonEdit from "../../Components/ButtonEdit/ButtonEdit.jsx";
 import Input from "../../Components/Input/Input.jsx";

@@ -1,8 +1,4 @@
 import './DeckContainer.css';
-import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
-import Duplicate from "/src/assets/symbols/duplicate.svg?react";
-import EditPencil from "/src/assets/symbols/edit-pencil.svg?react";
-import Trash from "/src/assets/symbols/trash.svg?react";
 import ManaBlack from "/src/assets/symbols/mana-black.svg?react";
 import ManaBlue from "/src/assets/symbols/mana-blue.svg?react";
 import ManaColorless from "/src/assets/symbols/mana-colorless.svg?react";
@@ -12,8 +8,6 @@ import ManaWhite from "/src/assets/symbols/mana-white.svg?react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CounterBox from "../CounterBox/CounterBox.jsx";
-
-/*import { Routes, Route } from 'react-router-dom';*/
 
 function DeckContainer({deckName, cardAmount}) {
 

@@ -2,7 +2,6 @@ import './CollectionEditor.css'
 import CardSearch from "../../Components/CardSearch/CardSearch.jsx";
 import icy_manipulator from "../../assets/testcards/icy_manipulator__s6__cn249_lnen.jpg";
 import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
-import CounterBox from "../../Components/CounterBox/CounterBox.jsx";
 import lake_of_the_dead from "../../assets/testcards/lake_of_the_dead__s46__cn140_lnen.jpg";
 import Button from "../../Components/Button/Button.jsx";
 import { useNavigate } from "react-router-dom";

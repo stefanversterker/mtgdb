@@ -2,8 +2,6 @@ import './UserCard.css'
 import user_card from '/src/assets/card.png'
 import nacho from '/src/assets/testcards/img_nacho_yawn.jpeg'
 
-/*import { Routes, Route } from 'react-router-dom';*/
-
 function UserCard() {
     return (
 

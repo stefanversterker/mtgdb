@@ -11,8 +11,6 @@ import ManaWhite from "/src/assets/symbols/mana-white.svg?react";
 import Button from "../Button/Button.jsx";
 import ManaRangeSlider from "../ManaRangeSlider/ManaRangeSlider.jsx";
 
-/*import { Routes, Route } from 'react-router-dom';*/
-
 function CardSearch({children, displayTitle, button}) {
     return (
 
@@ -60,7 +58,6 @@ function CardSearch({children, displayTitle, button}) {
                         <div className="cmc-slider">
                             <ManaRangeSlider></ManaRangeSlider>
                         </div>
-                        {/*<Button buttonContent="Search"></Button>*/}
                     </div>
                 </Veil>
             </section>

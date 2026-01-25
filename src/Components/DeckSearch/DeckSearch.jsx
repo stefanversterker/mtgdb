@@ -3,11 +3,8 @@ import DeckContainer from "../DeckContainer/DeckContainer.jsx";
 import Veil from "../Veil/Veil.jsx";
 import Button from "../Button/Button.jsx";
 
-/*import { Routes, Route } from 'react-router-dom';*/
-
 function DeckSearch() {
     return (
-
 
         <section className="decks-container">
             <header className="decks-header">
