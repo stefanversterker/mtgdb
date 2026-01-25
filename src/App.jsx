@@ -8,6 +8,7 @@ import Wishlist from './Pages/Wishlist/Wishlist.jsx';
 import SignUp from "./Pages/SignUp/SignUp.jsx";
 import LogIn from "./Pages/LogIn/LogIn.jsx";
 import Account from "./Pages/Account/Account.jsx";
+import AccountEditor from "./Pages/AccountEditor/AccountEditor.jsx";
 
 function App() {
 
@@ -23,7 +24,7 @@ function App() {
                 <Route path="/account" element={<Account/>}/>
                 <Route path="/sign-up" element={<SignUp/>}/>
                 <Route path="/log-in" element={<LogIn/>}/>
-
+                <Route path="/account/edit-account" element={<AccountEditor/>}/>
             </Routes>
         </div>
     )

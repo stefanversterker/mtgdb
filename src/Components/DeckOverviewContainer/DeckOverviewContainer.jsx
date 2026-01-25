@@ -11,8 +11,6 @@ import CounterBox from "../CounterBox/CounterBox.jsx";
 
 function DeckOverviewContainer({deckName, cardAmount}) {
 
-    const navigate = useNavigate();
-
     return (
 
         <Link to="/deck-editor">
