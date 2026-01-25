@@ -16,9 +16,9 @@ function AccountEditor() {
 
     return (
 
-        <section>
-            <UserInfoForm></UserInfoForm>
-        </section>
+        <main className="main-container blue-border">
+                <UserInfoForm onSubmit={() => navigate("/account")}/>
+        </main>
     )
 }
 

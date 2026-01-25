@@ -1,0 +1,18 @@
+.sign-up-in-out {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    height: contain;
+    max-height: 600px;
+}
+
+.sign-form {
+    height: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
