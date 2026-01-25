@@ -8,8 +8,6 @@ import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
 import ButtonAdd from "../../Components/ButtonAdd/ButtonAdd.jsx";
 import ButtonMagnify from "../../Components/ButtonMagnify/ButtonMagnify.jsx";
 
-/*import { Routes, Route } from 'react-router-dom';*/
-
 function DeckEditor() {
     return (
 

@@ -1,8 +1,6 @@
 import './CardListItem.css'
 import CardManagement from "../CardManagement/CardManagement.jsx";
 import CounterBox from "../CounterBox/CounterBox.jsx";
-import ButtonMinus from "../ButtonMinus/ButtonMinus.jsx";
-import ButtonPlus from "../ButtonPlus/ButtonPlus.jsx";
 import ButtonMagnify from "../ButtonMagnify/ButtonMagnify.jsx";
 import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 import CardCounter from "../CardCounter/CardCounter.jsx";

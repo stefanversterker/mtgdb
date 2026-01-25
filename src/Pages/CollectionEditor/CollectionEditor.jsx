@@ -5,11 +5,8 @@ import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
 import CounterBox from "../../Components/CounterBox/CounterBox.jsx";
 import lake_of_the_dead from "../../assets/testcards/lake_of_the_dead__s46__cn140_lnen.jpg";
 import Button from "../../Components/Button/Button.jsx";
-/*import { Routes, Route } from 'react-router-dom';*/
 import { useNavigate } from "react-router-dom";
 import Card from "../../Components/Card/Card.jsx";
-import ButtonPlus from "../../Components/ButtonPlus/ButtonPlus.jsx";
-import ButtonMinus from "../../Components/ButtonMinus/ButtonMinus.jsx";
 import ButtonMagnify from "../../Components/ButtonMagnify/ButtonMagnify.jsx";
 import ButtonAdd from "../../Components/ButtonAdd/ButtonAdd.jsx";
 import CardCounter from "../../Components/CardCounter/CardCounter.jsx";
@@ -144,8 +141,6 @@ function CollectionEditor() {
                 <Card management={<CardManagement><CardCounter></CardCounter><ButtonMagnify/></CardManagement>}>
                     <img src={lake_of_the_dead} alt="meer des doods"/>
                 </Card>
-
-
             </CardSearch>
         </main>
     )

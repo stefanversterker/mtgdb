@@ -1,4 +1,4 @@
-import './DeckContainer.css'
+import './DeckContainer.css';
 import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 import Duplicate from "/src/assets/symbols/duplicate.svg?react";
 import EditPencil from "/src/assets/symbols/edit-pencil.svg?react";
@@ -10,7 +10,7 @@ import ManaGreen from "/src/assets/symbols/mana-green.svg?react";
 import ManaRed from "/src/assets/symbols/mana-red.svg?react";
 import ManaWhite from "/src/assets/symbols/mana-white.svg?react";
 import { useNavigate } from "react-router-dom";
-import {Link, NavLink} from "react-router-dom";
+import { Link } from "react-router-dom";
 import CounterBox from "../CounterBox/CounterBox.jsx";
 
 /*import { Routes, Route } from 'react-router-dom';*/

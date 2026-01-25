@@ -3,9 +3,8 @@ import React from "react";
 import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 import LightBox from "../LightBox/LightBox.jsx";
 import MagnifyingGlass from "/src/assets/symbols/magnifying-glass.svg?react";
-/*import { Routes, Route } from 'react-router-dom';*/
 
-function ButtonMagnify({counter, children}) {
+function ButtonMagnify() {
 
     const [open, setOpen] = React.useState(false);
 
@@ -13,7 +12,7 @@ function ButtonMagnify({counter, children}) {
 
         <>
             <ButtonSmall
-                className="button-small lightbox"
+                className="button-lightbox"
                 buttonContent={<MagnifyingGlass/>}
                 onClick={() => setOpen(true)}
             />
