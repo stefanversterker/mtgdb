@@ -1,19 +1,21 @@
 .card-container {
-    /*display: flex;
-    justify-content: center;
-    align-items: center;*/
     width: calc(672px / 4);
     height: calc(936px / 4);
     background-color: var(--not-white);
     border-radius: 5px;
     position: relative;
 }
-/*
+
+.card-container img {
+    width: 100%;
+    height: auto;
+}
+
 .button-container {
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    padding: 5px;
+    padding: 12px;
     width: 100%;
     height: 100%;
     opacity: 0;
@@ -24,9 +26,5 @@
 
 .button-container:hover {
     opacity: 1;
-}
-*/
-
-.card-container img {
-    width: 100%;
+    transition: opacity 0.3s;
 }

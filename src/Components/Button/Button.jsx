@@ -1,5 +1,4 @@
 import './Button.css'
-/*import { Routes, Route } from 'react-router-dom';*/
 
 function Button({buttonContent, onClick, className, type}) {
     return (

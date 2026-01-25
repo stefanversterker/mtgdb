@@ -1,8 +1,4 @@
 import './Card.css'
-import CounterBox from "../CounterBox/CounterBox.jsx";
-import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
-
-/*import { Routes, Route } from 'react-router-dom';*/
 
 function Card({children, management}) {
     return (

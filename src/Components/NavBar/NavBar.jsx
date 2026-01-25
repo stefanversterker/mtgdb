@@ -1,6 +1,5 @@
 import './NavBar.css'
-/*import { Routes, Route } from 'react-router-dom';*/
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import magic from '/src/assets/magic.png'
 import Button from "../Button/Button.jsx";
 

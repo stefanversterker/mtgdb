@@ -1,5 +1,5 @@
 import './LogIn.css'
-import DropdownContainer from "../../Components/DropdownContainer/DropdownContainer.jsx";
+import DropdownDetailSummary from "../../Components/DropdownDetailSummary/DropdownDetailSummary.jsx";
 import Veil from "../../Components/Veil/Veil.jsx";
 import Input from "../../Components/Input/Input.jsx";
 import Button from "../../Components/Button/Button.jsx";

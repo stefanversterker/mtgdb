@@ -1,7 +1,5 @@
 import './Dropdown.css'
 
-/*import { Routes, Route } from 'react-router-dom';*/
-
 function Dropdown({
                       htmlFor,
                       name,
