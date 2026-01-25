@@ -1,12 +1,11 @@
 import './Card.css'
 
-function Card({children, management, cardImage, cardImageAlt}) {
+function Card({management, cardImage, cardImageAlt}) {
     return (
 
         <li className="card-container">
-            {/*{children}*/}
             <figure>
-                <img src={cardImage} alt={cardImageAlt}/>
+                <img src={cardImage} alt={`Image of a magic card: ${cardImageAlt}`}/>
             </figure>
             <div className="button-container">
                 {management}
