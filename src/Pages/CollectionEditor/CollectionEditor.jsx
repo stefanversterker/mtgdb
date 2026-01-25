@@ -25,10 +25,10 @@ function CollectionEditor() {
         toggleLoading(true);
 
         try {
-            const response = await axios.get('https://api.scryfall.com/cards/bfd891ba-cf6a-4b83-a421-3a7c346ada31', {
+            const response = await axios.get('https://api.scryfall.com/cards/search?q=*', {
 
             })
-            setData(response.data);
+            setData(response.data.data);
             console.log(response.data);
 
         } catch (error) {
@@ -47,11 +47,19 @@ function CollectionEditor() {
 
         <main className="main-container blue-border">
             <CardSearch displayTitle="Card Database">
-                <Card
+                {!error && data.map((card) => (
+                    <div key={card.id}>
+                        <Card cardImage={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}
+                              management={<CardManagement lightBoxSource={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}>
+                                  <ButtonAdd/>
+                        </CardManagement>} cardImageAlt={card.name}/>
+                    </div>
+                ))}
+                {/*<Card
                     management={<CardManagement lightBoxSource={data.image_uris.png}><ButtonAdd/></CardManagement>}
                     cardImage={data.image_uris.png}
                     cardImageAlt="blah"
-                />
+                />*/}
             </CardSearch>
             <CardSearch displayTitle="Collection editor"
                         button={<Button buttonContent="Save" onClick={() => navigate("/")}/>}>
