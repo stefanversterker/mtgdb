@@ -4,17 +4,23 @@ function Dropdown({
                       htmlFor,
                       name,
                       id,
-                      optionValue,
-                      optionName,
                       children,
                       labelText,
+                      selectedValue,
+                      setSelectedValue,
                   }) {
+
     return (
 
         <div className="label-and-dropdown">
             <label htmlFor={htmlFor}>
                 {labelText}
-                <select className="dropdown" name={name} id={id}>
+                <select
+                    className="dropdown"
+                    name={name}
+                    id={id}
+                    value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)}
+                >
                     {children}
                 </select>
             </label>
