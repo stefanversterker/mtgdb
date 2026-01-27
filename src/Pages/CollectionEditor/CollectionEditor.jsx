@@ -24,15 +24,13 @@ function CollectionEditor() {
     const [sortType, setSortType] = useState("name");
     const [sortDir, setSortDir] = useState("asc");
     const [searchTerm, setSearchTerm] = useState("");
-
-    /*console.log(searchTerm)*/
-
+    const [cmcRange, setCmcRange] = useState([minCmc, maxCmc]);
 
     async function fetchCard(signal) {
     toggleError(false);
     toggleLoading(true);
 
-    const query = queryBuilder({cardColor, cardType, searchTerm})
+    const query = queryBuilder({cardColor, cardType, searchTerm, cmcRange})
 
         console.log(query);
 
@@ -67,7 +65,7 @@ useEffect(() => {
     return() => {
         controller.abort();
     }
-}, [cardColor, cardType, sortType, sortDir, searchTerm]);
+}, [cardColor, cardType, sortType, sortDir, searchTerm, cmcRange]);
 
 return (
 
@@ -77,12 +75,14 @@ return (
                     cardColor={cardColor}
                     sortType={sortType}
                     sortDir={sortDir}
+                    cmcRange={cmcRange}
                     searchTerm={searchTerm}
                     setCardColor={setCardColor}
                     setCardType={setCardType}
                     setSortType={setSortType}
                     setSortDir={setSortDir}
                     setSearchTerm={setSearchTerm}
+                    setCmcRange={setCmcRange}
         >
             {!error && data.map((card) => (
                 <div key={card.id}>
@@ -98,7 +98,7 @@ return (
                     button={<Button buttonContent="Save" onClick={() => navigate("/")}/>}>
             <Card management={<CardManagement lightBoxSource={lake_of_the_dead}><CardCounter/></CardManagement>}
                   cardImage={lake_of_the_dead}
-                  cardImageAlt="blah"
+                  cardImageAlt="bla"
             />
 
         </CardSearch>

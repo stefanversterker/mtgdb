@@ -1,20 +1,18 @@
 import * as Slider from "@radix-ui/react-slider";
-import {useState} from "react";
 import './ManaRangeSlider.css'
 import CounterBox from "../CounterBox/CounterBox.jsx";
 
-function ManaRangeSlider() {
-    const [range, setRange] = useState([0, 16]);
+function ManaRangeSlider({cmcRange, setCmcRange}) {
 
     return (
         <div className="cmc-range-container">
             <p className="slider-label">CMC: </p>
-            <CounterBox cardAmount={range[0]}></CounterBox>
+            <CounterBox cardAmount={cmcRange[0]}></CounterBox>
             <Slider.Root
-                value={range}
-                onValueChange={setRange}
+                value={cmcRange}
+                onValueChange={setCmcRange}
                 min={0}
-                max={15}
+                max={16}
                 step={1}
                 className="slider-root"
             >
@@ -25,7 +23,7 @@ function ManaRangeSlider() {
                 <Slider.Thumb className="slider-thumb thumb-min"/>
                 <Slider.Thumb className="slider-thumb thumb-max"/>
             </Slider.Root>
-            <CounterBox cardAmount={range[1]}></CounterBox>
+            <CounterBox cardAmount={cmcRange[1]}></CounterBox>
         </div>
     );
 }

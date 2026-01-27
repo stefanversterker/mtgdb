@@ -24,7 +24,9 @@ function CardSearch({
                         sortDir,
                         setSortDir,
                         searchTerm,
-                        setSearchTerm
+                        setSearchTerm,
+                        cmcRange,
+                        setCmcRange
                     }) {
 
     function handleSortChange(value) {
@@ -50,7 +52,8 @@ function CardSearch({
                             name="searchTerm"
                             id="searchTerm"
                             onChange={(e) => {
-                                setSearchTerm(e.target.value)}
+                                setSearchTerm(e.target.value)
+                            }
                             }
                         />
                     </div>
@@ -92,7 +95,10 @@ function CardSearch({
                             <option value="cmc-desc">sort: cmc, 10-0</option>
                         </Dropdown>
                         <div className="cmc-slider">
-                            <ManaRangeSlider></ManaRangeSlider>
+                            <ManaRangeSlider
+                                cmcRange={cmcRange}
+                                setCmcRange={setCmcRange}
+                            />
                         </div>
                     </div>
                 </Veil>
