@@ -63,10 +63,10 @@ function CardSearch({children, displayTitle, button, cardType, setCardType, card
                             selectedValue={sortType}
                             setSelectedValue={setSortType}
                         >
-                            <option value="a-b">sort: A-B</option>
-                            <option value="b-a">sort: B-A</option>
-                            <option value="cmc-lo-hi">sort: cmc, 0-10</option>
-                            <option value="cmc-hi-lo">sort: cmc, 10-0</option>
+                            <option value="name">sort: A-B</option>
+                            <option value="name dir=desc">sort: B-A</option>
+                            <option value="cmc">sort: cmc, 0-10</option>
+                            <option value="cmc dir=desc">sort: cmc, 10-0</option>
                         </Dropdown>
                         <div className="cmc-slider">
                             <ManaRangeSlider></ManaRangeSlider>

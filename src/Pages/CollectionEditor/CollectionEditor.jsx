@@ -24,30 +24,7 @@ function CollectionEditor() {
     const [searchTerm, setSearchTerm] = useState("");
 
 
-    /*function queryBuilder({ cardColor, cardType, searchTerm}) {
-        const tokens = [];
-
-        if (searchTerm) {
-            tokens.push(searchTerm);
-        }
-
-        if (cardColor) {
-            tokens.push(`c:${cardColor}`);
-        }
-
-        if (cardType) {
-            tokens.push(`type:${cardType}`);
-        }
-
-        if (!cardType && !cardColor && !searchTerm) {
-            tokens.push("game:paper");
-        }
-        return tokens.join (" ")
-    }
-*/
-
-
-async function fetchCard() {
+async function fetchCard(signal) {
     toggleError(false);
     toggleLoading(true);
 
@@ -55,6 +32,7 @@ async function fetchCard() {
 
     try {
         const response = await axios.get("https://api.scryfall.com/cards/search", {
+            signal,
             params: {
                 q: query,
                 order: sortType || undefined,
@@ -64,16 +42,26 @@ async function fetchCard() {
         console.log(response.data);
 
     } catch (error) {
-        console.error("Whoops, we couldn't find your card")
-        toggleError(true)
+
+        if (axios.isCancel(error) || error.name === "CanceledError") {
+            return;
+        }
+            console.error("Whoops, we couldn't find your card")
+            toggleError(true)
+
     } finally {
         toggleLoading(false)
     }
 }
 
 useEffect(() => {
-    void fetchCard();
-}, [cardColor, cardType]);
+    const controller = new AbortController();
+    void fetchCard(controller.signal);
+
+    return() => {
+        controller.abort();
+    }
+}, [cardColor, cardType, sortType]);
 
 return (
 
