@@ -24,7 +24,7 @@ function CollectionEditor() {
     const [sortType, setSortType] = useState("name");
     const [sortDir, setSortDir] = useState("asc");
     const [searchTerm, setSearchTerm] = useState("");
-    const [cmcRange, setCmcRange] = useState([minCmc, maxCmc]);
+    const [cmcRange, setCmcRange] = useState([0, 16]);
 
     async function fetchCard(signal) {
     toggleError(false);
@@ -94,14 +94,14 @@ return (
                 </div>
             ))}
         </CardSearch>
-        <CardSearch displayTitle="Collection editor"
+        {/*<CardSearch displayTitle="Collection editor"
                     button={<Button buttonContent="Save" onClick={() => navigate("/")}/>}>
             <Card management={<CardManagement lightBoxSource={lake_of_the_dead}><CardCounter/></CardManagement>}
                   cardImage={lake_of_the_dead}
                   cardImageAlt="bla"
             />
 
-        </CardSearch>
+        </CardSearch>*/}
     </main>
 )
 }

@@ -26,7 +26,7 @@ function CardSearch({
                         searchTerm,
                         setSearchTerm,
                         cmcRange,
-                        setCmcRange
+                        setCmcRange,
                     }) {
 
     function handleSortChange(value) {
