@@ -19,7 +19,8 @@ function Dropdown({
                     className="dropdown"
                     name={name}
                     id={id}
-                    value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)}
+                    value={selectedValue}
+                    onChange={(e) => setSelectedValue(e.target.value)}
                 >
                     {children}
                 </select>

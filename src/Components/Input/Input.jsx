@@ -1,6 +1,6 @@
 import './Input.css'
 
-function Input({htmlFor, labelText, type, id, name, value, onChange, placeHolder}) {
+function Input({htmlFor, labelText, type, id, name, value, onChange, placeHolder, required}) {
     return (
 
         <div className="label-and-input">
@@ -14,7 +14,7 @@ function Input({htmlFor, labelText, type, id, name, value, onChange, placeHolder
                     name={name}
                     value={value}
                     onChange={onChange}
-                    required
+                    required={required}
                 />
             </label>
         </div>

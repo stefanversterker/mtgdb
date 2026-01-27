@@ -12,6 +12,7 @@ import {useState} from 'react'
 import {useEffect} from 'react'
 import queryBuilder from '/src/Helpers/queryBuilder.js'
 
+
 function CollectionEditor() {
 
     const navigate = useNavigate();
@@ -20,15 +21,20 @@ function CollectionEditor() {
     const [data, setData] = useState([]);
     const [cardColor, setCardColor] = useState("");
     const [cardType, setCardType] = useState("");
-    const [sortType, setSortType] = useState("");
+    const [sortType, setSortType] = useState("name");
+    const [sortDir, setSortDir] = useState("asc");
     const [searchTerm, setSearchTerm] = useState("");
 
+    /*console.log(searchTerm)*/
 
-async function fetchCard(signal) {
+
+    async function fetchCard(signal) {
     toggleError(false);
     toggleLoading(true);
 
     const query = queryBuilder({cardColor, cardType, searchTerm})
+
+        console.log(query);
 
     try {
         const response = await axios.get("https://api.scryfall.com/cards/search", {
@@ -36,10 +42,10 @@ async function fetchCard(signal) {
             params: {
                 q: query,
                 order: sortType || undefined,
+                dir: sortDir || undefined,
             }
         })
         setData(response.data.data);
-        console.log(response.data);
 
     } catch (error) {
 
@@ -61,7 +67,7 @@ useEffect(() => {
     return() => {
         controller.abort();
     }
-}, [cardColor, cardType, sortType]);
+}, [cardColor, cardType, sortType, sortDir, searchTerm]);
 
 return (
 
@@ -70,9 +76,13 @@ return (
                     cardType={cardType}
                     cardColor={cardColor}
                     sortType={sortType}
+                    sortDir={sortDir}
+                    searchTerm={searchTerm}
                     setCardColor={setCardColor}
                     setCardType={setCardType}
                     setSortType={setSortType}
+                    setSortDir={setSortDir}
+                    setSearchTerm={setSearchTerm}
         >
             {!error && data.map((card) => (
                 <div key={card.id}>

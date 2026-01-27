@@ -11,7 +11,28 @@ import ManaWhite from "/src/assets/symbols/mana-white.svg?react";
 import Button from "../Button/Button.jsx";
 import ManaRangeSlider from "../ManaRangeSlider/ManaRangeSlider.jsx";
 
-function CardSearch({children, displayTitle, button, cardType, setCardType, cardColor, setCardColor, sortType, setSortType}) {
+function CardSearch({
+                        children,
+                        displayTitle,
+                        button,
+                        cardType,
+                        setCardType,
+                        cardColor,
+                        setCardColor,
+                        sortType,
+                        setSortType,
+                        sortDir,
+                        setSortDir,
+                        searchTerm,
+                        setSearchTerm
+                    }) {
+
+    function handleSortChange(value) {
+        const [type, dir] = value.split("-");
+        setSortType(type);
+        setSortDir(dir);
+    }
+
     return (
 
         <section className="card-search-container orange-border">
@@ -25,10 +46,12 @@ function CardSearch({children, displayTitle, button, cardType, setCardType, card
                         <Input
                             placeHolder="Card name"
                             type="text"
-                            value="searchTerm"
+                            value={searchTerm}
                             name="searchTerm"
                             id="searchTerm"
-                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onChange={(e) => {
+                                setSearchTerm(e.target.value)}
+                            }
                         />
                     </div>
                     <div className="card-spec-dropdowns">
@@ -60,13 +83,13 @@ function CardSearch({children, displayTitle, button, cardType, setCardType, card
                     </div>
                     <div className="sort-cmc-search-container">
                         <Dropdown
-                            selectedValue={sortType}
-                            setSelectedValue={setSortType}
+                            selectedValue={`${sortType}-${sortDir}`}
+                            setSelectedValue={handleSortChange}
                         >
-                            <option value="name">sort: A-B</option>
-                            <option value="name dir=desc">sort: B-A</option>
-                            <option value="cmc">sort: cmc, 0-10</option>
-                            <option value="cmc dir=desc">sort: cmc, 10-0</option>
+                            <option value="name-asc">sort: A-B</option>
+                            <option value="name-desc">sort: B-A</option>
+                            <option value="cmc-asc">sort: cmc, 0-10</option>
+                            <option value="cmc-desc">sort: cmc, 10-0</option>
                         </Dropdown>
                         <div className="cmc-slider">
                             <ManaRangeSlider></ManaRangeSlider>

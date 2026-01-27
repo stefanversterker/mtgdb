@@ -4,7 +4,7 @@ import './ManaRangeSlider.css'
 import CounterBox from "../CounterBox/CounterBox.jsx";
 
 function ManaRangeSlider() {
-    const [range, setRange] = useState([0, 15]);
+    const [range, setRange] = useState([0, 16]);
 
     return (
         <div className="cmc-range-container">
