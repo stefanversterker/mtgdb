@@ -68,7 +68,7 @@ function CardSearch({
                             <option value="enchantment">enchantment</option>
                             <option value="instant">instant</option>
                             <option value="land">land</option>
-                            <option value="plainswalker">plainswalker</option>
+                            <option value="planeswalker">planeswalker</option>
                             <option value="sorcery">sorcery</option>
                         </Dropdown>
                         <Dropdown
@@ -109,6 +109,10 @@ function CardSearch({
                         {children}
                     </ul>
                 </Veil>
+            </section>
+            <section className="prev-next-page-buttons">
+                <Button buttonContent="Previous" className="prev-next-button"/>
+                <Button buttonContent="Next" className="prev-next-button"/>
             </section>
 
 
