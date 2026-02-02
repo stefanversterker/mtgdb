@@ -27,6 +27,10 @@ function CardSearch({
                         setSearchTerm,
                         cmcRange,
                         setCmcRange,
+                        prevClick,
+                        nextClick,
+                        prevDisabled,
+                        nextDisabled,
                     }) {
 
     function handleSortChange(value) {
@@ -110,9 +114,19 @@ function CardSearch({
                     </ul>
                 </Veil>
             </section>
-            <section className="prev-next-page-buttons">
-                <Button buttonContent="Previous" className="prev-next-button"/>
-                <Button buttonContent="Next" className="prev-next-button"/>
+            <section className="paginating-button-container">
+                <Button buttonContent="Previous"
+                        className="paginating-button"
+                        type="button"
+                        onClick={prevClick}
+                        disabled={prevDisabled}
+                />
+                <Button buttonContent="Next"
+                        className="paginating-button"
+                        type="button"
+                        onClick={nextClick}
+                        disabled={nextDisabled}
+                />
             </section>
 
 

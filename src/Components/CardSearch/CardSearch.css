@@ -60,13 +60,13 @@
     width: 100%;
 }
 
-.prev-next-page-buttons {
+.paginating-button-container {
     display: flex;
     justify-content: center;
     gap: 1rem;
 }
 
-.prev-next-button {
+.paginating-button {
     width: 130px;
 }
 
