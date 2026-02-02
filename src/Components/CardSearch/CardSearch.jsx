@@ -31,7 +31,10 @@ function CardSearch({
                         nextClick,
                         prevDisabled,
                         nextDisabled,
+                        prevButtonClass,
+                        nextButtonClass,
                     }) {
+
 
     function handleSortChange(value) {
         const [type, dir] = value.split("-");
@@ -116,18 +119,19 @@ function CardSearch({
             </section>
             <section className="paginating-button-container">
                 <Button buttonContent="Previous"
-                        className="paginating-button"
+                        className={prevButtonClass}
                         type="button"
                         onClick={prevClick}
                         disabled={prevDisabled}
                 />
                 <Button buttonContent="Next"
-                        className="paginating-button"
+                        className={nextButtonClass}
                         type="button"
                         onClick={nextClick}
                         disabled={nextDisabled}
                 />
             </section>
+
 
 
         </section>

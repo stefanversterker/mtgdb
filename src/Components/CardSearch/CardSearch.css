@@ -66,10 +66,6 @@
     gap: 1rem;
 }
 
-.paginating-button {
-    width: 130px;
-}
-
 @media screen and (min-width: 900px) {
     .card-spec-dropdowns {
         display: flex;
