@@ -1,6 +1,6 @@
 import './Button.css'
 
-function Button({buttonContent, onClick, className, type}) {
+function Button({buttonContent, onClick, className, type, disabled}) {
     return (
 
         <div>
@@ -8,6 +8,7 @@ function Button({buttonContent, onClick, className, type}) {
                 className={`button ${className}`}
                 type={type}
                 onClick={onClick}
+                disabled={disabled}
             >
                 {buttonContent}
             </button>

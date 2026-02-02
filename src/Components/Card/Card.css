@@ -2,7 +2,7 @@
     width: calc(672px / 4);
     height: calc(936px / 4);
     background-color: var(--not-white);
-    border-radius: 5px;
+    border-radius: 6px;
     position: relative;
 }
 

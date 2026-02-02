@@ -11,7 +11,37 @@ import ManaWhite from "/src/assets/symbols/mana-white.svg?react";
 import Button from "../Button/Button.jsx";
 import ManaRangeSlider from "../ManaRangeSlider/ManaRangeSlider.jsx";
 
-function CardSearch({children, displayTitle, button}) {
+function CardSearch({
+                        children,
+                        displayTitle,
+                        button,
+                        cardType,
+                        setCardType,
+                        cardColor,
+                        setCardColor,
+                        sortType,
+                        setSortType,
+                        sortDir,
+                        setSortDir,
+                        searchTerm,
+                        setSearchTerm,
+                        cmcRange,
+                        setCmcRange,
+                        prevClick,
+                        nextClick,
+                        prevDisabled,
+                        nextDisabled,
+                        prevButtonClass,
+                        nextButtonClass,
+                    }) {
+
+
+    function handleSortChange(value) {
+        const [type, dir] = value.split("-");
+        setSortType(type);
+        setSortDir(dir);
+    }
+
     return (
 
         <section className="card-search-container orange-border">
@@ -24,22 +54,35 @@ function CardSearch({children, displayTitle, button}) {
                     <div className="key-search">
                         <Input
                             placeHolder="Card name"
+                            type="text"
+                            value={searchTerm}
+                            name="searchTerm"
+                            id="searchTerm"
+                            onChange={(e) => {
+                                setSearchTerm(e.target.value)
+                            }
+                            }
                         />
                     </div>
                     <div className="card-spec-dropdowns">
-                        <Dropdown>
-                            <option value="choose">--choose a card type--</option>
+                        <Dropdown
+                            selectedValue={cardType}
+                            setSelectedValue={setCardType}
+                        >
+                            <option value="">--choose a card type--</option>
                             <option value="artifact">artifact</option>
-                            <option value="artifact-creature">artifact creature</option>
                             <option value="creature">creature</option>
                             <option value="enchantment">enchantment</option>
                             <option value="instant">instant</option>
                             <option value="land">land</option>
-                            <option value="plainswalker">plainswalker</option>
+                            <option value="planeswalker">planeswalker</option>
                             <option value="sorcery">sorcery</option>
                         </Dropdown>
-                        <Dropdown>
-                            <option value="choose">--choose a color--</option>
+                        <Dropdown
+                            selectedValue={cardColor}
+                            setSelectedValue={setCardColor}
+                        >
+                            <option value="">--choose a color--</option>
                             <option value="white">white</option>
                             <option value="blue">blue</option>
                             <option value="black">black</option>
@@ -49,14 +92,20 @@ function CardSearch({children, displayTitle, button}) {
                         </Dropdown>
                     </div>
                     <div className="sort-cmc-search-container">
-                        <Dropdown>
-                            <option value="a-b">sort: A-B</option>
-                            <option value="b-a">sort: B-A</option>
-                            <option value="cmc-lo-hi">sort: cmc, 0-10</option>
-                            <option value="cmc-hi-lo">sort: cmc, 10-0</option>
+                        <Dropdown
+                            selectedValue={`${sortType}-${sortDir}`}
+                            setSelectedValue={handleSortChange}
+                        >
+                            <option value="name-asc">sort: A-B</option>
+                            <option value="name-desc">sort: B-A</option>
+                            <option value="cmc-asc">sort: cmc, 0-10</option>
+                            <option value="cmc-desc">sort: cmc, 10-0</option>
                         </Dropdown>
                         <div className="cmc-slider">
-                            <ManaRangeSlider></ManaRangeSlider>
+                            <ManaRangeSlider
+                                cmcRange={cmcRange}
+                                setCmcRange={setCmcRange}
+                            />
                         </div>
                     </div>
                 </Veil>
@@ -68,6 +117,21 @@ function CardSearch({children, displayTitle, button}) {
                     </ul>
                 </Veil>
             </section>
+            <section className="paginating-button-container">
+                <Button buttonContent="Previous"
+                        className={prevButtonClass}
+                        type="button"
+                        onClick={prevClick}
+                        disabled={prevDisabled}
+                />
+                <Button buttonContent="Next"
+                        className={nextButtonClass}
+                        type="button"
+                        onClick={nextClick}
+                        disabled={nextDisabled}
+                />
+            </section>
+
 
 
         </section>
