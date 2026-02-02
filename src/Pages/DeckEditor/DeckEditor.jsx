@@ -7,64 +7,15 @@ import Card from "../../Components/Card/Card.jsx";
 import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
 import ButtonAdd from "../../Components/ButtonAdd/ButtonAdd.jsx";
 import ButtonMagnify from "../../Components/ButtonMagnify/ButtonMagnify.jsx";
+import CardDatabase from "../../Components/CardDatabase/CardDatabase.jsx";
 
 function DeckEditor() {
     return (
 
         <main className="main-container blue-border">
-            <CardSearch displayTitle="Card Database">
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><ButtonAdd/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
+            <CardDatabase/>
 
-            </CardSearch>
             <DeckEditWindow>
-
             </DeckEditWindow>
         </main>
 )
