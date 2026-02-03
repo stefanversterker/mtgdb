@@ -1,0 +1,212 @@
+{
+  "collections": [
+    {
+      "name": "user_collections",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number"
+        },
+        {
+          "name": "user_id",
+          "type": "number"
+        },
+        {
+          "name": "cards",
+          "type": "object"
+        }
+      ],
+      "permissions": {
+        "GET": ["admin", "member"],
+        "POST": ["admin", "member"],
+        "PUT": ["admin", "member"],
+        "PATCH": ["admin", "member"],
+        "DELETE": ["admin", "member"]
+      }
+    },
+    {
+      "name": "user_decks",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number"
+        },
+        {
+          "name": "user_id",
+          "type": "number"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "cards",
+          "type": "object"
+        }
+      ],
+      "permissions": {
+        "GET": ["admin", "member"],
+        "POST": ["admin", "member"],
+        "PUT": ["admin", "member"],
+        "PATCH": ["admin", "member"],
+        "DELETE": ["admin", "member"]
+      }
+    },
+    {
+      "name": "members",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "first_name",
+          "type": "string",
+          "required": true,
+          "min": 2,
+          "max": 50
+        },
+        {
+          "name": "last_name",
+          "type": "string",
+          "required": true,
+          "min": 2,
+          "max": 50
+        },
+        {
+          "name": "user_name",
+          "type": "string",
+          "required": true,
+          "min": 2,
+          "max": 50
+        },
+        {
+          "name": "creature_type",
+          "type": "string",
+          "required": true,
+          "min": 2,
+          "max": 50
+        },
+        {
+          "name": "user_bio",
+          "type": "string",
+          "required": true,
+          "min": 2,
+          "max": 300
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "required": true,
+          "min": 5,
+          "max": 100
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "required": true,
+          "min": 5,
+          "max": 100
+        },
+        {
+          "name": "collection_id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "deck_ids",
+          "type": "array",
+          "required": true
+        }
+      ],
+      "permissions": {
+        "GET": ["admin", "member"],
+        "POST": ["admin", "member"],
+        "PUT": ["admin", "member"],
+        "PATCH": ["admin", "member"],
+        "DELETE": ["admin", "member"]
+      }
+    }
+  ],
+  "users": [
+    {
+      "email": "stefanversterker@gmail.com",
+      "password": "admin123",
+      "roles": ["admin"]
+    },
+    {
+      "email": "lid1@voorbeeld.nl",
+      "password": "lid123",
+      "roles": ["member"]
+    }
+  ],
+  "data": {
+    "genres": [
+      {
+        "id": 1,
+        "name": "Science Fiction",
+        "description": "Toekomstgerichte fictie"
+      },
+      {
+        "id": 2,
+        "name": "Fantasy",
+        "description": "Fantasierijke verhalen"
+      },
+      {
+        "id": 3,
+        "name": "Non-Fictie",
+        "description": "Educatieve en informatieve boeken"
+      },
+      {
+        "id": 4,
+        "name": "Thriller",
+        "description": "Spannende verhalen"
+      }
+    ],
+    "user_collections": [
+      {
+        "id": 1,
+        "userId": 1,
+        "cards": {
+          "842e7e6a-c89a-463d-a6e8-743a953c827c": 3,
+          "9e17bbf7-00c0-46f2-9718-2762fd7388d3": 1
+        }
+      }
+    ],
+    "user_decks": [
+      {
+        "id": 1,
+        "userId": 1,
+        "name": "boerenkool met worst",
+        "cards": {
+          "842e7e6a-c89a-463d-a6e8-743a953c827c": 3,
+          "9e17bbf7-00c0-46f2-9718-2762fd7388d3": 1
+        }
+      },
+      {
+        "id": 2,
+        "userId": 1,
+        "name": "hete bliksem",
+        "cards": {
+          "842e7e6a-c89a-463d-a6e8-743a953c827c": 3,
+          "9e17bbf7-00c0-46f2-9718-2762fd7388d3": 1
+        }
+      }
+    ],
+    "members": [
+      {
+        "id": 1,
+        "first_name": "Stefan",
+        "last_name": "Verster",
+        "user_name": "Angry Mongoose",
+        "creature_type": "rodent",
+        "user_bio": "Alan? Alan!",
+        "email": "stefanversterker@gmail.com",
+        "password": "bla123",
+        "collection_id": 1,
+        "deck_ids": [1, 2, 3]
+      }
+    ]
+  }
+}
