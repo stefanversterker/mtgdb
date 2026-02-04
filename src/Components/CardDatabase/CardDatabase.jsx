@@ -1,7 +1,6 @@
 import './CardDatabase.css'
 import CardSearch from "../../Components/CardSearch/CardSearch.jsx";
 import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
-import lake_of_the_dead from "../../assets/testcards/lake_of_the_dead__s46__cn140_lnen.jpg";
 import {useNavigate} from "react-router-dom";
 import Card from "../../Components/Card/Card.jsx";
 import ButtonAdd from "../../Components/ButtonAdd/ButtonAdd.jsx";
