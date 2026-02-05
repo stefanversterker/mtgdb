@@ -19,24 +19,28 @@
       "permissions": {
         "GET": [
           "admin",
-          "member"
+          "member",
+          "anonymous"
         ],
         "POST": [
           "admin",
-          "member"
+          "member",
+          "anonymous"
         ],
         "PUT": [
           "admin",
-          "member"
+          "member",
+          "anonymous"
         ],
         "PATCH": [
           "admin",
-          "member"
+          "member",
+          "anonymous"
         ],
         "DELETE": [
           "admin",
-          "member"
-        ]
+          "member",
+          "anonymous"]
       }
     },
     {
@@ -57,20 +61,29 @@
       ],
       "permissions": {
         "GET": [
-          "admin"
+          "admin",
+          "member",
+          "anonymous"
         ],
         "POST": [
-          "admin"
+          "admin",
+          "member",
+          "anonymous"
         ],
         "PUT": [
-          "admin"
+          "admin",
+          "member",
+          "anonymous"
         ],
         "PATCH": [
-          "admin"
+          "admin",
+          "member",
+          "anonymous"
         ],
         "DELETE": [
-          "admin"
-        ]
+          "admin",
+          "member",
+          "anonymous"]
       }
     },
     {
@@ -96,24 +109,28 @@
       "permissions": {
         "GET": [
           "admin",
-          "member"
+          "member",
+          "anonymous"
         ],
         "POST": [
           "admin",
-          "member"
+          "member",
+          "anonymous"
         ],
         "PUT": [
           "admin",
-          "member"
+          "member",
+          "anonymous"
         ],
         "PATCH": [
           "admin",
-          "member"
+          "member",
+          "anonymous"
         ],
         "DELETE": [
           "admin",
-          "member"
-        ]
+          "member",
+          "anonymous"]
       }
     },
     {
@@ -192,24 +209,28 @@
       "permissions": {
         "GET": [
           "admin",
-          "member"
+          "member",
+          "anonymous"
         ],
         "POST": [
           "admin",
-          "member"
+          "member",
+          "anonymous"
         ],
         "PUT": [
           "admin",
-          "member"
+          "member",
+          "anonymous"
         ],
         "PATCH": [
           "admin",
-          "member"
+          "member",
+          "anonymous"
         ],
         "DELETE": [
           "admin",
-          "member"
-        ]
+          "member",
+          "anonymous"]
       }
     }
   ],
