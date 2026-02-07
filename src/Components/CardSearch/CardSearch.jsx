@@ -102,10 +102,10 @@ function CardSearch({
                             <option value="cmc-desc">sort: cmc, 10-0</option>
                         </Dropdown>
                         <div className="cmc-slider">
-                            <ManaRangeSlider
+                            {/*<ManaRangeSlider
                                 cmcRange={cmcRange}
                                 setCmcRange={setCmcRange}
-                            />
+                            />*/}
                         </div>
                     </div>
                 </Veil>

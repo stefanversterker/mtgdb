@@ -12,6 +12,7 @@ import DeckOverviewContainer from "../../Components/DeckOverviewContainer/DeckOv
 import { useNavigate } from "react-router-dom";
 import {useState} from 'react'
 import Welcome from "../../Components/Welcome/Welcome.jsx";
+import Collection from "../../Components/Collection/Collection.jsx";
 
 function Home() {
 
@@ -36,81 +37,7 @@ function Home() {
             <Welcome/>
                 :
             <section className="main-container">
-                <CardSearch displayTitle="My Collection"
-                           button={<Button buttonContent="Edit" onClick={() => navigate("/collection-editor")}/>}>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-                <Card management={<CardManagement><CounterBox cardAmount="2"/><ButtonMagnify/></CardManagement>}>
-                    <img src={icy_manipulator} alt="ijzige manipulator"/>
-                </Card>
-            </CardSearch>
+                <Collection/>
                 <div className="decks-overview-container green-border">
                     <header className="decks-header orange-border">
                         <h1>My Decks</h1>
