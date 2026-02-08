@@ -11,15 +11,14 @@ import ButtonMagnify from "../../Components/ButtonMagnify/ButtonMagnify.jsx";
 import DeckOverviewContainer from "../../Components/DeckOverviewContainer/DeckOverviewContainer.jsx";
 import { useNavigate } from "react-router-dom";
 import {useState} from 'react'
-import Welcome from "../../Components/Welcome/Welcome.jsx";
 import Collection from "../../Components/Collection/Collection.jsx";
 
 function Home() {
 
     const navigate = useNavigate();
-    const [loggedIn, toggleLoggedIn] = useState(false)
+    /*const [loggedIn, toggleLoggedIn] = useState(false)*/
 
-    function logInOut() {
+    /*function logInOut() {
         if (loggedIn) {
             toggleLoggedIn(false)
             console.log(loggedIn)
@@ -27,15 +26,11 @@ function Home() {
             toggleLoggedIn(true)
             console.log(loggedIn)
         }
-    }
+    }*/
 
     return (
 
-        <div className="main-container blue-border">
-            <Button buttonContent="l" onClick={() => {logInOut()}}/>
-            {!loggedIn ?
-            <Welcome/>
-                :
+        <main className="main-container blue-border">
             <section className="main-container">
                 <Collection/>
                 <div className="decks-overview-container green-border">
@@ -62,8 +57,8 @@ function Home() {
                         </Veil>
                     </article>
                 </div>
-            </section>}
-        </div>
+            </section>
+        </main>
     )
 }
 
