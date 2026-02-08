@@ -7,7 +7,7 @@ import {AuthContext} from "../../context/AuthContextProvider.jsx";
 
 function NavBar() {
 
-    const {toggleIsAuth, isAuth} = useContext(AuthContext)
+    const {toggleIsAuth, isAuth, login, logout} = useContext(AuthContext)
 
     return (
 
@@ -25,10 +25,10 @@ function NavBar() {
                     {!isAuth ?
                     <div className="auth-buttons">
                         <Button buttonContent="Sign up"/>
-                        <Button buttonContent="Log in" onClick={() => !isAuth && toggleIsAuth(true)}/>
+                        <Button buttonContent="Log in" onClick={() => login()}/>
                     </div>
                         :
-                    <Button buttonContent="Log out" onClick={() => isAuth && toggleIsAuth(false)}/>
+                    <Button buttonContent="Log out" onClick={() => logout()}/>
                     }
                 </div>
             </nav>
