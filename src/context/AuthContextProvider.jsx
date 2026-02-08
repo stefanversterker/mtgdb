@@ -6,15 +6,18 @@ import {createContext, useState} from "react";
 export const AuthContext = createContext({})
 
 function AuthContextProvider({children}) {
-const [isAuth, toggleIsAuth] = useState(false)
-    const data = {
+const [isAuth, toggleIsAuth] = useState({
+    isAuth: false,
+})
+    /*const data = {
         //TIJDELIJK!
-        auth: toggleIsAuth()
-    }
+        auth: isAuth,
+        toggleAuth: toggleIsAuth,
+    }*/
 
     return (
 
-        <AuthContext.Provider value={data}>
+        <AuthContext.Provider value={{isAuth, toggleIsAuth}}>
             {children}
         </AuthContext.Provider>
     )

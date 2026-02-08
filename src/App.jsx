@@ -10,20 +10,24 @@ import LogIn from "./Pages/LogIn/LogIn.jsx";
 import Account from "./Pages/Account/Account.jsx";
 import AccountEditor from "./Pages/AccountEditor/AccountEditor.jsx";
 import Welcome from "./Pages/Welcome/Welcome.jsx";
+import {useContext} from "react";
+import {AuthContext} from "./context/AuthContextProvider.jsx";
 
 function App() {
+
+    const {isAuth} = useContext(AuthContext)
 
     return (
         <div className="app-container red-border">
             <NavBar/>
 
             <Routes>
-                <Route path="/" element={0 ? <Home/> : <Navigate to="/welcome"/>}/>
-                <Route path="/collection-editor" element={1 === true ? <CollectionEditor/> : <Navigate to="/welcome"/>}/>
-                <Route path="/deck-editor" element={1 === true ? <DeckEditor/> : <Navigate to="/welcome"/>}/>
-                <Route path="/wishlist" element={1 === true ? <wishlist/> : <Navigate to="/welcome"/>}/>
-                <Route path="/account" element={1 === true ? <Account/> : <Navigate to="/welcome"/>}/>
-                <Route path="/account/edit-account" element={1 === true ? <AccountEditor/> : <Navigate to="/welcome"/>}/>
+                <Route path="/" element={isAuth === true ? <Home/> : <Navigate to="/welcome"/>}/>
+                <Route path="/collection-editor" element={isAuth === true ? <CollectionEditor/> : <Navigate to="/welcome"/>}/>
+                <Route path="/deck-editor" element={isAuth === true ? <DeckEditor/> : <Navigate to="/welcome"/>}/>
+                <Route path="/wishlist" element={isAuth === true ? <Wishlist/> : <Navigate to="/welcome"/>}/>
+                <Route path="/account" element={isAuth === true ? <Account/> : <Navigate to="/welcome"/>}/>
+                <Route path="/account/edit-account" element={isAuth === true ? <AccountEditor/> : <Navigate to="/welcome"/>}/>
                 <Route path="/sign-up" element={<SignUp/>}/>
                 <Route path="/log-in" element={<LogIn/>}/>
                 <Route path="/welcome" element={<Welcome/>}/>
