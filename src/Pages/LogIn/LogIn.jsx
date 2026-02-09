@@ -3,12 +3,17 @@ import DropdownDetailSummary from "../../Components/DropdownDetailSummary/Dropdo
 import Veil from "../../Components/Veil/Veil.jsx";
 import Input from "../../Components/Input/Input.jsx";
 import Button from "../../Components/Button/Button.jsx";
-import { useNavigate } from "react-router-dom";
+import {useContext, useState} from "react";
+import {AuthContext} from "../../context/AuthContextProvider.jsx";
 
 
 function LogIn() {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("");
+    const [error, toggleError] = useState(false);
+    const { login } = useContext(AuthContext);
 
-    const navigate = useNavigate();
+
 
     return (
 
@@ -20,10 +25,35 @@ function LogIn() {
                 <div className="sign-form green-border">
                     <Veil>
                         <form className="form" onSubmit="">
-                            <Input labelText="email address:"></Input>
-                            <Input labelText="enter password:"></Input>
-                            <Input labelText="confirm password:"></Input>
-                            <Button buttonContent="Log In" onClick={() => navigate("/")}></Button>
+                            <Input
+                                labelText="email address:"
+                                type="email"
+                                value={email}
+                                name="email"
+                                id="email"
+                                htmlFor="email"
+                                required="required"
+                                onChange={(e) => {
+                                    setEmail(e.target.value)
+                                    console.log(email)
+                                }}
+                            >
+                            </Input>
+                            <Input
+                                labelText="password:"
+                                type="password"
+                                value={password}
+                                name="password"
+                                id="password"
+                                htmlFor="password"
+                                required="required"
+                                onChange={(e) => {
+                                    setPassword(e.target.value)
+                                    console.log(password)
+                                }}
+                            >
+                            </Input>
+                            <Button buttonContent="Log In" type="submit"></Button>
                         </form>
                     </Veil>
                 </div>
