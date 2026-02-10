@@ -48,7 +48,9 @@
     opacity: 0.4;
 }
 
-.logout-button {
+.auth-buttons {
+    display: flex;
+    gap: 0.5rem;
     z-index: 2;
 }
 
