@@ -1,25 +1,17 @@
 import './Home.css'
-import CardSearch from "../../Components/CardSearch/CardSearch.jsx";
-import icy_manipulator from "/src/assets/testcards/icy_manipulator__s6__cn249_lnen.jpg"
-import lake_of_the_dead from "/src/assets/testcards/lake_of_the_dead__s46__cn140_lnen.jpg"
-import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
-import CounterBox from "../../Components/CounterBox/CounterBox.jsx";
 import Veil from "../../Components/Veil/Veil.jsx";
 import Button from "../../Components/Button/Button.jsx";
-import Card from "../../Components/Card/Card.jsx";
-import ButtonMagnify from "../../Components/ButtonMagnify/ButtonMagnify.jsx";
 import DeckOverviewContainer from "../../Components/DeckOverviewContainer/DeckOverviewContainer.jsx";
 import { useNavigate } from "react-router-dom";
 import {useState} from 'react'
-import Welcome from "../../Components/Welcome/Welcome.jsx";
 import Collection from "../../Components/Collection/Collection.jsx";
 
 function Home() {
 
     const navigate = useNavigate();
-    const [loggedIn, toggleLoggedIn] = useState(false)
+    /*const [loggedIn, toggleLoggedIn] = useState(false)*/
 
-    function logInOut() {
+    /*function logInOut() {
         if (loggedIn) {
             toggleLoggedIn(false)
             console.log(loggedIn)
@@ -27,15 +19,11 @@ function Home() {
             toggleLoggedIn(true)
             console.log(loggedIn)
         }
-    }
+    }*/
 
     return (
 
-        <div className="main-container blue-border">
-            <Button buttonContent="l" onClick={() => {logInOut()}}/>
-            {!loggedIn ?
-            <Welcome/>
-                :
+        <main className="main-container blue-border">
             <section className="main-container">
                 <Collection/>
                 <div className="decks-overview-container green-border">
@@ -62,8 +50,8 @@ function Home() {
                         </Veil>
                     </article>
                 </div>
-            </section>}
-        </div>
+            </section>
+        </main>
     )
 }
 

@@ -192,11 +192,6 @@
           "required": true,
           "min": 5,
           "max": 100
-        },
-        {
-          "name": "role",
-          "type": "string",
-          "required": true
         }
       ],
       "permissions": {
@@ -268,21 +263,6 @@
               "required": true,
               "min": 2,
               "max": 300
-            },
-            {
-              "name": "role",
-              "type": "string",
-              "required": true
-            },
-            {
-              "name": "collection_id",
-              "type": "number",
-              "required": true
-            },
-            {
-              "name": "deck_ids",
-              "type": "array",
-              "required": true
             }
           ],
           "permissions": {
