@@ -5,25 +5,40 @@ import {createContext, useState} from "react";
 export const AuthContext = createContext({})
 
 function AuthContextProvider({children}) {
-    const [isAuth, toggleIsAuth] = useState(false)
+    const [auth, toggleAuth] = useState({
+        isAuth: false,
+        user: null,
+    })
     const navigate = useNavigate();
 
 
-    function login() {
+    function login(userDetails) {
+        localStorage.setItem('token', userDetails.token)
         console.log("Je bent ingelogd");
-        !isAuth && toggleIsAuth(true);
+        toggleAuth({
+            isAuth: true,
+            //TIJDELIJK
+            user: {
+                email: userDetails.user.email,
+                roles: userDetails.user.roles,
+            },
+        });
         navigate("/")
     }
 
     function logout() {
         console.log("Je bent uitgelogd");
-        isAuth && toggleIsAuth(false);
+        localStorage.removeItem('token');
+        toggleAuth({
+            isAuth: false,
+            user: null,
+        });
         navigate("/welcome")
     }
 
     const authData = {
-        isAuth,
-        toggleIsAuth,
+        isAuth: auth.isAuth,
+        toggleAuth,
         login,
         logout,
     }

@@ -5,6 +5,7 @@ import Input from "../../Components/Input/Input.jsx";
 import Button from "../../Components/Button/Button.jsx";
 import {useContext, useState} from "react";
 import {AuthContext} from "../../context/AuthContextProvider.jsx";
+import axios from "axios";
 
 
 function LogIn() {
@@ -13,7 +14,26 @@ function LogIn() {
     const [error, toggleError] = useState(false);
     const { login } = useContext(AuthContext);
 
+async function handleSubmit(e){
+    e.preventDefault();
+    toggleError(false);
 
+    try {
+        const response = await axios.post('https://novi-backend-api-wgsgz.ondigitalocean.app/api/login', {
+            email: email,
+            password: password,
+        }, {
+            headers: {
+                'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+            }
+        });
+        console.log(response)
+        login(response.data);
+    } catch(e) {
+        console.error("kapot!");
+        toggleError(true);
+    }
+}
 
     return (
 
@@ -24,7 +44,7 @@ function LogIn() {
                 </header>
                 <div className="sign-form green-border">
                     <Veil>
-                        <form className="form" onSubmit="">
+                        <form className="form" onSubmit={handleSubmit}>
                             <Input
                                 labelText="email address:"
                                 type="email"
