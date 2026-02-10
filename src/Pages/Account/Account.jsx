@@ -5,8 +5,10 @@ import Button from "../../Components/Button/Button.jsx";
 import {useContext, useEffect, useState} from 'react';
 import axios from 'axios';
 import {AuthContext} from "../../context/AuthContextProvider.jsx";
+import {useNavigate} from "react-router-dom";
 
 function Account() {
+    const navigate = useNavigate();
     const [userData, setUserData] = useState({});
     const {user} = useContext(AuthContext);
 
