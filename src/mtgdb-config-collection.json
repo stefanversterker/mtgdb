@@ -5,43 +5,127 @@
       "fields": [
         {
           "name": "id",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "userId",
           "type": "reference:users",
-          "required": true
+          "required": false
         },
         {
-          "name": "first_name",
+          "name": "firstName",
           "type": "string",
-          "required": true,
+          "required": false,
           "min": 1,
           "max": 50
         },
         {
-          "name": "last_name",
+          "name": "lastName",
           "type": "string",
-          "required": true,
+          "required": false,
           "min": 1,
           "max": 50
         },
         {
-          "name": "user_name",
+          "name": "userName",
           "type": "string",
-          "required": true,
+          "required": false,
           "min": 1,
           "max": 50
         },
         {
-          "name": "creature_type",
+          "name": "creatureType",
           "type": "string",
-          "required": true,
+          "required": false,
           "min": 1,
           "max": 50
         },
         {
           "name": "bio",
           "type": "string",
-          "required": true,
+          "required": false,
           "min": 1,
           "max": 300
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "admin",
+          "member"
+        ],
+        "POST": [
+          "admin",
+          "member"
+        ],
+        "PUT": [
+          "admin",
+          "member"
+        ],
+        "PATCH": [
+          "admin",
+          "member"
+        ],
+        "DELETE": [
+          "admin",
+          "member"
+        ]
+      }
+    },
+    {
+      "name": "userCollections",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "memberId",
+          "type": "reference:members",
+          "required": true
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "admin",
+          "member"
+        ],
+        "POST": [
+          "admin",
+          "member"
+        ],
+        "PUT": [
+          "admin",
+          "member"
+        ],
+        "PATCH": [
+          "admin",
+          "member"
+        ],
+        "DELETE": [
+          "admin",
+          "member"
+        ]
+      }
+    },
+    {
+      "name": "collectionEntries",
+      "fields": [
+        {
+          "name": "collectionId",
+          "type": "reference:userCollections",
+          "required": true
+        },
+        {
+          "name": "card",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "cardAmount",
+          "type": "number",
+          "required": true
         }
       ],
       "permissions": {
@@ -136,9 +220,32 @@
         "id": 1,
         "first_name": "Stefan",
         "last_name": "Verster",
-        "user_name": "Nacho",
-        "creature_type": "Cat",
-        "bio": "Meep"
+        "user_name": "Angry Mongoose",
+        "creature_type": "Rodent",
+        "bio": "Squeak"
+      }
+    ],
+    "userCollections": [
+      {
+        "id": 1,
+        "memberId": 1
+      }
+    ],
+    "collectionEntries": [
+      {
+        "collectionId": 1,
+        "cardId": "842e7e6a-c89a-463d-a6e8-743a953c827c",
+        "cardAmount": 4
+      },
+      {
+        "collectionId": 1,
+        "cardId": "9e17bbf7-00c0-46f2-9718-2762fd7388d3",
+        "cardAmount": 2
+      },
+      {
+        "collectionId": 1,
+        "cardId": "9bc359b0-8886-415b-a497-e98a2241084e",
+        "cardAmount": 1
       }
     ],
     "imageUrl": [
