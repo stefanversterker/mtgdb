@@ -21,22 +21,21 @@ function Collection() {
     const [sortDir, setSortDir] = useState("asc");
     const [searchTerm, setSearchTerm] = useState("");
     const [cmcRange, setCmcRange] = useState([0, 16]);
-    const [idFromNovi, setIdFromNovi] =useState([]);
 
-    async function fetchCardId(signal) {
+    async function fetchCard(signal) {
         toggleError(false);
         toggleLoading(true);
 
         try {
-            const response = await axios.get('https://novi-backend-api-wgsgz.ondigitalocean.app/api/userCollections/1/collectionEntries', {
+            const response = await axios.get("https://novi-backend-api-wgsgz.ondigitalocean.app/api/user_collections/1", {
                 signal,
                 headers: {
                     'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
-                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    /*Authorization: `Bearer ${localStorage.getItem('token')}`,*/
                 },
             })
 
-            setIdFromNovi(response.data);
+            setData(response);
             console.log(response)
 
         } catch (error) {
@@ -51,36 +50,6 @@ function Collection() {
         }
     }
 
-    async function fetchCard(signal) {
-        toggleError(false);
-        toggleLoading(true);
-
-        try {
-            const response = await axios.get(`https://api.scryfall.com/cards/${idFromNovi[0]?.cardId}`, {
-                signal,
-            })
-
-            setData(response.data)
-            console.log(response)
-
-        }
-        catch(error) {
-            toggleError(true)
-        }
-        finally {
-            toggleLoading(false)
-        }
-    }
-
-    useEffect(() => {
-        const controller = new AbortController();
-        void fetchCardId(controller.signal);
-
-        return () => {
-            controller.abort();
-        }
-    }, []);
-
     useEffect(() => {
         const controller = new AbortController();
         void fetchCard(controller.signal);
@@ -88,50 +57,12 @@ function Collection() {
         return () => {
             controller.abort();
         }
-    }, [idFromNovi]);
+    }, [cardColor, cardType, sortType, sortDir, searchTerm, cmcRange]);
 
     return (
 
-        <CardSearch /*displayTitle="Card Database"
-                    cardType={cardType}
-                    cardColor={cardColor}
-                    sortType={sortType}
-                    sortDir={sortDir}
-                    cmcRange={cmcRange}
-                    searchTerm={searchTerm}
-                    setCardColor={setCardColor}
-                    setCardType={setCardType}
-                    setSortType={setSortType}
-                    setSortDir={setSortDir}
-                    setSearchTerm={setSearchTerm}
-                    setCmcRange={setCmcRange}
-                    prevClick={() => setPage(page => page - 1)}
-                    nextClick={() => setPage(page => page + 1)}
-                    prevDisabled={page === 1}
-                    nextDisabled={hasMore === false}
-                    prevButtonClass={page === 1 ? "disabled-button" : "paginating-button"}
-                    nextButtonClass={hasMore ? "paginating-button" : "disabled-button"}*/
-        >
+        <CardSearch>
 
-            <Card cardImage={data.image_uris?.png ?? data.card_faces?.[0]?.image_uris?.png}
-                  management={<CardManagement
-                      lightBoxSource={data.image_uris?.png ?? data.card_faces?.[0]?.image_uris?.png}>
-                      <ButtonAdd/>
-                  </CardManagement>} cardImageAlt={data.name}
-            />
-
-            {/*{loading ? <p>Loading...</p> :
-                error ? <p>Sorry, we were unable to find your cards</p> : data.map((card) => (
-                    <div key={card.id}>
-                        <Card cardImage={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}
-                              management={<CardManagement
-                                  lightBoxSource={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}>
-                                  <ButtonAdd/>
-                              </CardManagement>} cardImageAlt={card.name}
-                        />
-                    </div>
-                ))
-            }*/}
         </CardSearch>
     )
 }
