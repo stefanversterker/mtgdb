@@ -16,27 +16,26 @@ function Collection() {
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(true);
     const [data, setData] = useState([]);
-  /*  const [cardColor, setCardColor] = useState("");
-    const [cardType, setCardType] = useState("");
-    const [sortType, setSortType] = useState("name");
-    const [sortDir, setSortDir] = useState("asc");
-    const [searchTerm, setSearchTerm] = useState("");
-    const [cmcRange, setCmcRange] = useState([0, 16]);*/
-    const [idFromNovi, setIdFromNovi] = useState([]);
+    /*  const [cardColor, setCardColor] = useState("");
+      const [cardType, setCardType] = useState("");
+      const [sortType, setSortType] = useState("name");
+      const [sortDir, setSortDir] = useState("asc");
+      const [searchTerm, setSearchTerm] = useState("");
+      const [cmcRange, setCmcRange] = useState([0, 16]);*/
+    const [userCollection, setUserCollection] = useState([]);
     const [entry, setEntry] = useState([])
     const [userId, setUserId] = useState(null)
 
-    const jwtTokenDecoded = jwtDecode(localStorage.getItem('token'));
 
-    console.log(userId)
+    /*console.log(userId)*/
 
 
-    async function fetchCardId(signal, userId) {
+    async function fetchCardId(signal) {
         toggleError(false);
         toggleLoading(true);
 
         try {
-            const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userCollections/${userId}/collectionEntries`, {
+            const noviResponse = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userCollections/${userId}/collectionEntries`, {
                 signal,
                 headers: {
                     'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
@@ -44,8 +43,8 @@ function Collection() {
                 },
             })
 
-            setIdFromNovi(response.data);
-            console.log(response)
+            setUserCollection(noviResponse.data);
+            console.log(noviResponse)
 
         } catch (error) {
             if (axios.isCancel(error) || error.name === "CanceledError") {
@@ -59,29 +58,28 @@ function Collection() {
         }
     }
 
-    async function fetchCard(signal) {
+    async function fetchCard(signal,cardId) {
         toggleError(false);
         toggleLoading(true);
 
         try {
-            const response = await axios.get(`https://api.scryfall.com/cards/${idFromNovi[0]?.cardId}`, {
+            const scryfallResponse = await axios.get(`https://api.scryfall.com/cards/${cardId}`, {
                 signal,
             })
 
-            setData(response.data)
-            console.log(response)
+            setData(scryfallResponse.data)
+            console.log(scryfallResponse)
 
-        }
-        catch(error) {
+        } catch (error) {
             toggleError(true)
-        }
-        finally {
+            console.error("kapot")
+        } finally {
             toggleLoading(false)
         }
     }
 
     useEffect(() => {
-        void setUserId(jwtTokenDecoded.userId);
+        setUserId(jwtDecode(localStorage.getItem('token')).userId);
     }, []);
 
     useEffect(() => {
@@ -96,17 +94,39 @@ function Collection() {
 
     useEffect(() => {
         const controller = new AbortController();
-        if (idFromNovi.length === 0) return;
-        fetchCard(controller.signal);
+        if (userCollection.length === 0) return;
+        /*fetchCard(controller.signal);*/
+        userCollection.map((entry) => {
+            fetchCard(controller.signal, entry.cardId)
+        })
 
         return () => {
             controller.abort();
         }
-    }, [idFromNovi]);
+    }, [userCollection]);
 
     return (
 
         <CardSearch>
+            {/*<Card cardImage={data.image_uris?.png ?? data.card_faces?.[0]?.image_uris?.png}
+                  management={<CardManagement
+                      lightBoxSource={data.image_uris?.png ?? data.card_faces?.[0]?.image_uris?.png}>
+                      <ButtonAdd/>
+                  </CardManagement>} cardImageAlt={data.name}
+            />*/}
+            {/*{loading ? <p>Loading...</p> :
+                error ? <p>Sorry, we were unable to find your cards</p> : data.map((entry) => (
+                    <div key={data.id}>
+                        <Card cardImage={data.image_uris?.png ?? data.card_faces?.[entry]?.image_uris?.png}
+                              management={<CardManagement
+                                  lightBoxSource={data.image_uris?.png ?? data.card_faces?.[entry]?.image_uris?.png}>
+                                  <ButtonAdd/>
+                              </CardManagement>} cardImageAlt={data.name}
+                        />
+                    </div>
+                ))
+            }*/}
+
         </CardSearch>
     )
 }
