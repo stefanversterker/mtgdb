@@ -1,0 +1,16 @@
+.card-flow-container {
+    overflow: hidden;
+    height: 100%;
+    width: 48.75rem;
+}
+
+.card-flow {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    width: 100%;
+    /*height: 100%;*/
+    overflow-y: scroll;
+}

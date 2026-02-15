@@ -9,8 +9,10 @@ import {useState} from 'react'
 import {useEffect} from 'react'
 import queryBuilder from '/src/Helpers/queryBuilder.js'
 import {jwtDecode} from "jwt-decode";
+import CounterBox from "../CounterBox/CounterBox.jsx";
+import Veil from "../Veil/Veil.jsx";
 
-function Collection() {
+function Collection({children}) {
 
     const navigate = useNavigate();
     const [error, toggleError] = useState(false);
@@ -58,25 +60,42 @@ function Collection() {
         }
     }
 
-    async function fetchCard(signal,cardId) {
-        toggleError(false);
-        toggleLoading(true);
+    useEffect(() => {
+        const controller = new AbortController();
+        if (userCollection.length === 0) return;
 
-        try {
-            const scryfallResponse = await axios.get(`https://api.scryfall.com/cards/${cardId}`, {
-                signal,
-            })
+        async function fetchCollection(signal, cardId) {
 
-            setData(scryfallResponse.data)
-            console.log(scryfallResponse)
 
-        } catch (error) {
-            toggleError(true)
-            console.error("kapot")
-        } finally {
-            toggleLoading(false)
+            try {
+                toggleError(false);
+                toggleLoading(true);
+
+                const identifiers = userCollection.map(entry => ({
+                    id: entry.cardId
+                }));
+
+                const scryfallResponse = await axios.post(
+                    `https://api.scryfall.com/cards/collection`,
+                    {identifiers},
+                    {signal: controller.signal}
+                );
+
+                setData(scryfallResponse.data.data)
+                console.log(scryfallResponse)
+
+            } catch (error) {
+                toggleError(true)
+                console.error("kapot")
+            } finally {
+                toggleLoading(false)
+            }
         }
-    }
+
+        fetchCollection();
+
+        return () => controller.abort();
+    }, [userCollection]);
 
     useEffect(() => {
         setUserId(jwtDecode(localStorage.getItem('token')).userId);
@@ -92,42 +111,53 @@ function Collection() {
         }
     }, [userId]);
 
-    useEffect(() => {
-        const controller = new AbortController();
-        if (userCollection.length === 0) return;
-        /*fetchCard(controller.signal);*/
-        userCollection.map((entry) => {
-            fetchCard(controller.signal, entry.cardId)
-        })
-
-        return () => {
-            controller.abort();
-        }
-    }, [userCollection]);
-
     return (
 
-        <CardSearch>
-            {/*<Card cardImage={data.image_uris?.png ?? data.card_faces?.[0]?.image_uris?.png}
-                  management={<CardManagement
-                      lightBoxSource={data.image_uris?.png ?? data.card_faces?.[0]?.image_uris?.png}>
-                      <ButtonAdd/>
-                  </CardManagement>} cardImageAlt={data.name}
-            />*/}
-            {/*{loading ? <p>Loading...</p> :
-                error ? <p>Sorry, we were unable to find your cards</p> : data.map((entry) => (
-                    <div key={data.id}>
-                        <Card cardImage={data.image_uris?.png ?? data.card_faces?.[entry]?.image_uris?.png}
-                              management={<CardManagement
-                                  lightBoxSource={data.image_uris?.png ?? data.card_faces?.[entry]?.image_uris?.png}>
-                                  <ButtonAdd/>
-                              </CardManagement>} cardImageAlt={data.name}
-                        />
-                    </div>
-                ))
-            }*/}
 
-        </CardSearch>
+        <section className="card-flow-container">
+            <h1>Collection</h1>
+            <Veil>
+                <div className="card-flow">
+                    {loading ? (
+                        <p>Loading...</p>
+                    ) : error ? (
+                        <p>Sorry, we were unable to find your cards</p>
+                    ) : (
+                        data.map(card => {
+                            const userEntry = userCollection.find(
+                                entry => entry.cardId === card.id
+                            );
+
+                            const amount = userEntry?.cardAmount ?? 0;
+
+                            return (
+                                <div key={card.id}>
+                                    <Card
+                                        cardImage={
+                                            card.image_uris?.png ??
+                                            card.card_faces?.[0]?.image_uris?.png
+                                        }
+                                        management={
+                                            <CardManagement
+                                                lightBoxSource={
+                                                    card.image_uris?.png ??
+                                                    card.card_faces?.[0]?.image_uris?.png
+                                                }
+                                            >
+                                                {children}
+                                                <CounterBox cardAmount={amount}/>
+                                            </CardManagement>
+                                        }
+                                        cardImageAlt={card.name}
+                                    />
+                                </div>
+                            );
+                        })
+                    )}
+                </div>
+            </Veil>
+        </section>
+
     )
 }
 

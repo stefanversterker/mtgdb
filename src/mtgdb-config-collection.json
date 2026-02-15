@@ -235,16 +235,256 @@
       {
         "collectionId": 1,
         "cardId": "842e7e6a-c89a-463d-a6e8-743a953c827c",
-        "cardAmount": 4
+        "cardAmount": 1
       },
       {
         "collectionId": 1,
         "cardId": "9e17bbf7-00c0-46f2-9718-2762fd7388d3",
-        "cardAmount": 2
+        "cardAmount": 1
       },
       {
         "collectionId": 1,
         "cardId": "9bc359b0-8886-415b-a497-e98a2241084e",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "69a41bec-7fb0-4060-918a-38cbbb329543",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "df0a4370-729d-40e7-b68b-21902648492d",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "19c1417a-9719-46f6-8749-d92b93ce0529",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "798893df-e720-471d-822d-50284de23efd",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "114fefca-8472-4c09-ae61-75d300d6e681",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "5c5bdb8c-2a2e-47cf-a502-2d62f9ada3fa",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "29957f49-9a6b-42f6-b2fb-b48f653ab725",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "c7a19fc5-20f3-48d2-8c12-e012d3b302e7",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "1489943b-c010-488e-9c9d-87f4af67a4e4",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "06be8f63-daf2-4dbe-bb07-2b246145cdab",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "107492b9-03a8-4d53-a0cf-4814ffbec409",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "094c839e-0aea-4754-af37-edf6292623e1",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "06431793-5dfe-4cbf-990b-4bcc960d1f31",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "03c67a1b-32d7-4f66-bc6c-aaf09275a779",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "68ebdcc2-4449-4b10-82fb-51f5e14eab37",
+        "cardAmount": 2
+      },
+      {
+        "collectionId": 1,
+        "cardId": "9fc0be19-e041-4347-a51c-7e93a3d9e712",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "3a5cd9a1-da2e-44ef-9f2e-352dc9f92c50",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "3c0f7157-a375-499c-92c7-d47d2e95dbad",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "0bc11285-0891-4cc3-a056-b698911166c7",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "d420010f-5389-4aa2-a5f8-d9631249679a",
+        "cardAmount": 2
+      },
+      {
+        "collectionId": 1,
+        "cardId": "a7d64600-84fc-42a5-a6a6-b26f98fac0a4",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "f8f29b57-172e-407b-b55e-32fe96198f92",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "9d0a2c3b-ab86-44af-919e-c95c8751157e",
+        "cardAmount": 2
+      },
+      {
+        "collectionId": 1,
+        "cardId": "abb19b6b-4142-4b93-85ca-3f2d8b23b4e1",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "7e8e34de-4b0a-48fe-bb13-c7e181d37e6c",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "be9e2e59-1527-4c61-9cc9-dcaf1181bd43",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "f263eb80-f8f2-4b32-8e8b-a297de9f3666",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "f79de5e7-1545-420c-bfe1-ee2444fca85b",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "90301f8c-f7af-4179-8faf-9901931bba8d",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "011f805f-3ebb-4748-a5de-8a10b5f47dcd",
+        "cardAmount": 3
+      },
+      {
+        "collectionId": 1,
+        "cardId": "db593d4f-d3c1-48ae-a55d-4b61d2cb5cc2",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "a81f7a0f-183f-438b-b252-738d8d30c245",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "1fd7ec1a-dafa-42ca-bc25-f6848fb03f60",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "f097fbb8-0db5-4ceb-8972-dcd21b3fb4d5",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "9686f1a8-035e-415e-9a06-933d6ce1cd5c",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "036f387a-8dee-482e-b3e3-cf79b54c61e1",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "7165a9ac-3f44-4d14-93bb-d4d4970ab41b",
+        "cardAmount": 2
+      },
+      {
+        "collectionId": 1,
+        "cardId": "412161bf-52b9-4e43-8866-aafd28dc2189",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "3a2d7cf9-dddb-4de3-b4f2-c52e3ec8fb4b",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "8beb987c-1b67-4a4e-ae71-58547afad2a0",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "52118ff1-ad76-4b97-9fdc-6adfe80140f8",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "bafbd034-c8a0-4798-a680-555c13bdd251",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "eb84b86c-3276-4fc1-a09d-47de388cb729",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "39abb31a-15af-4182-a33b-ecdb63e09e3e",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "b5913fc6-eeb0-411b-9264-1e75bea8489b",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "68100ac2-9677-4eb5-93dc-54e49b15985d",
+        "cardAmount": 4
+      },
+      {
+        "collectionId": 1,
+        "cardId": "0fd09615-bcd2-4a2e-b9bf-8b4fd83291ce",
+        "cardAmount": 1
+      },
+      {
+        "collectionId": 1,
+        "cardId": "ff5391d8-b546-4159-955e-16bb58052311",
         "cardAmount": 1
       }
     ],

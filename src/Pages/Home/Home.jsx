@@ -5,6 +5,8 @@ import DeckOverviewContainer from "../../Components/DeckOverviewContainer/DeckOv
 import { useNavigate } from "react-router-dom";
 import {useState} from 'react'
 import Collection from "../../Components/Collection/Collection.jsx";
+import CardCounter from "../../Components/CardCounter/CardCounter.jsx";
+import CounterBox from "../../Components/CounterBox/CounterBox.jsx";
 
 function Home() {
 
@@ -25,7 +27,9 @@ function Home() {
 
         <main className="main-container blue-border">
             <section className="main-container">
-                <Collection/>
+                <Collection>
+
+                </Collection>
                 <div className="decks-overview-container green-border">
                     <header className="decks-header orange-border">
                         <h1>My Decks</h1>

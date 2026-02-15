@@ -1,5 +1,6 @@
 import './CollectionEditor.css'
 import CardDatabase from "../../Components/CardDatabase/CardDatabase.jsx";
+import Collection from "../../Components/Collection/Collection.jsx";
 
 function CollectionEditor() {
 
@@ -8,6 +9,7 @@ function CollectionEditor() {
 
         <main className="main-container blue-border">
             <CardDatabase/>
+            <Collection/>
             {/*<CardSearch displayTitle="Collection editor"
                     button={<Button buttonContent="Save" onClick={() => navigate("/")}/>}>
             <Card management={<CardManagement lightBoxSource={lake_of_the_dead}><CardCounter/></CardManagement>}
