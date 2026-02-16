@@ -11,25 +11,17 @@ import queryBuilder from '/src/Helpers/queryBuilder.js'
 import {jwtDecode} from "jwt-decode";
 import CounterBox from "../CounterBox/CounterBox.jsx";
 import Veil from "../Veil/Veil.jsx";
+import Button from "../Button/Button.jsx";
 
-function Collection({children}) {
+function Collection({children, headerButtonClick, headerButtonContent, renderExtra}) {
 
     const navigate = useNavigate();
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(true);
     const [data, setData] = useState([]);
-    /*  const [cardColor, setCardColor] = useState("");
-      const [cardType, setCardType] = useState("");
-      const [sortType, setSortType] = useState("name");
-      const [sortDir, setSortDir] = useState("asc");
-      const [searchTerm, setSearchTerm] = useState("");
-      const [cmcRange, setCmcRange] = useState([0, 16]);*/
     const [userCollection, setUserCollection] = useState([]);
     const [entry, setEntry] = useState([])
     const [userId, setUserId] = useState(null)
-
-
-    /*console.log(userId)*/
 
 
     async function fetchCardId(signal) {
@@ -114,48 +106,54 @@ function Collection({children}) {
     return (
 
 
-        <section className="card-flow-container">
-            <h1>Collection</h1>
-            <Veil>
-                <div className="card-flow">
-                    {loading ? (
-                        <p>Loading...</p>
-                    ) : error ? (
-                        <p>Sorry, we were unable to find your cards</p>
-                    ) : (
-                        data.map(card => {
-                            const userEntry = userCollection.find(
-                                entry => entry.cardId === card.id
-                            );
+        <section className="collection-overview-container green-border">
+            <header className="collection-header orange-border">
+                <h1>Collection</h1>
+                <Button buttonContent={headerButtonContent} onClick={headerButtonClick}/>
+            </header>
+            <div className="collection-flow-container pink-border">
+                <Veil>
+                    <div className="card-flow orange-border">
+                        {loading ? (
+                            <p>Loading...</p>
+                        ) : error ? (
+                            <p>Sorry, we were unable to find your cards</p>
+                        ) : (
+                            data.map(card => {
+                                const userEntry = userCollection.find(
+                                    entry => entry.cardId === card.id
+                                );
 
-                            const amount = userEntry?.cardAmount ?? 0;
+                                const amount = userEntry?.cardAmount ?? 0;
 
-                            return (
-                                <div key={card.id}>
-                                    <Card
-                                        cardImage={
-                                            card.image_uris?.png ??
-                                            card.card_faces?.[0]?.image_uris?.png
-                                        }
-                                        management={
-                                            <CardManagement
-                                                lightBoxSource={
-                                                    card.image_uris?.png ??
-                                                    card.card_faces?.[0]?.image_uris?.png
-                                                }
-                                            >
-                                                {children}
-                                                <CounterBox cardAmount={amount}/>
-                                            </CardManagement>
-                                        }
-                                        cardImageAlt={card.name}
-                                    />
-                                </div>
-                            );
-                        })
-                    )}
-                </div>
-            </Veil>
+                                return (
+                                    <div key={card.id}>
+                                        <Card
+                                            cardImage={
+                                                card.image_uris?.png ??
+                                                card.card_faces?.[0]?.image_uris?.png
+                                            }
+                                            management={
+                                                <CardManagement
+                                                    lightBoxSource={
+                                                        card.image_uris?.png ??
+                                                        card.card_faces?.[0]?.image_uris?.png
+                                                    }
+                                                >
+                                                    {children}
+                                                    {renderExtra && renderExtra(card, amount)}
+                                                    {/*<CounterBox cardAmount={amount}/>*/}
+                                                </CardManagement>
+                                            }
+                                            cardImageAlt={card.name}
+                                        />
+                                    </div>
+                                );
+                            })
+                        )}
+                    </div>
+                </Veil>
+            </div>
         </section>
 
     )
