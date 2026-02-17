@@ -25,7 +25,7 @@ function App() {
                 <Route path="/" element={isAuth === true ? <Home/> : <Navigate to="/welcome"/>}/>
                 <Route path="/collection-editor" element={isAuth === true ? <CollectionEditor/> : <Navigate to="/welcome"/>}/>
                 <Route path="/deck-editor" element={isAuth === true ? <DeckEditor/> : <Navigate to="/welcome"/>}/>
-                <Route path="/wishlist" element={isAuth === true ? <Wishlist/> : <Navigate to="/welcome"/>}/>
+               {/* <Route path="/wishlist" element={isAuth === true ? <Wishlist/> : <Navigate to="/welcome"/>}/>*/}
                 <Route path="/account" element={isAuth === true ? <Account/> : <Navigate to="/welcome"/>}/>
                 <Route path="/account/edit-account" element={isAuth === true ? <AccountEditor/> : <Navigate to="/welcome"/>}/>
                 <Route path="/sign-up" element={<SignUp/>}/>
