@@ -5,6 +5,7 @@ import DeckOverviewContainer from "../../Components/DeckOverviewContainer/DeckOv
 import { useNavigate } from "react-router-dom";
 import {useState} from 'react'
 import Collection from "../../Components/Collection/Collection.jsx";
+import CounterBox from "../../Components/CounterBox/CounterBox.jsx";
 
 function Home() {
 
@@ -25,7 +26,13 @@ function Home() {
 
         <main className="main-container blue-border">
             <section className="main-container">
-                <Collection/>
+                <Collection
+                    headerButtonContent="Edit collection"
+                    headerButtonClick={() => navigate("/collection-editor")} renderExtra={(card, amount) => (
+                    <CounterBox cardAmount={amount} cardId={card.id} />
+                )}
+                >
+                </Collection>
                 <div className="decks-overview-container green-border">
                     <header className="decks-header orange-border">
                         <h1>My Decks</h1>
