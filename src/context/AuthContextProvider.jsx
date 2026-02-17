@@ -38,6 +38,7 @@ function AuthContextProvider({children}) {
                 ...auth,
                 status: 'done',
             })
+
         }
     }, []);
 
