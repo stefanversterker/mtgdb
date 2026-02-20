@@ -13,7 +13,7 @@ import CounterBox from "../CounterBox/CounterBox.jsx";
 import Veil from "../Veil/Veil.jsx";
 import Button from "../Button/Button.jsx";
 
-function Collection({children, headerButtonClick, headerButtonContent, renderExtra}) {
+function Collection({children, headerButtonClick, headerButtonContent, amount, renderExtra}) {
 
     const navigate = useNavigate();
     const [error, toggleError] = useState(false);
@@ -38,7 +38,7 @@ function Collection({children, headerButtonClick, headerButtonContent, renderExt
             })
 
             setUserCollection(noviResponse.data);
-            console.log(noviResponse)
+            /*console.log(noviResponse)*/
 
         } catch (error) {
             if (axios.isCancel(error) || error.name === "CanceledError") {
@@ -140,9 +140,8 @@ function Collection({children, headerButtonClick, headerButtonContent, renderExt
                                                         card.card_faces?.[0]?.image_uris?.png
                                                     }
                                                 >
-                                                    {children}
-                                                    {renderExtra && renderExtra(card, amount)}
-                                                    {/*<CounterBox cardAmount={amount}/>*/}
+                                                    <CounterBox cardAmount={amount}/>
+                                                    {children(amount)}
                                                 </CardManagement>
                                             }
                                             cardImageAlt={card.name}

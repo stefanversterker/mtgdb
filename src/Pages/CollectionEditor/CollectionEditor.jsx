@@ -3,8 +3,13 @@ import CardDatabase from "../../Components/CardDatabase/CardDatabase.jsx";
 import CardCounter from "../../Components/CardCounter/CardCounter.jsx";
 import Collection from "../../Components/Collection/Collection.jsx";
 import {useNavigate} from "react-router-dom";
+import CounterBox from "../../Components/CounterBox/CounterBox.jsx";
+import ButtonSmall from "../../Components/ButtonSmall/ButtonSmall.jsx";
+import TrashIcon from "/src/assets/symbols/trash.svg?react";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
-function CollectionEditor() {
+function CollectionEditor({amount}) {
     const navigate = useNavigate();
 
     return (
@@ -12,20 +17,35 @@ function CollectionEditor() {
         <main className="main-container blue-border">
             <CardDatabase/>
             <Collection
+                headerButtonContent="Save collection"
                 headerButtonClick={() => navigate("/")}
-                headerButtonContent="Save Collection"
-                renderExtra={(card, amount) => (
-                    <CardCounter cardAmount={amount} cardId={card.id} />
+            >
+                {(amount) =>(
+                <div className="card-counter-box">
+                    <div>
+                        {
+                            amount > 1 ? (
+                            <ButtonSmall
+                                buttonContent="-"
+                                className="button-minus"
+                                /*onClick=""*/
+                            />
+                        ) : (
+                            <ButtonSmall
+                                buttonContent={<TrashIcon className="trash-icon"/>}
+                                className="button-minus"
+                            />
+                        )}
+                    </div>
+                    <ButtonSmall
+                        buttonContent="+"
+                        className="button-plus"
+                        /*onClick=""*/
+                    />
+                </div>
                 )}
-            />
-            {/*<CardSearch displayTitle="Collection editor"
-                    button={<Button buttonContent="Save" onClick={() => navigate("/")}/>}>
-            <Card management={<CardManagement lightBoxSource={lake_of_the_dead}><CardCounter/></CardManagement>}
-                  cardImage={lake_of_the_dead}
-                  cardImageAlt="bla"
-            />
 
-        </CardSearch>*/}
+            </Collection>
         </main>
     )
 }

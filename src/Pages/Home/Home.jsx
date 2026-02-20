@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import {useState} from 'react'
 import Collection from "../../Components/Collection/Collection.jsx";
 import CounterBox from "../../Components/CounterBox/CounterBox.jsx";
+import CardCounter from "../../Components/CardCounter/CardCounter.jsx";
 
 function Home() {
 
@@ -28,10 +29,15 @@ function Home() {
             <section className="main-container">
                 <Collection
                     headerButtonContent="Edit collection"
-                    headerButtonClick={() => navigate("/collection-editor")} renderExtra={(card, amount) => (
-                    <CounterBox cardAmount={amount} cardId={card.id} />
+                    headerButtonClick={() => navigate("/collection-editor")}
+                    renderExtra={(card, amount) => (
+                    <CounterBox
+                        cardAmount={amount}
+                        cardId={card.id}
+                    />
                 )}
                 >
+
                 </Collection>
                 <div className="decks-overview-container green-border">
                     <header className="decks-header orange-border">

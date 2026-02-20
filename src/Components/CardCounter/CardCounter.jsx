@@ -4,13 +4,13 @@ import CounterBox from "../CounterBox/CounterBox.jsx"
 import TrashIcon from "/src/assets/symbols/trash.svg?react";
 import {useState} from 'react';
 
-function CardCounter(onClickMinus, onClickPlus, amount) {
-    /*const [amount, setAmount] = useState(1)*/
+function CardCounter({onClickMinus, onClickPlus, cardAmount}) {
+
     return (
 
         <div className="card-counter-box">
-            <>
-                {amount > 1 ? (
+            <div>
+                {cardAmount > 1 ? (
                     <ButtonSmall
                         buttonContent="-"
                         className="button-minus"
@@ -23,12 +23,7 @@ function CardCounter(onClickMinus, onClickPlus, amount) {
                         className="button-minus"
                     />
                 )}
-            </>
-            <CounterBox
-                className="square-counterbox"
-                cardAmount={amount}
-            >
-            </CounterBox>
+            </div>
             <ButtonSmall
                 buttonContent="+"
                 className="button-plus"
