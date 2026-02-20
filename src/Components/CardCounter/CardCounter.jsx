@@ -17,7 +17,7 @@ function CardCounter() {
 
                 </ButtonSmall>
                 ) : (
-                <ButtonSmall buttonContent={<TrashIcon className="trash-icon"/>}
+                <ButtonSmall buttonContent={<TrashIcon className="trash-icon"/>}d
                              className="button-minus"
                 >
 
