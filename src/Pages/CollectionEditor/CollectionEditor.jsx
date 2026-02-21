@@ -9,7 +9,7 @@ import TrashIcon from "/src/assets/symbols/trash.svg?react";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-function CollectionEditor({amount, onClickMinus, onClickPlus}) {
+function CollectionEditor() {
     const navigate = useNavigate();
 
     return (
@@ -20,7 +20,7 @@ function CollectionEditor({amount, onClickMinus, onClickPlus}) {
                 headerButtonContent="Save collection"
                 headerButtonClick={() => navigate("/")}
             >
-                {(amount) =>(
+                {({amount, increaseAmount, decreaseAmount}) =>(
                 <div className="card-counter-box">
                     <div>
                         {
@@ -28,7 +28,7 @@ function CollectionEditor({amount, onClickMinus, onClickPlus}) {
                             <ButtonSmall
                                 buttonContent="-"
                                 className="button-minus"
-                                onClick={onClickMinus}
+                                onClick={decreaseAmount}
                             />
                         ) : (
                             <ButtonSmall
@@ -40,7 +40,7 @@ function CollectionEditor({amount, onClickMinus, onClickPlus}) {
                     <ButtonSmall
                         buttonContent="+"
                         className="button-plus"
-                        onClick={onClickPlus}
+                        onClick={increaseAmount}
                     />
                 </div>
                 )}

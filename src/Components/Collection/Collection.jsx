@@ -23,6 +23,14 @@ function Collection({children, headerButtonClick, headerButtonContent, amount, r
     const [entry, setEntry] = useState([])
     const [userId, setUserId] = useState(null)
 
+    function increaseAmount() {
+        console.log("increase")
+    }
+
+    function decreaseAmount() {
+        console.log("decrease")
+    }
+
 
     async function fetchCardId(signal) {
         toggleError(false);
@@ -58,7 +66,6 @@ function Collection({children, headerButtonClick, headerButtonContent, amount, r
 
         async function fetchCollection(signal, cardId) {
 
-
             try {
                 toggleError(false);
                 toggleLoading(true);
@@ -88,6 +95,28 @@ function Collection({children, headerButtonClick, headerButtonContent, amount, r
 
         return () => controller.abort();
     }, [userCollection]);
+
+    async function patchCollectionEntry(){
+
+        try {
+
+            const entryPatch = await axios.patch(
+                `https://novi-backend-api-wgsgz.ondigitalocean.app/api/collectionEntries/${entryId}`,
+                {
+
+                },
+                {
+                    headers: {
+                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                },
+            )
+        } catch(error) {
+            console.log('Sorry, we could not add this card to your collection');
+        }
+
+    }
 
     useEffect(() => {
         setUserId(jwtDecode(localStorage.getItem('token')).userId);
@@ -141,7 +170,11 @@ function Collection({children, headerButtonClick, headerButtonContent, amount, r
                                                     }
                                                 >
                                                     <CounterBox cardAmount={amount}/>
-                                                    {typeof children === "function" ? children(amount) : children}
+                                                    {typeof children === "function" ? children({
+                                                        amount,
+                                                        increaseAmount,
+                                                        decreaseAmount
+                                                    }) : children}
                                                 </CardManagement>
                                             }
                                             cardImageAlt={card.name}
