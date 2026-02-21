@@ -141,7 +141,7 @@ function Collection({children, headerButtonClick, headerButtonContent, amount, r
                                                     }
                                                 >
                                                     <CounterBox cardAmount={amount}/>
-                                                    {children(amount)}
+                                                    {typeof children === "function" ? children(amount) : children}
                                                 </CardManagement>
                                             }
                                             cardImageAlt={card.name}
