@@ -20,7 +20,7 @@ function CollectionEditor() {
                 headerButtonContent="Save collection"
                 headerButtonClick={() => navigate("/")}
             >
-                {({amount, increaseAmount, decreaseAmount}) =>(
+                {({amount, increaseAmount, decreaseAmount, deleteEntry}) =>(
                 <div className="card-counter-box">
                     <div>
                         {
@@ -33,7 +33,7 @@ function CollectionEditor() {
                         ) : (
                             <ButtonSmall
                                 buttonContent={<TrashIcon className="trash-icon"/>}
-                                className="button-minus"
+                                className="button-minus" onClick={deleteEntry}
                             />
                         )}
                     </div>
