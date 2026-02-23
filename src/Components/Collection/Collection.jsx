@@ -1,26 +1,21 @@
 import './Collection.css'
-import CardSearch from "../CardSearch/CardSearch.jsx";
 import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
-import {useNavigate} from "react-router-dom";
 import Card from "../../Components/Card/Card.jsx";
-import ButtonAdd from "../../Components/ButtonAdd/ButtonAdd.jsx";
 import axios from 'axios';
 import {useState} from 'react'
 import {useEffect} from 'react'
-import queryBuilder from '/src/Helpers/queryBuilder.js'
 import {jwtDecode} from "jwt-decode";
 import CounterBox from "../CounterBox/CounterBox.jsx";
 import Veil from "../Veil/Veil.jsx";
 import Button from "../Button/Button.jsx";
 
-function Collection({children, headerButtonClick, headerButtonContent, renderExtra}) {
+function Collection({children, headerButtonClick, headerButtonContent}) {
 
-    const navigate = useNavigate();
+
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(true);
     const [data, setData] = useState([]);
     const [userCollection, setUserCollection] = useState([]);
-    const [entry, setEntry] = useState([])
     const [userId, setUserId] = useState(null)
 
 
@@ -29,16 +24,17 @@ function Collection({children, headerButtonClick, headerButtonContent, renderExt
         toggleLoading(true);
 
         try {
-            const noviResponse = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userCollections/${userId}/collectionEntries`, {
-                signal,
-                headers: {
-                    'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
-                    Authorization: `Bearer ${localStorage.getItem('token')}`,
-                },
-            })
+            const noviResponse = await axios.get(
+                `https://novi-backend-api-wgsgz.ondigitalocean.app/api/userCollections/${userId}/collectionEntries`, {
+                    signal,
+                    headers: {
+                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                })
 
             setUserCollection(noviResponse.data);
-            console.log(noviResponse)
+            /*console.log(noviResponse)*/
 
         } catch (error) {
             if (axios.isCancel(error) || error.name === "CanceledError") {
@@ -56,8 +52,7 @@ function Collection({children, headerButtonClick, headerButtonContent, renderExt
         const controller = new AbortController();
         if (userCollection.length === 0) return;
 
-        async function fetchCollection(signal, cardId) {
-
+        async function fetchCollection() {
 
             try {
                 toggleError(false);
@@ -89,6 +84,75 @@ function Collection({children, headerButtonClick, headerButtonContent, renderExt
         return () => controller.abort();
     }, [userCollection]);
 
+    function updateAmount(entryId, delta) {
+
+        const userEntry = userCollection.find((entry) => entry.id === entryId);
+
+        if (!userEntry) return;   // safety guard
+        const newAmount = userEntry.cardAmount + delta;
+
+        if (newAmount < 1) {
+            deleteEntry(entryId);
+            return;
+        }
+
+        setUserCollection(previousCollection =>
+            previousCollection.map((entry) =>
+                entry.id === entryId
+                    ? { ...entry, cardAmount: newAmount }
+                    : entry
+            )
+        );
+
+        patchCollectionEntry(newAmount, entryId);
+    }
+
+    async function patchCollectionEntry(amount, entryId) {
+
+        try {
+
+            await axios.patch(
+                `https://novi-backend-api-wgsgz.ondigitalocean.app/api/collectionEntries/${entryId}`,
+                {
+                    cardAmount: amount,
+                },
+                {
+                    headers: {
+                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                },
+            )
+
+        } catch (error) {
+            console.log('Sorry, we could not add this card to your collection');
+        } finally {
+            toggleLoading(false)
+        }
+    }
+
+    async function deleteEntry(entryId) {
+
+        try {
+            await axios.delete(
+                `https://novi-backend-api-wgsgz.ondigitalocean.app/api/collectionEntries/${entryId}`,
+                {
+                    headers: {
+                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                },
+            )
+
+            setUserCollection(userCollection => {
+                return userCollection.filter((entry) => entry.id !== entryId)
+            })
+
+        } catch (error) {
+            console.log('Sorry, we could not delete this card');
+        }
+    }
+
     useEffect(() => {
         setUserId(jwtDecode(localStorage.getItem('token')).userId);
     }, []);
@@ -104,7 +168,6 @@ function Collection({children, headerButtonClick, headerButtonContent, renderExt
     }, [userId]);
 
     return (
-
 
         <section className="collection-overview-container green-border">
             <header className="collection-header orange-border">
@@ -140,9 +203,13 @@ function Collection({children, headerButtonClick, headerButtonContent, renderExt
                                                         card.card_faces?.[0]?.image_uris?.png
                                                     }
                                                 >
-                                                    {children}
-                                                    {renderExtra && renderExtra(card, amount)}
-                                                    {/*<CounterBox cardAmount={amount}/>*/}
+                                                    <CounterBox cardAmount={amount}/>
+                                                    {typeof children === "function" ? children({
+                                                        amount,
+                                                        increaseAmount: () => updateAmount(userEntry.id, +1),
+                                                        decreaseAmount: () => updateAmount(userEntry.id, -1),
+                                                        deleteEntry: () => deleteEntry(userEntry.id),
+                                                    }) : children}
                                                 </CardManagement>
                                             }
                                             cardImageAlt={card.name}
