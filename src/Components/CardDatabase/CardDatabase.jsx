@@ -8,6 +8,7 @@ import axios from 'axios';
 import {useState} from 'react'
 import {useEffect} from 'react'
 import queryBuilder from '/src/Helpers/queryBuilder.js'
+import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 
 
 function CardDatabase() {
@@ -75,43 +76,70 @@ function CardDatabase() {
         }
     }, [cardColor, cardType, sortType, sortDir, searchTerm, cmcRange])
 
+    async function postEntry() {
+        toggleError(false);
+        toggleLoading(true);
+
+        try {
+            await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/collectionEntries`, {
+                    id: id,
+                    collectionId: collectioId,
+                    card: cardId,
+                    cardAmount: cardAmount,
+                },
+                {
+                    headers: {
+                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                })
+        } catch (error) {
+            console.log('Sorry, we could not add this card to your collection');
+        } finally {
+            toggleLoading(false)
+        }
+    }
+
     return (
 
 
-            <CardSearch displayTitle="Card Database"
-                        cardType={cardType}
-                        cardColor={cardColor}
-                        sortType={sortType}
-                        sortDir={sortDir}
-                        cmcRange={cmcRange}
-                        searchTerm={searchTerm}
-                        setCardColor={setCardColor}
-                        setCardType={setCardType}
-                        setSortType={setSortType}
-                        setSortDir={setSortDir}
-                        setSearchTerm={setSearchTerm}
-                        setCmcRange={setCmcRange}
-                        prevClick={() => setPage(page => page - 1)}
-                        nextClick={() => setPage(page => page + 1)}
-                        prevDisabled={page === 1}
-                        nextDisabled={hasMore === false}
-                        prevButtonClass={page === 1 ? "disabled-button" : "paginating-button"}
-                        nextButtonClass={hasMore ? "paginating-button" : "disabled-button"}
-            >
+        <CardSearch displayTitle="Card Database"
+                    cardType={cardType}
+                    cardColor={cardColor}
+                    sortType={sortType}
+                    sortDir={sortDir}
+                    cmcRange={cmcRange}
+                    searchTerm={searchTerm}
+                    setCardColor={setCardColor}
+                    setCardType={setCardType}
+                    setSortType={setSortType}
+                    setSortDir={setSortDir}
+                    setSearchTerm={setSearchTerm}
+                    setCmcRange={setCmcRange}
+                    prevClick={() => setPage(page => page - 1)}
+                    nextClick={() => setPage(page => page + 1)}
+                    prevDisabled={page === 1}
+                    nextDisabled={hasMore === false}
+                    prevButtonClass={page === 1 ? "disabled-button" : "paginating-button"}
+                    nextButtonClass={hasMore ? "paginating-button" : "disabled-button"}
+        >
 
-                {loading ? <p>Loading...</p> :
-                    error ? <p>Sorry, we were unable to find your cards</p> : data.map((card) => (
-                        <div key={card.id}>
-                            <Card cardImage={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}
-                                  management={<CardManagement
-                                      lightBoxSource={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}>
-                                      <ButtonAdd/>
-                                  </CardManagement>} cardImageAlt={card.name}
-                            />
-                        </div>
-                    ))
-                }
-            </CardSearch>
+            {loading ? <p>Loading...</p> :
+                error ? <p>Sorry, we were unable to find your cards</p> : data.map((card) => (
+                    <div key={card.id}>
+                        <Card cardImage={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}
+                              management={<CardManagement
+                                  lightBoxSource={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}>
+                                  <ButtonSmall buttonContent="Add"
+                                               className="button-small add-button"
+                                      /*onClick={}*/
+                                  />
+                              </CardManagement>} cardImageAlt={card.name}
+                        />
+                    </div>
+                ))
+            }
+        </CardSearch>
 
     )
 }
