@@ -123,7 +123,7 @@
           "required": true
         },
         {
-          "name": "card",
+          "name": "cardId",
           "type": "string",
           "required": true
         },

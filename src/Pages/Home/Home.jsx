@@ -11,6 +11,7 @@ import CardCounter from "../../Components/CardCounter/CardCounter.jsx";
 function Home() {
 
     const navigate = useNavigate();
+    const [userCollection, setUserCollection] = useState([]);
     /*const [loggedIn, toggleLoggedIn] = useState(false)*/
 
     /*function logInOut() {
@@ -30,7 +31,11 @@ function Home() {
                 <Collection
                     headerButtonContent="Edit collection"
                     headerButtonClick={() => navigate("/collection-editor")}
+                    /*updateAmount={updateAmount}*/
+                    setUserCollection={setUserCollection}
+                    userCollection={userCollection}
                     renderExtra={(card, amount) => (
+
                     <CounterBox
                         cardAmount={amount}
                         cardId={card.id}

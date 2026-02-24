@@ -11,7 +11,7 @@ import queryBuilder from '/src/Helpers/queryBuilder.js'
 import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 
 
-function CardDatabase() {
+function CardDatabase({onClickAdd}) {
 
     const navigate = useNavigate();
     const [error, toggleError] = useState(false);
@@ -76,30 +76,6 @@ function CardDatabase() {
         }
     }, [cardColor, cardType, sortType, sortDir, searchTerm, cmcRange])
 
-    async function postEntry() {
-        toggleError(false);
-        toggleLoading(true);
-
-        try {
-            await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/collectionEntries`, {
-                    id: id,
-                    collectionId: collectioId,
-                    card: cardId,
-                    cardAmount: cardAmount,
-                },
-                {
-                    headers: {
-                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
-                        Authorization: `Bearer ${localStorage.getItem('token')}`,
-                    },
-                })
-        } catch (error) {
-            console.log('Sorry, we could not add this card to your collection');
-        } finally {
-            toggleLoading(false)
-        }
-    }
-
     return (
 
 
@@ -132,7 +108,7 @@ function CardDatabase() {
                                   lightBoxSource={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}>
                                   <ButtonSmall buttonContent="Add"
                                                className="button-small add-button"
-                                      /*onClick={}*/
+                                               onClick={() => onClickAdd(card)}
                                   />
                               </CardManagement>} cardImageAlt={card.name}
                         />
