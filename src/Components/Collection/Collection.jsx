@@ -2,23 +2,32 @@ import './Collection.css'
 import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
 import Card from "../../Components/Card/Card.jsx";
 import axios from 'axios';
-import {useState} from 'react'
+import {useContext, useState} from 'react'
 import {useEffect} from 'react'
 import {jwtDecode} from "jwt-decode";
 import CounterBox from "../CounterBox/CounterBox.jsx";
 import Veil from "../Veil/Veil.jsx";
 import Button from "../Button/Button.jsx";
+import {CollectionContext} from "../../context/CollectionContextProvider.jsx";
 
-function Collection({children, headerButtonClick, headerButtonContent, userCollection, setUserCollection, updateAmount, userId, setUserId}) {
+function Collection({children, headerButtonClick, headerButtonContent}) {
 
+    const {
+        updateAmount,
+        deleteEntry,
+        userCollection,
+        loading,
+        error,
+        data
+    } = useContext(CollectionContext);
 
-    const [error, toggleError] = useState(false);
+    /*const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(true);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([]);*/
     /*const [userCollection, setUserCollection] = useState([]);*/
     /*const [userId, setUserId] = useState(null)*/
 
-    async function fetchCardId(signal) {
+    /*async function fetchCardId(signal) {
         toggleError(false);
         toggleLoading(true);
 
@@ -33,7 +42,7 @@ function Collection({children, headerButtonClick, headerButtonContent, userColle
                 })
 
             setUserCollection(noviResponse.data);
-            /*console.log(noviResponse.data)*/
+            /!*console.log(noviResponse.data)*!/
 
         } catch (error) {
             if (axios.isCancel(error) || error.name === "CanceledError") {
@@ -45,9 +54,9 @@ function Collection({children, headerButtonClick, headerButtonContent, userColle
         } finally {
             toggleLoading(false)
         }
-    }
+    }*/
 
-    useEffect(() => {
+    /*useEffect(() => {
         const controller = new AbortController();
         if (userCollection.length === 0) return;
 
@@ -68,7 +77,7 @@ function Collection({children, headerButtonClick, headerButtonContent, userColle
                 );
 
                 setData(scryfallResponse.data.data)
-                /*console.log(scryfallResponse)*/
+                /!*console.log(scryfallResponse)*!/
                 console.log(userId)
 
             } catch (error) {
@@ -82,7 +91,7 @@ function Collection({children, headerButtonClick, headerButtonContent, userColle
         fetchCollection();
 
         return () => controller.abort();
-    }, [userCollection]);
+    }, [userCollection]);*/
 
     /*function updateAmount(entryId, delta) {
 
@@ -131,7 +140,7 @@ function Collection({children, headerButtonClick, headerButtonContent, userColle
         }
     }*/
 
-    async function deleteEntry(entryId) {
+    /*async function deleteEntry(entryId) {
 
         try {
             await axios.delete(
@@ -151,7 +160,7 @@ function Collection({children, headerButtonClick, headerButtonContent, userColle
         } catch (error) {
             console.log('Sorry, we could not delete this card');
         }
-    }
+    }*/
 
     /*async function postEntry() {
         toggleError(false);
@@ -177,11 +186,11 @@ function Collection({children, headerButtonClick, headerButtonContent, userColle
     }*/
 
 
-    useEffect(() => {
+    /*useEffect(() => {
         setUserId(jwtDecode(localStorage.getItem('token')).userId);
-    }, []);
+    }, []);*/
 
-    useEffect(() => {
+    /*useEffect(() => {
         const controller = new AbortController();
         if (!userId) return;
         fetchCardId(controller.signal);
@@ -189,13 +198,14 @@ function Collection({children, headerButtonClick, headerButtonContent, userColle
         return () => {
             controller.abort();
         }
-    }, [userId]);
+    }, [userId]);*/
 
 
 
     return (
 
         <section className="collection-overview-container green-border">
+
             <header className="collection-header orange-border">
                 <h1>Collection</h1>
                 <Button buttonContent={headerButtonContent} onClick={headerButtonClick}/>

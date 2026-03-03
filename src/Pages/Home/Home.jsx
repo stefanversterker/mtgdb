@@ -3,15 +3,17 @@ import Veil from "../../Components/Veil/Veil.jsx";
 import Button from "../../Components/Button/Button.jsx";
 import DeckOverviewContainer from "../../Components/DeckOverviewContainer/DeckOverviewContainer.jsx";
 import { useNavigate } from "react-router-dom";
-import { useState } from 'react'
+import {useContext, useState} from 'react'
 import Collection from "../../Components/Collection/Collection.jsx";
 import CounterBox from "../../Components/CounterBox/CounterBox.jsx";
 import CardCounter from "../../Components/CardCounter/CardCounter.jsx";
+import {CollectionContext} from "../../context/CollectionContextProvider.jsx";
 
 function Home() {
 
     const navigate = useNavigate();
-    const [userCollection, setUserCollection] = useState([]);
+    /*const [userCollection, setUserCollection] = useState([]);*/
+    const { addCard, collectionId, loading } = useContext(CollectionContext);
     /*const [loggedIn, toggleLoggedIn] = useState(false)*/
 
     /*function logInOut() {
@@ -32,10 +34,10 @@ function Home() {
                     headerButtonContent="Edit collection"
                     headerButtonClick={() => navigate("/collection-editor")}
                     /*updateAmount={updateAmount}*/
-                    setUserCollection={setUserCollection}
-                    userCollection={userCollection}
-                    userId={userId}
-                    setUserId={setUserId}
+                   /* setUserCollection={setUserCollection}
+                    userCollection={userCollection}*/
+                    /*userId={userId}
+                    setUserId={setUserId}*/
                     renderExtra={(card, amount) => (
 
                     <CounterBox

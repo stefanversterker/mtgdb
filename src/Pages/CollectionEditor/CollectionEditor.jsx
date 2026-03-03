@@ -6,19 +6,24 @@ import {useNavigate} from "react-router-dom";
 import CounterBox from "../../Components/CounterBox/CounterBox.jsx";
 import ButtonSmall from "../../Components/ButtonSmall/ButtonSmall.jsx";
 import TrashIcon from "/src/assets/symbols/trash.svg?react";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {jwtDecode} from "jwt-decode";
+import {CollectionContext} from "../../context/CollectionContextProvider.jsx";
+import {AuthContext} from "../../context/AuthContextProvider.jsx";
+
 
 function CollectionEditor() {
     const navigate = useNavigate();
-    const [userCollection, setUserCollection] = useState([]);
-    const [error, toggleError] = useState(false);
-    const [loading, toggleLoading] = useState(true);
-    const [collectionId, setCollectionId] = useState(null)
-    const [userId, setUserId] = useState(null)
+    /*const [userCollection, setUserCollection] = useState([]);*/
+    /*const [error, toggleError] = useState(false);
+    const [loading, toggleLoading] = useState(true);*/
+    const { addCard, collectionId, userCollection, setUserCollection, updateAmount} = useContext(CollectionContext);
+    const { user } = useContext(AuthContext);
+   /* const [collectionId, setCollectionId] = useState(null)
+    const [userId, setUserId] = useState(null)*/
 
-    function updateAmount(entryId, delta) {
+    /*function updateAmount(entryId, delta) {
 
         const userEntry = userCollection.find((entry) => entry.id === entryId);
 
@@ -39,9 +44,9 @@ function CollectionEditor() {
         );
 
         patchCollectionEntry(newAmount, entryId);
-    }
+    }*/
 
-    function addCard(card) {
+    /*function addCard(card) {
         console.log("Card clicked:", card.id);
         const inCollection = userCollection.find((entry) => {
             return card.id === entry.cardId
@@ -53,9 +58,9 @@ function CollectionEditor() {
             console.log("not in collection")
             postEntry(card.id)
         }
-    }
+    }*/
 
-    async function fetchCollectionId() {
+    /*async function fetchCollectionId() {
         toggleError(false);
         toggleLoading(true);
         if (!userId) return;
@@ -82,9 +87,9 @@ function CollectionEditor() {
         } finally {
             toggleLoading(false)
         }
-    }
+    }*/
 
-    async function patchCollectionEntry(amount, entryId) {
+    /*async function patchCollectionEntry(amount, entryId) {
 
         console.log(userCollection)
 
@@ -108,9 +113,9 @@ function CollectionEditor() {
         } finally {
             toggleLoading(false)
         }
-    }
+    }*/
 
-    async function postEntry(cardId) {
+    /*async function postEntry(cardId) {
         toggleError(false);
         toggleLoading(true);
 
@@ -134,25 +139,25 @@ function CollectionEditor() {
         } finally {
             toggleLoading(false)
         }
-    }
+    }*/
 
-    useEffect(() => {
+    /*useEffect(() => {
         const token = localStorage.getItem("token");
         if (!token) return;
 
         const decoded = jwtDecode(token);
         setUserId(decoded.userId);
-    }, []);
+    }, []);*/
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (!userId) return;
         fetchCollectionId();
-    }, [userId]);
+    }, [userId]);*/
 
     return (
 
         <main className="main-container blue-border">
-            {console.log(collectionId)}
+
             <CardDatabase onClickAdd={addCard}/>
             <Collection
                 headerButtonContent="Save collection"
@@ -160,7 +165,8 @@ function CollectionEditor() {
                 userCollection={userCollection}
                 setUserCollection={setUserCollection}
                 updateAmount={updateAmount}
-                userId={userId} setUserId={setUserId}
+                /*userId={userId}
+                setUserId={setUserId}*/
 
             >
                 {({amount, increaseAmount, decreaseAmount, deleteEntry}) =>(
