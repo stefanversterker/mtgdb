@@ -9,14 +9,14 @@ import CounterBox from "../CounterBox/CounterBox.jsx";
 import Veil from "../Veil/Veil.jsx";
 import Button from "../Button/Button.jsx";
 
-function Collection({children, headerButtonClick, headerButtonContent, userCollection, setUserCollection, updateAmount}) {
+function Collection({children, headerButtonClick, headerButtonContent, userCollection, setUserCollection, updateAmount, userId, setUserId}) {
 
 
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(true);
     const [data, setData] = useState([]);
     /*const [userCollection, setUserCollection] = useState([]);*/
-    const [userId, setUserId] = useState(null)
+    /*const [userId, setUserId] = useState(null)*/
 
     async function fetchCardId(signal) {
         toggleError(false);
@@ -33,7 +33,7 @@ function Collection({children, headerButtonClick, headerButtonContent, userColle
                 })
 
             setUserCollection(noviResponse.data);
-            /*console.log(noviResponse)*/
+            /*console.log(noviResponse.data)*/
 
         } catch (error) {
             if (axios.isCancel(error) || error.name === "CanceledError") {
@@ -68,7 +68,8 @@ function Collection({children, headerButtonClick, headerButtonContent, userColle
                 );
 
                 setData(scryfallResponse.data.data)
-                console.log(scryfallResponse)
+                /*console.log(scryfallResponse)*/
+                console.log(userId)
 
             } catch (error) {
                 toggleError(true)

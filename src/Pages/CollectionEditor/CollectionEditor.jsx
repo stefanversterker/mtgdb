@@ -8,13 +8,15 @@ import ButtonSmall from "../../Components/ButtonSmall/ButtonSmall.jsx";
 import TrashIcon from "/src/assets/symbols/trash.svg?react";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {jwtDecode} from "jwt-decode";
 
 function CollectionEditor() {
     const navigate = useNavigate();
     const [userCollection, setUserCollection] = useState([]);
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(true);
-    /*const [userId, setUserId] = useState(null)*/
+    const [collectionId, setCollectionId] = useState(null)
+    const [userId, setUserId] = useState(null)
 
     function updateAmount(entryId, delta) {
 
@@ -40,6 +42,7 @@ function CollectionEditor() {
     }
 
     function addCard(card) {
+        console.log("Card clicked:", card.id);
         const inCollection = userCollection.find((entry) => {
             return card.id === entry.cardId
         });
@@ -48,11 +51,42 @@ function CollectionEditor() {
             updateAmount(inCollection.id, +1)
         } else if (!inCollection) {
             console.log("not in collection")
-            postEntry()
+            postEntry(card.id)
+        }
+    }
+
+    async function fetchCollectionId() {
+        toggleError(false);
+        toggleLoading(true);
+        if (!userId) return;
+
+        try {
+            const noviResponse = await axios.get(
+                `https://novi-backend-api-wgsgz.ondigitalocean.app/api/userCollections/${userId}/`, {
+                    headers: {
+                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                })
+
+            setCollectionId(noviResponse.data.id);
+            console.log(noviResponse.data.id)
+
+        } catch (error) {
+            if (axios.isCancel(error) || error.name === "CanceledError") {
+                return;
+            }
+            console.error("Whoops, we couldn't find your collectionId")
+            toggleError(true)
+
+        } finally {
+            toggleLoading(false)
         }
     }
 
     async function patchCollectionEntry(amount, entryId) {
+
+        console.log(userCollection)
 
         try {
 
@@ -76,14 +110,14 @@ function CollectionEditor() {
         }
     }
 
-    async function postEntry() {
+    async function postEntry(cardId) {
         toggleError(false);
         toggleLoading(true);
 
         try {
             const response = await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/collectionEntries`, {
-                    collectionId: 1,
-                    cardId: "29d414a2-9afd-4bf1-908a-d9b5bea06222",
+                    collectionId: collectionId,
+                    cardId: cardId,
                     cardAmount: 1
                 },
                 {
@@ -102,9 +136,23 @@ function CollectionEditor() {
         }
     }
 
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (!token) return;
+
+        const decoded = jwtDecode(token);
+        setUserId(decoded.userId);
+    }, []);
+
+    useEffect(() => {
+        if (!userId) return;
+        fetchCollectionId();
+    }, [userId]);
+
     return (
 
         <main className="main-container blue-border">
+            {console.log(collectionId)}
             <CardDatabase onClickAdd={addCard}/>
             <Collection
                 headerButtonContent="Save collection"
@@ -112,6 +160,8 @@ function CollectionEditor() {
                 userCollection={userCollection}
                 setUserCollection={setUserCollection}
                 updateAmount={updateAmount}
+                userId={userId} setUserId={setUserId}
+
             >
                 {({amount, increaseAmount, decreaseAmount, deleteEntry}) =>(
                 <div className="card-counter-box">
