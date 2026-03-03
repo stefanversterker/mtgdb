@@ -9,15 +9,14 @@ import CounterBox from "../CounterBox/CounterBox.jsx";
 import Veil from "../Veil/Veil.jsx";
 import Button from "../Button/Button.jsx";
 
-function Collection({children, headerButtonClick, headerButtonContent}) {
+function Collection({children, headerButtonClick, headerButtonContent, userCollection, setUserCollection, updateAmount, userId, setUserId}) {
 
 
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(true);
     const [data, setData] = useState([]);
-    const [userCollection, setUserCollection] = useState([]);
-    const [userId, setUserId] = useState(null)
-
+    /*const [userCollection, setUserCollection] = useState([]);*/
+    /*const [userId, setUserId] = useState(null)*/
 
     async function fetchCardId(signal) {
         toggleError(false);
@@ -34,7 +33,7 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
                 })
 
             setUserCollection(noviResponse.data);
-            /*console.log(noviResponse)*/
+            /*console.log(noviResponse.data)*/
 
         } catch (error) {
             if (axios.isCancel(error) || error.name === "CanceledError") {
@@ -58,9 +57,9 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
                 toggleError(false);
                 toggleLoading(true);
 
-                const identifiers = userCollection.map(entry => ({
-                    id: entry.cardId
-                }));
+                const identifiers = userCollection
+                    .filter(entry => entry.cardId)
+                    .map(entry => ({ id: entry.cardId }));
 
                 const scryfallResponse = await axios.post(
                     `https://api.scryfall.com/cards/collection`,
@@ -69,7 +68,8 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
                 );
 
                 setData(scryfallResponse.data.data)
-                console.log(scryfallResponse)
+                /*console.log(scryfallResponse)*/
+                console.log(userId)
 
             } catch (error) {
                 toggleError(true)
@@ -84,7 +84,7 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
         return () => controller.abort();
     }, [userCollection]);
 
-    function updateAmount(entryId, delta) {
+    /*function updateAmount(entryId, delta) {
 
         const userEntry = userCollection.find((entry) => entry.id === entryId);
 
@@ -105,9 +105,9 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
         );
 
         patchCollectionEntry(newAmount, entryId);
-    }
+    }*/
 
-    async function patchCollectionEntry(amount, entryId) {
+    /*async function patchCollectionEntry(amount, entryId) {
 
         try {
 
@@ -129,7 +129,7 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
         } finally {
             toggleLoading(false)
         }
-    }
+    }*/
 
     async function deleteEntry(entryId) {
 
@@ -153,6 +153,30 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
         }
     }
 
+    /*async function postEntry() {
+        toggleError(false);
+        toggleLoading(true);
+
+        try {
+            await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/collectionEntries`, {
+                    collectionId: "collectionId?",
+                    card: "cardId?",
+                    cardAmount: 1,
+                },
+                {
+                    headers: {
+                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                })
+        } catch (error) {
+            console.log('Sorry, we could not add this card to your collection');
+        } finally {
+            toggleLoading(false)
+        }
+    }*/
+
+
     useEffect(() => {
         setUserId(jwtDecode(localStorage.getItem('token')).userId);
     }, []);
@@ -166,6 +190,8 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
             controller.abort();
         }
     }, [userId]);
+
+
 
     return (
 
@@ -186,6 +212,8 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
                                 const userEntry = userCollection.find(
                                     entry => entry.cardId === card.id
                                 );
+
+                                if(!userEntry) return null;
 
                                 const amount = userEntry?.cardAmount ?? 0;
 
