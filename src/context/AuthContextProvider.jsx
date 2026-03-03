@@ -12,6 +12,7 @@ function AuthContextProvider({children}) {
         isAuth: false,
         user: null,
         status: 'pending',
+        token: null,
     })
 
     useEffect(() => {
@@ -22,7 +23,9 @@ function AuthContextProvider({children}) {
                 toggleAuth({
                     isAuth: true,
                     status: 'done',
+                    token: jwtToken,
                     user: {
+                        id: decoded.userId,
                         email: decoded.email,
                         role: decoded.role,
                     },
@@ -47,13 +50,16 @@ function AuthContextProvider({children}) {
 
 function login(userDetails) {
     localStorage.setItem('token', userDetails.token)
+    const decoded = jwtDecode(userDetails.token);
     console.log("Je bent ingelogd");
     toggleAuth({
         isAuth: true,
         status: 'done',
+        token: userDetails.token,
         user: {
-            email: userDetails.user.email,
-            roles: userDetails.user.roles,
+            id: decoded.userId,
+            email: decoded.email,
+            roles: decoded.role,
         },
     });
     navigate("/")
@@ -76,6 +82,8 @@ function logout() {
     const authData = {
         isAuth: auth.isAuth,
         toggleAuth,
+        user: auth.user,
+        token: auth.token,
         login,
         logout,
     };
