@@ -157,6 +157,95 @@
       }
     },
     {
+      "name": "userDecks",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "memberId",
+          "type": "reference:members",
+          "required": true
+        },
+        {
+          "name": "deckName",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "admin",
+          "member"
+        ],
+        "POST": [
+          "admin",
+          "member"
+        ],
+        "PUT": [
+          "admin",
+          "member"
+        ],
+        "PATCH": [
+          "admin",
+          "member"
+        ],
+        "DELETE": [
+          "admin",
+          "member"
+        ]
+      }
+    },
+    {
+      "name": "deckEntries",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "deckId",
+          "type": "reference:userDecks",
+          "required": true
+        },
+        {
+          "name": "cardId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "cardAmount",
+          "type": "number",
+          "required": true
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "admin",
+          "member"
+        ],
+        "POST": [
+          "admin",
+          "member"
+        ],
+        "PUT": [
+          "admin",
+          "member"
+        ],
+        "PATCH": [
+          "admin",
+          "member"
+        ],
+        "DELETE": [
+          "admin",
+          "member"
+        ]
+      }
+    },
+    {
       "name": "images",
       "fields": [
         {
@@ -541,6 +630,32 @@
         "collectionId": 1,
         "cardId": "ff5391d8-b546-4159-955e-16bb58052311",
         "cardAmount": 1
+      }
+    ],
+    "userDecks": [
+      {
+        "id": 1,
+        "memberId": 1,
+        "deckName": "Boerenkool met worst"
+      },
+      {
+        "id": 2,
+        "memberId": 1,
+        "deckName": "Goblin taco"
+      }
+    ],
+    "deckEntries": [
+      {
+        "id": 1,
+        "deckId": 1,
+        "cardId": "842e7e6a-c89a-463d-a6e8-743a953c827c",
+        "cardAmount": 4
+      },
+      {
+        "id": 1,
+        "deckId": 2,
+        "cardId": "ff5391d8-b546-4159-955e-16bb58052311",
+        "cardAmount": 4
       }
     ]
   }
