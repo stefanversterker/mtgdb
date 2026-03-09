@@ -35,51 +35,7 @@ function DeckEditWindow() {
                                 </div>
                             }
                         >
-                            <CardListItem cardName="Jet Medallion"
-                                          cardAmount="4"
-                            />
-                            <CardListItem cardName="The Rack"
-                                          cardAmount="2"
-                            />
-                            <CardListItem cardName="Hypnotic Specter"
-                                          cardAmount="4"
-                            />
-                            <CardListItem cardName="Sengir Vampire"
-                                          cardAmount="2"
-                            />
-                            <CardListItem cardName="Megrim"
-                                          cardAmount="4"
-                            />
-                            <CardListItem cardName="Liliana's Caress"
-                                          cardAmount="4"
-                            />
-                            <CardListItem cardName="Megrim"
-                                          cardAmount="4"
-                            />
-                            <CardListItem cardName="Liliana's Caress"
-                                          cardAmount="4"
-                            />
-                            <CardListItem cardName="Dark Ritual"
-                                          cardAmount="4"
-                            />
-                            <CardListItem cardName="Terror"
-                                          cardAmount="4"
-                            />
-                            <CardListItem cardName="Swamp"
-                                          cardAmount="20"
-                            />
-                            <CardListItem cardName="Lake of the Dead"
-                                          cardAmount="2"
-                            />
-                            <CardListItem cardName="Liliana of the Dark Realms"
-                                          cardAmount="2"
-                            />
-                            <CardListItem cardName="Stupor"
-                                          cardAmount="4"
-                            />
-                            <CardListItem cardName="Ostracise"
-                                          cardAmount="4"
-                            />
+
                         </DropdownDetailSummary>
 
                     </div>

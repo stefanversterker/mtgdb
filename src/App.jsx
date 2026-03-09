@@ -31,6 +31,7 @@ function App() {
                 <Route path="/sign-up" element={<SignUp/>}/>
                 <Route path="/log-in" element={<LogIn/>}/>
                 <Route path="/welcome" element={<Welcome/>}/>
+                <Route path="/deck-editor/:deckId" element={<DeckEditor/>}/>
             </Routes>
         </div>
     )

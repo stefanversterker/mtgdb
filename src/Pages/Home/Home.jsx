@@ -56,10 +56,10 @@ function Home() {
                     <article className="decks-flow-container pink-border">
                         <Veil>
                             <div className="orange-border decks-flow">
-                                {userDecks.map(deck => {
+                                {userDecks?.map(deck => {
                                     return (
                                         <div key={deck.id}>
-                                            <DeckOverviewContainer deckName={deck.deckName} cardAmount="60"/>
+                                            <DeckOverviewContainer deckName={deck.deckName} cardAmount="60" deckId={deck.id}/>
                                         </div>
                                     )
                                 })}

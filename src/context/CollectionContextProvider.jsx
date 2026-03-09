@@ -1,6 +1,7 @@
 import {createContext, useContext, useEffect, useState} from "react";
 import {AuthContext} from "./AuthContextProvider.jsx";
 import axios from "axios";
+import {useParams} from "react-router-dom";
 
 export const CollectionContext = createContext({})
 
@@ -16,6 +17,7 @@ function CollectionContextProvider({children}) {
     const {user} = useContext(AuthContext);
     const userId = user?.id;
     const {token} = useContext(AuthContext);
+    const {deckId} = useParams();
     const noviId = 'b8985a1c-c1b7-4c00-9777-666019e0877d';
 
     function updateAmount(entryId, delta) {
@@ -246,6 +248,21 @@ function CollectionContextProvider({children}) {
             } finally {
 
             }
+        }
+
+        async function fetchDeckEntries(){
+
+        try {
+            const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks/${deckId}/deckEntries`, {
+                headers: {
+                    'novi-education-project-id': noviId,
+                    Authorization: `Bearer ${token}`
+                },
+            })
+
+        } catch(error) {
+            console.log('Sorry, we could find your cards');
+        }
         }
 
     useEffect(() => {

@@ -8,12 +8,15 @@ import ManaWhite from "/src/assets/symbols/mana-white.svg?react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CounterBox from "../CounterBox/CounterBox.jsx";
+import {CollectionContext} from "../../context/CollectionContextProvider.jsx";
+import {useContext} from "react";
 
-function DeckOverviewContainer({deckName, cardAmount}) {
+function DeckOverviewContainer({deckName, deckId, cardAmount}) {
+    const {addCard, collectionId, loading, userDecks} = useContext(CollectionContext);
 
     return (
 
-        <Link to="/deck-editor">
+        <Link to={`/deck-editor/${deckId}`}>
             <li className="deck-box">
                 <div className="deck-title">
                     <h3 className="deck-title">{deckName}</h3>
