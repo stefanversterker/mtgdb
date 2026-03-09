@@ -182,7 +182,8 @@ function CollectionEditor() {
                         ) : (
                             <ButtonSmall
                                 buttonContent={<TrashIcon className="trash-icon"/>}
-                                className="button-minus" onClick={deleteEntry}
+                                className="button-minus"
+                                onClick={deleteEntry}
                             />
                         )}
                     </div>
