@@ -1,5 +1,16 @@
 .card-list-item {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    margin: 3px;
+    margin: 10px;
+}
+
+
+@media screen and (min-width: 769px) {
+    .card-list-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 10px;
+    }
 }
