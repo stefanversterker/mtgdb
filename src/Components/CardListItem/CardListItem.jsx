@@ -11,24 +11,26 @@ function CardListItem({cardName}) {
 
         <li className="card-list-item">
             <p>{cardName}</p>
-            {<CardManagement
+            <CardManagement
                 lightBoxSource={{/*card.image_uris?.png ??
                 card.card_faces?.[0]?.image_uris?.png*/
                 }
                 }
             >
-                <ButtonSmall
+                <div>
+                    <ButtonSmall
                     buttonContent="-"
                     className="button-minus"
-                    onClick=""
+                    /*onClick={}*/
                 />
-                <ButtonSmall
-                    buttonContent="+"
-                    className="button-plus"
-                    onClick=""
-                />
+                    <ButtonSmall
+                        buttonContent="+"
+                        className="button-plus"
+                        /*onClick={}*/
+                    />
+                </div>
                 <CounterBox/>
-            </CardManagement>}
+            </CardManagement>
         </li>
     )
 }

@@ -17,11 +17,11 @@ function DeckEditWindow() {
                 <h1>Deck editor</h1>
                 <Button buttonContent="Save" onClick={ () => navigate("/")}></Button>
             </header>
-            <section>
+            {/*<section>
                 <Veil>
                     <DropdownDetailSummary summaryLeft="Deck stats"> Snazzy mana curve graph</DropdownDetailSummary>
                 </Veil>
-            </section>
+            </section>*/}
             <section className="pink-border card-type-dropdown-flow">
                 <Veil>
                 <div className="green-border dropdown-menu-container">
