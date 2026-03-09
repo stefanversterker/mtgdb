@@ -9,6 +9,7 @@ function CollectionContextProvider({children}) {
 
     const [data, setData] = useState([]);
     const [userCollection, setUserCollection] = useState([]);
+    const [userDecks, setUserDecks] = useState([]);
     const [collectionId, setCollectionId] = useState(null);
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(true);
@@ -225,6 +226,28 @@ function CollectionContextProvider({children}) {
         }
     }
 
+
+
+
+        async function fetchDecks() {
+
+            try {
+                const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/members/${userId}/userDecks`, {
+                    headers: {
+                        'novi-education-project-id': noviId,
+                        Authorization: `Bearer ${token}`
+                    },
+                })
+
+                setUserDecks(response.data)
+
+            } catch (error) {
+                console.log('Sorry, we could find your deck');
+            } finally {
+
+            }
+        }
+
     useEffect(() => {
 
         if (!userId) {
@@ -242,6 +265,7 @@ function CollectionContextProvider({children}) {
             toggleLoading(true);
             await fetchCollectionId();
             await fetchCardId(controller.signal);
+            await fetchDecks();
             toggleLoading(false);
         }
 
@@ -255,6 +279,7 @@ function CollectionContextProvider({children}) {
     const collectionData = {
         userCollection,
         setUserCollection,
+        userDecks,
         data,
         setData,
         loading,
