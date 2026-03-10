@@ -13,7 +13,7 @@ function Home() {
 
     const navigate = useNavigate();
     /*const [userCollection, setUserCollection] = useState([]);*/
-    const {addCard, collectionId, loading, userDecks} = useContext(CollectionContext);
+    const {addCard, collectionId, loading, userDecks, cardsInDeck} = useContext(CollectionContext);
     /*const [loggedIn, toggleLoggedIn] = useState(false)*/
 
     /*function logInOut() {
@@ -56,10 +56,10 @@ function Home() {
                     <article className="decks-flow-container pink-border">
                         <Veil>
                             <div className="orange-border decks-flow">
-                                {userDecks.map(deck => {
+                                {userDecks?.map(deck => {
                                     return (
                                         <div key={deck.id}>
-                                            <DeckOverviewContainer deckName={deck.deckName} cardAmount="60"/>
+                                            <DeckOverviewContainer deckName={deck.deckName} cardAmount={cardsInDeck} deckId={deck.id}/>
                                         </div>
                                     )
                                 })}

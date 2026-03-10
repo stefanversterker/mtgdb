@@ -16,6 +16,7 @@ function DeckEditor() {
             <CardDatabase/>
 
             <DeckEditWindow>
+
             </DeckEditWindow>
         </main>
 )

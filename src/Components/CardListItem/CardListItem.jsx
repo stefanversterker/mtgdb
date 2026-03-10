@@ -6,7 +6,7 @@ import CounterBox from "../CounterBox/CounterBox.jsx";
 import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 import TrashIcon from "../../assets/symbols/trash.svg";
 
-function CardListItem({cardName}) {
+function CardListItem({cardName, cardAmount}) {
     return (
 
         <li className="card-list-item">
@@ -29,7 +29,7 @@ function CardListItem({cardName}) {
                         /*onClick={}*/
                     />
                 </div>
-                <CounterBox/>
+                <CounterBox cardAmount={cardAmount}/>
             </CardManagement>
         </li>
     )

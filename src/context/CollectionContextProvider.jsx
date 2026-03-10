@@ -10,6 +10,7 @@ function CollectionContextProvider({children}) {
     const [data, setData] = useState([]);
     const [userCollection, setUserCollection] = useState([]);
     const [userDecks, setUserDecks] = useState([]);
+    const [deckEntries, setDeckEntries] = useState([]);
     const [collectionId, setCollectionId] = useState(null);
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(true);
@@ -17,6 +18,10 @@ function CollectionContextProvider({children}) {
     const userId = user?.id;
     const {token} = useContext(AuthContext);
     const noviId = 'b8985a1c-c1b7-4c00-9777-666019e0877d';
+    const cardsInDeck = deckEntries.reduce(
+        (total, entry) => total + entry.cardAmount,
+        0
+    );
 
     function updateAmount(entryId, delta) {
 
@@ -248,6 +253,23 @@ function CollectionContextProvider({children}) {
             }
         }
 
+        async function fetchDeckEntries(deckId){
+
+        try {
+            const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks/${deckId}/deckEntries`, {
+                headers: {
+                    'novi-education-project-id': noviId,
+                    Authorization: `Bearer ${token}`
+                },
+            })
+            setDeckEntries(response.data)
+            console.log(response)
+        } catch(error) {
+            console.log('Sorry, we could find your cards');
+            console.log(deckId)
+        }
+        }
+
     useEffect(() => {
 
         if (!userId) {
@@ -280,6 +302,9 @@ function CollectionContextProvider({children}) {
         userCollection,
         setUserCollection,
         userDecks,
+        fetchDeckEntries,
+        deckEntries,
+        cardsInDeck,
         data,
         setData,
         loading,
