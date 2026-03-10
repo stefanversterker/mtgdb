@@ -13,9 +13,8 @@ import {useContext, useEffect, useState} from "react";
 function DeckEditWindow() {
 
     const navigate = useNavigate();
-    const {addCard, collectionId, loading, userDecks, fetchDeckEntries, deckEntries} = useContext(CollectionContext);
+    const {addCard, collectionId, loading, userDecks, fetchDeckEntries, deckEntries, cardsInDeck} = useContext(CollectionContext);
     const {deckId} = useParams();
-    const [cardsInDeck, setCardsInDeck] = useState(0)
     const deck = userDecks.find(d => d.id === Number(deckId));
 
     useEffect(() => {
@@ -38,7 +37,7 @@ function DeckEditWindow() {
                             summaryLeft={deck?.deckName}
                             summaryRight={
                                 <div className="deck-management">
-                                    <CounterBox cardAmount="8"/>
+                                    <CounterBox cardAmount={cardsInDeck}/>
                                     <ButtonSmall
                                         buttonContent={<TrashIcon className="trash-icon"/>}
                                         className="button-minus-round"

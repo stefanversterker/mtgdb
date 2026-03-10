@@ -18,6 +18,10 @@ function CollectionContextProvider({children}) {
     const userId = user?.id;
     const {token} = useContext(AuthContext);
     const noviId = 'b8985a1c-c1b7-4c00-9777-666019e0877d';
+    const cardsInDeck = deckEntries.reduce(
+        (total, entry) => total + entry.cardAmount,
+        0
+    );
 
     function updateAmount(entryId, delta) {
 
@@ -300,6 +304,7 @@ function CollectionContextProvider({children}) {
         userDecks,
         fetchDeckEntries,
         deckEntries,
+        cardsInDeck,
         data,
         setData,
         loading,

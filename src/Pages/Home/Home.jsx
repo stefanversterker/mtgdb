@@ -13,7 +13,7 @@ function Home() {
 
     const navigate = useNavigate();
     /*const [userCollection, setUserCollection] = useState([]);*/
-    const {addCard, collectionId, loading, userDecks} = useContext(CollectionContext);
+    const {addCard, collectionId, loading, userDecks, cardsInDeck} = useContext(CollectionContext);
     /*const [loggedIn, toggleLoggedIn] = useState(false)*/
 
     /*function logInOut() {
@@ -59,7 +59,7 @@ function Home() {
                                 {userDecks?.map(deck => {
                                     return (
                                         <div key={deck.id}>
-                                            <DeckOverviewContainer deckName={deck.deckName} cardAmount="60" deckId={deck.id}/>
+                                            <DeckOverviewContainer deckName={deck.deckName} cardAmount={cardsInDeck} deckId={deck.id}/>
                                         </div>
                                     )
                                 })}
