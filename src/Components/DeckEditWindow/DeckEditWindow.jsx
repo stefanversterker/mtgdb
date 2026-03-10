@@ -4,13 +4,25 @@ import DropdownDetailSummary from "../DropdownDetailSummary/DropdownDetailSummar
 import CardListItem from "../CardListItem/CardListItem.jsx";
 import CounterBox from "../CounterBox/CounterBox.jsx";
 import Button from "../Button/Button.jsx";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 import TrashIcon from "/src/assets/symbols/trash.svg?react";
+import {CollectionContext} from "../../context/CollectionContextProvider.jsx";
+import {useContext, useEffect, useState} from "react";
 
 function DeckEditWindow() {
 
     const navigate = useNavigate();
+    const {addCard, collectionId, loading, userDecks, fetchDeckEntries, deckEntries} = useContext(CollectionContext);
+    const {deckId} = useParams();
+    const [cardsInDeck, setCardsInDeck] = useState(0)
+    const deck = userDecks.find(d => d.id === Number(deckId));
+
+    useEffect(() => {
+        if (!deckId) return;
+        fetchDeckEntries(deckId);
+
+    }, [deckId]);
 
     return (
 
@@ -23,7 +35,7 @@ function DeckEditWindow() {
                 <Veil>
                     <div className="green-border dropdown-menu-container">
                         <DropdownDetailSummary
-                            summaryLeft="Deck"
+                            summaryLeft={deck?.deckName}
                             summaryRight={
                                 <div className="deck-management">
                                     <CounterBox cardAmount="8"/>
@@ -35,11 +47,21 @@ function DeckEditWindow() {
                                 </div>
                             }
                         >
+                            <div>
+                                {deckEntries.map((e)=>
+                                <div key={e.id}>
+                                    <CardListItem
+                                        cardName={e.cardId}
+                                        cardAmount={e.cardAmount}
+                                    />
+                                </div>
+                                )}
+                            </div>
 
                         </DropdownDetailSummary>
-
                     </div>
-                </Veil></section>
+                </Veil>
+            </section>
         </section>
     )
 }

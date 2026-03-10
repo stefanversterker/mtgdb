@@ -1,7 +1,6 @@
 import {createContext, useContext, useEffect, useState} from "react";
 import {AuthContext} from "./AuthContextProvider.jsx";
 import axios from "axios";
-import {useParams} from "react-router-dom";
 
 export const CollectionContext = createContext({})
 
@@ -11,13 +10,13 @@ function CollectionContextProvider({children}) {
     const [data, setData] = useState([]);
     const [userCollection, setUserCollection] = useState([]);
     const [userDecks, setUserDecks] = useState([]);
+    const [deckEntries, setDeckEntries] = useState([]);
     const [collectionId, setCollectionId] = useState(null);
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(true);
     const {user} = useContext(AuthContext);
     const userId = user?.id;
     const {token} = useContext(AuthContext);
-    const {deckId} = useParams();
     const noviId = 'b8985a1c-c1b7-4c00-9777-666019e0877d';
 
     function updateAmount(entryId, delta) {
@@ -250,7 +249,7 @@ function CollectionContextProvider({children}) {
             }
         }
 
-        async function fetchDeckEntries(){
+        async function fetchDeckEntries(deckId){
 
         try {
             const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks/${deckId}/deckEntries`, {
@@ -259,9 +258,11 @@ function CollectionContextProvider({children}) {
                     Authorization: `Bearer ${token}`
                 },
             })
-
+            setDeckEntries(response.data)
+            console.log(response)
         } catch(error) {
             console.log('Sorry, we could find your cards');
+            console.log(deckId)
         }
         }
 
@@ -297,6 +298,8 @@ function CollectionContextProvider({children}) {
         userCollection,
         setUserCollection,
         userDecks,
+        fetchDeckEntries,
+        deckEntries,
         data,
         setData,
         loading,
