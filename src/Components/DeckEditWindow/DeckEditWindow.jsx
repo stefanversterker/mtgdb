@@ -13,7 +13,7 @@ import {useContext, useEffect, useState} from "react";
 function DeckEditWindow() {
 
     const navigate = useNavigate();
-    const {addCard, collectionId, loading, userDecks, fetchDeckEntries, deckEntries, cardsInDeck} = useContext(CollectionContext);
+    const {addCard, collectionId, loading, userDecks, fetchDeckEntries, deckEntries, cardsInDeck, deckData} = useContext(CollectionContext);
     const {deckId} = useParams();
     const deck = userDecks.find(d => d.id === Number(deckId));
 
@@ -47,14 +47,31 @@ function DeckEditWindow() {
                             }
                         >
                             <div>
-                                {deckEntries.map((e)=>
-                                <div key={e.id}>
-                                    <CardListItem
-                                        cardName={e.cardId}
-                                        cardAmount={e.cardAmount}
-                                    />
-                                </div>
-                                )}
+                                {deckData.map(card => {
+
+                                    const entry = deckEntries.find(
+                                        e => e.cardId === card.id
+                                    );
+
+                                    if (!entry) return null;
+
+                                    const amount = entry.cardAmount;
+
+                                    return (
+                                        <div key={card.id}>
+                                            <CardListItem
+                                                cardName={card.name}
+                                                cardAmount={amount}
+                                                /*onClickPlus=""
+                                                onClickMinus=""*/
+                                                lightBoxSource={
+                                                    card.image_uris?.png ??
+                                                    card.card_faces?.[0]?.image_uris?.png
+                                                }
+                                            />
+                                        </div>
+                                    );
+                                })}
                             </div>
 
                         </DropdownDetailSummary>

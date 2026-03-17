@@ -7,7 +7,8 @@ export const CollectionContext = createContext({})
 
 function CollectionContextProvider({children}) {
 
-    const [data, setData] = useState([]);
+    const [userCollectionData, setUserCollectionData] = useState([]);
+    const [deckData, setDeckData] = useState([]);
     const [userCollection, setUserCollection] = useState([]);
     const [userDecks, setUserDecks] = useState([]);
     const [deckEntries, setDeckEntries] = useState([]);
@@ -117,45 +118,59 @@ function CollectionContextProvider({children}) {
         }
     }
 
+    async function fetchCollection(cardList, signal, setTargetData, source) {
+
+        try {
+            toggleError(false);
+
+
+            const identifiers = cardList
+                .filter(entry =>
+                    entry.cardId &&
+                    entry.cardId.includes("-")
+                )
+                .map(entry => ({id: entry.cardId}));
+
+            /*console.log("FETCH SOURCE:", source);
+            console.log("IDENTIFIERS:", identifiers);*/
+
+            const scryfallResponse = await axios.post(
+                `https://api.scryfall.com/cards/collection`,
+                {identifiers},
+                {signal}
+            );
+
+            setTargetData(scryfallResponse.data.data)
+            console.log(scryfallResponse)
+
+        } catch (error) {
+            toggleError(true)
+            console.error("kapot")
+        } finally {
+
+        }
+    }
+
     useEffect(() => {
         const controller = new AbortController();
         if (userCollection.length === 0) {
-            setData([]);
+            setUserCollectionData([]);
             return;
         }
-
-
-        async function fetchCollection() {
-
-            try {
-                toggleError(false);
-
-
-                const identifiers = userCollection
-                    .filter(entry => entry.cardId)
-                    .map(entry => ({id: entry.cardId}));
-
-                const scryfallResponse = await axios.post(
-                    `https://api.scryfall.com/cards/collection`,
-                    {identifiers},
-                    {signal: controller.signal}
-                );
-
-                setData(scryfallResponse.data.data)
-                /*console.log(scryfallResponse)*/
-
-            } catch (error) {
-                toggleError(true)
-                console.error("kapot")
-            } finally {
-
-            }
-        }
-
-        fetchCollection();
-
+        fetchCollection(userCollection, controller.signal, setUserCollectionData, "collection");
         return () => controller.abort();
     }, [userCollection]);
+
+
+    useEffect(() => {
+        const controller = new AbortController();
+        if (deckEntries.length === 0) {
+            setDeckData([]);
+            return;
+        }
+        fetchCollection(deckEntries, controller.signal, setDeckData, "deck");
+        return () => controller.abort();
+    }, [deckEntries]);
 
     async function patchCollectionEntry(amount, entryId) {
 
@@ -246,6 +261,7 @@ function CollectionContextProvider({children}) {
 
                 setUserDecks(response.data)
 
+
             } catch (error) {
                 console.log('Sorry, we could find your deck');
             } finally {
@@ -274,7 +290,7 @@ function CollectionContextProvider({children}) {
 
         if (!userId) {
             setUserCollection([]);
-            setData([]);
+            setUserCollectionData([]);
             setCollectionId(null);
             toggleLoading(false)
             return;
@@ -305,8 +321,10 @@ function CollectionContextProvider({children}) {
         fetchDeckEntries,
         deckEntries,
         cardsInDeck,
-        data,
-        setData,
+        userCollectionData,
+        setUserCollectionData,
+        deckData,
+        setDeckData,
         loading,
         error,
         addCard,
