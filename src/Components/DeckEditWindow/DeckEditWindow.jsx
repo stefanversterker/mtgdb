@@ -35,16 +35,18 @@ function DeckEditWindow() {
                     <div className="green-border dropdown-menu-container">
                         <DropdownDetailSummary
                             summaryLeft={deck?.deckName}
-                            summaryRight={
-                                <div className="deck-management">
+                            summaryRight=""
+                                /*<div className="deck-management">
+                                    <p>Cards in deck: </p>
                                     <CounterBox cardAmount={cardsInDeck}/>
+                                    <p>Delete deck</p>
                                     <ButtonSmall
                                         buttonContent={<TrashIcon className="trash-icon"/>}
                                         className="button-minus-round"
-                                        /*onClick={deleteEntry}*/
+                                        /!*onClick={deleteEntry}*!/
                                     />
-                                </div>
-                            }
+                                </div>*/
+
                         >
                             <div>
                                 {deckData.map(card => {
@@ -74,8 +76,24 @@ function DeckEditWindow() {
                                     );
                                 })}
                             </div>
+                            <div className="deck-management">
+                                <div className="deck-management-line-container">
+                                    <p>Cards in deck: </p>
+                                    <CounterBox cardAmount={cardsInDeck} className="card-total"/>
+                                </div>
+                                <div className="deck-management-line-container">
+                                    <p>Delete deck</p>
+                                    <ButtonSmall
+                                        buttonContent={<TrashIcon className="trash-icon"/>}
+                                        className="button-minus-round"
+                                    /*onClick={deleteEntry}*/
+                                    />
+                                </div>
+                            </div>
+
 
                         </DropdownDetailSummary>
+
                     </div>
                 </Veil>
             </section>

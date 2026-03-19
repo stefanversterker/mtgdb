@@ -15,27 +15,28 @@ function CardListItem({cardName, cardAmount, lightBoxSource, onClickMinus, onCli
             <CardManagement
                 lightBoxSource={lightBoxSource}
             >
-                <div>
-                    {
-                        cardAmount > 1 ? (
-                            <ButtonSmall
-                                buttonContent="-"
-                                className="button-minus"
-                                onClick={onClickMinus}
-                            />
-                        ) : (
-                            <ButtonSmall
-                                buttonContent={<TrashIcon className="trash-icon"/>}
-                                className="button-minus"
-                                onClick={onClickTrash}
-                            />
-                        )}
-                </div>
-                <ButtonSmall
-                    buttonContent="+"
-                    className="button-plus"
-                    onClick={onClickPlus}
-                />
+                <div className="plus-minus-buttons">
+                    <div>
+                        {
+                            cardAmount > 1 ? (
+                                <ButtonSmall
+                                    buttonContent="-"
+                                    className="button-minus"
+                                    onClick={onClickMinus}
+                                />
+                            ) : (
+                                <ButtonSmall
+                                    buttonContent={<TrashIcon className="trash-icon"/>}
+                                    className="button-minus"
+                                    onClick={onClickTrash}
+                                />
+                            )}
+                    </div>
+                    <ButtonSmall
+                        buttonContent="+"
+                        className="button-plus"
+                        onClick={onClickPlus}
+                    /></div>
                 <CounterBox cardAmount={cardAmount}/>
             </CardManagement>
         </li>

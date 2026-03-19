@@ -1,13 +1,13 @@
 import './Input.css'
 
-function Input({htmlFor, labelText, type, id, name, value, onChange, placeHolder, required}) {
+function Input({htmlFor, labelText, type, id, name, value, onChange, placeHolder, required, className}) {
     return (
 
         <div className="label-and-input">
             <label htmlFor={htmlFor}>
                 {labelText}
                 <input
-                    className="form-input"
+                    className={`form-input ${className}`}
                     placeholder={placeHolder}
                     type={type}
                     id={id}

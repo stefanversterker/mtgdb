@@ -12,7 +12,7 @@
     justify-content: space-between;
     background-color: var(--not-white);
     border-radius: 8px 8px 0 0;
-    padding:5px 15px;
+    padding: 5px 15px;
 }
 
 .dropdown-content {
@@ -23,21 +23,58 @@
 
 .deck-management {
     display: flex;
-    gap: 5px;
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 10px;
+}
+
+.deck-management-line-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 10px;
 }
 
 .button-minus-round {
     background-color: var(--red);
+    width: 113px;
+}
+
+.card-total {
+    width: 113px;
+}
+
+.name-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.name-editor-field {
+    background-color: var(--light-blue);
+}
+
+.name-editor-button {
+    width: 100%;
 }
 
 
-/*
+
 @media screen and (min-width: 769px) {
-    !*purple border*!
-    .dropdown-container {
+
+    .summary-container {
         display: flex;
-        flex-direction: column;
-        width: 21.85rem;
-        overflow: hidden;
+        justify-content: space-between;
+        background-color: var(--not-white);
+        border-radius: 8px 8px 0 0;
+        padding:5px 15px;
     }
-}*/
+
+    .deck-management-line-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 10px;
+    }
+
+}

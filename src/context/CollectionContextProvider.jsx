@@ -55,7 +55,7 @@ function CollectionContextProvider({children}) {
         const newAmount = userEntry.cardAmount + delta;
 
         if (newAmount < 1) {
-            deleteEntry(entryId); // MAKE VERSION FOR DECKS
+            deleteEntry(entryId);
             return;
         }
 
@@ -241,7 +241,7 @@ function CollectionContextProvider({children}) {
         try {
 
             await axios.patch(
-                `https://novi-backend-api-wgsgz.ondigitalocean.app/api/deckEntries/${entryId}`, //MAKE DYNAMIC
+                `https://novi-backend-api-wgsgz.ondigitalocean.app/api/deckEntries/${entryId}`,
                 {
                     cardAmount: amount,
                 },
