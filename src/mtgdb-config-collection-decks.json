@@ -688,8 +688,6 @@
 
       { "id": 25, "deckId": 3, "cardId": "7165a9ac-3f44-4d14-93bb-d4d4970ab41b", "cardAmount": 4 },
       { "id": 26, "deckId": 3, "cardId": "7e8e34de-4b0a-48fe-bb13-c7e181d37e6c", "cardAmount": 3 },
-      { "id": 27, "deckId": 3, "cardId": "520cd07a-27e6-498e-be7e-f74429691cef", "cardAmount": 4 },
-      { "id": 28, "deckId": 3, "cardId": "820a18df-0193-48aa-aa32-9ada57ece4fc", "cardAmount": 4 },
       { "id": 29, "deckId": 3, "cardId": "03c67a1b-32d7-4f66-bc6c-aaf09275a779", "cardAmount": 2 },
       { "id": 30, "deckId": 3, "cardId": "68ebdcc2-4449-4b10-82fb-51f5e14eab37", "cardAmount": 2 },
       { "id": 31, "deckId": 3, "cardId": "06431793-5dfe-4cbf-990b-4bcc960d1f31", "cardAmount": 4 },

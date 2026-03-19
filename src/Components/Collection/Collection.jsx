@@ -14,7 +14,7 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
 
     const {
         userCollectionData,
-        updateAmount,
+        updateAmountInCollection,
         deleteEntry,
         userCollection,
         loading,
@@ -64,8 +64,8 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
                                                     <CounterBox cardAmount={amount}/>
                                                     {typeof children === "function" ? children({
                                                         amount,
-                                                        increaseAmount: () => updateAmount(userEntry.id, +1),
-                                                        decreaseAmount: () => updateAmount(userEntry.id, -1),
+                                                        increaseAmount: () => updateAmountInCollection(userEntry.id, +1),
+                                                        decreaseAmount: () => updateAmountInCollection(userEntry.id, -1),
                                                         deleteEntry: () => deleteEntry(userEntry.id),
                                                     }) : children}
                                                 </CardManagement>

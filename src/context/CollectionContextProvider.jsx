@@ -24,7 +24,7 @@ function CollectionContextProvider({children}) {
         0
     );
 
-    function updateAmount(entryId, delta) {
+    function updateAmountInCollection(entryId, delta) {
 
         const userEntry = userCollection.find((entry) => entry.id === entryId);
 
@@ -47,6 +47,29 @@ function CollectionContextProvider({children}) {
         patchCollectionEntry(newAmount, entryId);
     }
 
+    function updateAmountInDeck(entryId, delta) {
+
+        const userEntry = deckEntries.find((entry) => entry.id === entryId);
+
+        if (!userEntry) return;
+        const newAmount = userEntry.cardAmount + delta;
+
+        if (newAmount < 1) {
+            deleteEntry(entryId); // MAKE VERSION FOR DECKS
+            return;
+        }
+
+        setDeckEntries(previousCollection =>
+            previousCollection.map((entry) =>
+                entry.id === entryId
+                    ? {...entry, cardAmount: newAmount}
+                    : entry
+            )
+        );
+
+        patchDeckEntry(newAmount, entryId);
+    }
+
     function addCard(card) {
         if (!collectionId) return;
         console.log("Card clicked:", card.id);
@@ -55,10 +78,25 @@ function CollectionContextProvider({children}) {
         });
         if (inCollection) {
             console.log("already in collection")
-            updateAmount(inCollection.id, +1)
+            updateAmountInCollection(inCollection.id, +1)
         } else if (!inCollection) {
             console.log("not in collection")
             postEntry(card.id)
+        }
+    }
+
+    function addCardToDeck(card) {
+        if (!collectionId) return;
+        console.log("Card clicked:", card.id);
+        const inDeck = deckEntries.find((entry) => {
+            return card.id === entry.cardId
+        });
+        if (inDeck) {
+            console.log("already in deck")
+            updateAmountInDeck(inDeck.id, +1)
+        } else if (!inDeck) {
+            console.log("not in deck")
+            postDeckEntry(card.id)
         }
     }
 
@@ -141,7 +179,7 @@ function CollectionContextProvider({children}) {
             );
 
             setTargetData(scryfallResponse.data.data)
-            console.log(scryfallResponse)
+            console.log(cardsInDeck)
 
         } catch (error) {
             toggleError(true)
@@ -198,6 +236,30 @@ function CollectionContextProvider({children}) {
         }
     }
 
+    async function patchDeckEntry(amount, entryId) {
+
+        try {
+
+            await axios.patch(
+                `https://novi-backend-api-wgsgz.ondigitalocean.app/api/deckEntries/${entryId}`, //MAKE DYNAMIC
+                {
+                    cardAmount: amount,
+                },
+                {
+                    headers: {
+                        'novi-education-project-id': noviId,
+                        Authorization: `Bearer ${token}`
+                    },
+                },
+            )
+
+        } catch (error) {
+            console.log('Sorry, we could not add this card to your deck');
+        } finally {
+
+        }
+    }
+
     async function postEntry(cardId) {
         toggleError(false);
 
@@ -217,6 +279,32 @@ function CollectionContextProvider({children}) {
             /*console.log(response.data);*/
             /*console.log(response.status);*/
             setUserCollection(prev => [...prev, response.data]);
+        } catch (error) {
+            console.log('Sorry, we could not add this card to your collection');
+        } finally {
+
+        }
+    }
+
+    async function postDeckEntry(cardId) {
+        toggleError(false);
+
+
+        try {
+            const response = await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/deckEntries`, {
+                    deckId: collectionId,
+                    cardId: cardId,
+                    cardAmount: 1
+                },
+                {
+                    headers: {
+                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        Authorization: `Bearer ${token}`
+                    },
+                })
+            /*console.log(response.data);*/
+            /*console.log(response.status);*/
+            setDeckEntries(prev => [...prev, response.data]);
         } catch (error) {
             console.log('Sorry, we could not add this card to your collection');
         } finally {
@@ -246,8 +334,27 @@ function CollectionContextProvider({children}) {
         }
     }
 
+    async function deleteDeckEntry(entryId) {
 
+        try {
+            await axios.delete(
+                `https://novi-backend-api-wgsgz.ondigitalocean.app/api/deckEntries/${entryId}`,
+                {
+                    headers: {
+                        'novi-education-project-id': noviId,
+                        Authorization: `Bearer ${token}`
+                    },
+                },
+            )
 
+            setDeckEntries(deckEntries => {
+                return deckEntries.filter((entry) => entry.id !== entryId)
+            })
+
+        } catch (error) {
+            console.log('Sorry, we could not delete this card');
+        }
+    }
 
         async function fetchDecks() {
 
@@ -260,7 +367,6 @@ function CollectionContextProvider({children}) {
                 })
 
                 setUserDecks(response.data)
-
 
             } catch (error) {
                 console.log('Sorry, we could find your deck');
@@ -328,8 +434,11 @@ function CollectionContextProvider({children}) {
         loading,
         error,
         addCard,
-        updateAmount,
+        addCardToDeck,
+        updateAmountInCollection,
+        updateAmountInDeck,
         deleteEntry,
+        deleteDeckEntry,
         collectionId
     };
 

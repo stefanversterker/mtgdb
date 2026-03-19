@@ -13,7 +13,7 @@ import {useContext, useEffect, useState} from "react";
 function DeckEditWindow() {
 
     const navigate = useNavigate();
-    const {addCard, collectionId, loading, userDecks, fetchDeckEntries, deckEntries, cardsInDeck, deckData} = useContext(CollectionContext);
+    const {addCard, loading, userDecks, fetchDeckEntries, deckEntries, cardsInDeck, deckData, updateAmountInDeck, deleteDeckEntry, userEntry} = useContext(CollectionContext);
     const {deckId} = useParams();
     const deck = userDecks.find(d => d.id === Number(deckId));
 
@@ -62,8 +62,9 @@ function DeckEditWindow() {
                                             <CardListItem
                                                 cardName={card.name}
                                                 cardAmount={amount}
-                                                /*onClickPlus=""
-                                                onClickMinus=""*/
+                                                onClickPlus={() => updateAmountInDeck(entry.id, +1)}
+                                                onClickMinus={() => updateAmountInDeck(entry.id, -1)}
+                                                onClickTrash={() => deleteDeckEntry(entry.id)}
                                                 lightBoxSource={
                                                     card.image_uris?.png ??
                                                     card.card_faces?.[0]?.image_uris?.png
