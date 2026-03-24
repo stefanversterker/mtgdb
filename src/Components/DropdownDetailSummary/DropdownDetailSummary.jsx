@@ -2,7 +2,7 @@ import './DropdownDetailSummary.css'
 import Input from "../Input/Input.jsx";
 import Button from "../Button/Button.jsx";
 
-function DropdownDetailSummary({children, deckName, setDeckName}) {
+function DropdownDetailSummary({children, value, onChange}) {
     return (
 
         <article>
@@ -11,11 +11,15 @@ function DropdownDetailSummary({children, deckName, setDeckName}) {
                     <form className="name-editor">
                         <Input
                             type="text"
-                            value={deckName}
-                            onChange={(e) => setDeckName(e.target.value)}
+                            value={value}
+                            onChange={onChange}
                             className="name-editor-field"
                         />
-                        <Button buttonContent="save name" className="name-editor-button"></Button>
+                        <Button buttonContent="save name"
+                                className="name-editor-button"
+                        >
+
+                        </Button>
                     </form>
                 </summary>
                 <div className="dropdown-content">

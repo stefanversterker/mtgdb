@@ -18,6 +18,8 @@ function DeckEditWindow() {
     const deck = userDecks.find(d => d.id === Number(deckId));
     const [deckName, setDeckName] = useState('')
 
+    console.log(deckName);
+
     useEffect(() => {
         if (!deckId) return;
         fetchDeckEntries(deckId);
@@ -25,8 +27,9 @@ function DeckEditWindow() {
     }, [deckId]);
 
     useEffect(() => {
-        if (deck?.name) {
-            setDeckName(deck?.name);
+        if (deck?.deckName) {
+            setDeckName(deck?.deckName);
+
         }
     }, [deck]);
 
@@ -41,7 +44,10 @@ function DeckEditWindow() {
                 <Veil>
                     <div className="green-border dropdown-menu-container">
                         <DropdownDetailSummary
-                            summaryLeft={deck?.deckName}
+                            /*summaryLeft={deck?.deckName}*/
+                            value={deckName}
+                            onChange={(e) => setDeckName(e.target.value)}
+
                         >
                             <div>
                                 {deckData.map(card => {
@@ -85,8 +91,6 @@ function DeckEditWindow() {
                                     />
                                 </div>
                             </div>
-
-
                         </DropdownDetailSummary>
 
                     </div>
