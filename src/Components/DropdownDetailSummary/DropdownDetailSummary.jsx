@@ -2,13 +2,13 @@ import './DropdownDetailSummary.css'
 import Input from "../Input/Input.jsx";
 import Button from "../Button/Button.jsx";
 
-function DropdownDetailSummary({children, value, onChange}) {
+function DropdownDetailSummary({children, value, onChange, onClick}) {
     return (
 
         <article>
             <details open className="dropdown-container purple-border">
-                <summary className="summary-container">
-                    <form className="name-editor">
+                <summary className="summary-container pink-border">
+
                         <Input
                             type="text"
                             value={value}
@@ -16,11 +16,14 @@ function DropdownDetailSummary({children, value, onChange}) {
                             className="name-editor-field"
                         />
                         <Button buttonContent="save name"
-                                className="name-editor-button"
+                                className="name-editor-button "
+                                type="button"
+                                onClick={onClick}
+                                /*disabled={}*/
                         >
 
                         </Button>
-                    </form>
+
                 </summary>
                 <div className="dropdown-content">
                     <ul>

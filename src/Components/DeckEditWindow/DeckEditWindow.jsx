@@ -13,12 +13,15 @@ import {useContext, useEffect, useState} from "react";
 function DeckEditWindow() {
 
     const navigate = useNavigate();
-    const {addCard, loading, userDecks, fetchDeckEntries, deckEntries, cardsInDeck, deckData, updateAmountInDeck, deleteDeckEntry, userEntry} = useContext(CollectionContext);
+    const {addCard, loading, userDecks, fetchDeckEntries, deckEntries, cardsInDeck, deckData, updateAmountInDeck, deleteDeckEntry, userEntry, patchDeckName} = useContext(CollectionContext);
     const {deckId} = useParams();
     const deck = userDecks.find(d => d.id === Number(deckId));
     const [deckName, setDeckName] = useState('')
 
-    console.log(deckName);
+    /*console.log("userDecks in component:", userDecks);*/
+
+    /*console.log(deckName);*/
+    /*console.log(deckId);*/
 
     useEffect(() => {
         if (!deckId) return;
@@ -47,6 +50,7 @@ function DeckEditWindow() {
                             /*summaryLeft={deck?.deckName}*/
                             value={deckName}
                             onChange={(e) => setDeckName(e.target.value)}
+                            onClick={() => patchDeckName(deckId, deckName)}
 
                         >
                             <div>

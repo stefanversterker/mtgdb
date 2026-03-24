@@ -7,11 +7,11 @@ export const CollectionContext = createContext({})
 
 function CollectionContextProvider({children}) {
 
-    const [userCollectionData, setUserCollectionData] = useState([]);
-    const [deckData, setDeckData] = useState([]);
-    const [userCollection, setUserCollection] = useState([]);
-    const [userDecks, setUserDecks] = useState([]);
-    const [deckEntries, setDeckEntries] = useState([]);
+    const [userCollectionData, setUserCollectionData] = useState([]); //collection data from novi backend
+    const [deckData, setDeckData] = useState([]); //full data object from scryfall for each card in a single deck
+    const [userCollection, setUserCollection] = useState([]); //
+    const [userDecks, setUserDecks] = useState([]); //all decks that belong to a user id. Includes deck id and deck name.
+    const [deckEntries, setDeckEntries] = useState([]); //
     const [collectionId, setCollectionId] = useState(null);
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(true);
@@ -23,6 +23,7 @@ function CollectionContextProvider({children}) {
         (total, entry) => total + entry.cardAmount,
         0
     );
+
 
     function updateAmountInCollection(entryId, delta) {
 
@@ -179,7 +180,6 @@ function CollectionContextProvider({children}) {
             );
 
             setTargetData(scryfallResponse.data.data)
-            console.log(cardsInDeck)
 
         } catch (error) {
             toggleError(true)
@@ -255,6 +255,46 @@ function CollectionContextProvider({children}) {
 
         } catch (error) {
             console.log('Sorry, we could not add this card to your deck');
+        } finally {
+
+        }
+    }
+
+    async function patchDeckName(deckId, newName) {
+
+        try {
+            await axios.patch(
+                `https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks/${deckId}`, // <-- Where can I get the current deck id from?
+                {
+                    deckName: newName,
+                },
+                {
+                    headers: {
+                        'novi-education-project-id': noviId,
+                        Authorization: `Bearer ${token}`
+                    }
+                },
+            )
+
+            /*setDeck(prev => ({ ...prev, deckName: newName }))*/
+            setUserDecks(prev => {
+                const updatedDecks = prev.map((deck) =>
+                    deck.id === deckId
+                        ? { ...deck, deckName: newName }
+                        : deck
+                );
+
+                console.log("updated decks:", updatedDecks);
+                console.log("patchDeckName called", deckId, newName);
+
+                return updatedDecks;
+            });
+
+            console.log("updated decks:", updatedDecks)
+
+        } catch (error) {
+            console.log("Sorry, deck name could not be changed")
+            console.error(error.response);
         } finally {
 
         }
@@ -356,26 +396,26 @@ function CollectionContextProvider({children}) {
         }
     }
 
-        async function fetchDecks() {
+    async function fetchDecks() {
 
-            try {
-                const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/members/${userId}/userDecks`, {
-                    headers: {
-                        'novi-education-project-id': noviId,
-                        Authorization: `Bearer ${token}`
-                    },
-                })
+        try {
+            const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/members/${userId}/userDecks`, {
+                headers: {
+                    'novi-education-project-id': noviId,
+                    Authorization: `Bearer ${token}`
+                },
+            })
 
-                setUserDecks(response.data)
+            setUserDecks(response.data)
 
-            } catch (error) {
-                console.log('Sorry, we could find your deck');
-            } finally {
+        } catch (error) {
+            console.log('Sorry, we could find your deck');
+        } finally {
 
-            }
         }
+    }
 
-        async function fetchDeckEntries(deckId){
+    async function fetchDeckEntries(deckId) {
 
         try {
             const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks/${deckId}/deckEntries`, {
@@ -386,11 +426,11 @@ function CollectionContextProvider({children}) {
             })
             setDeckEntries(response.data)
             console.log(response)
-        } catch(error) {
+        } catch (error) {
             console.log('Sorry, we could find your cards');
             console.log(deckId)
         }
-        }
+    }
 
     useEffect(() => {
 
@@ -439,7 +479,8 @@ function CollectionContextProvider({children}) {
         updateAmountInDeck,
         deleteEntry,
         deleteDeckEntry,
-        collectionId
+        collectionId,
+        patchDeckName
     };
 
     return (
