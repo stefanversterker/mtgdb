@@ -16,12 +16,19 @@ function DeckEditWindow() {
     const {addCard, loading, userDecks, fetchDeckEntries, deckEntries, cardsInDeck, deckData, updateAmountInDeck, deleteDeckEntry, userEntry} = useContext(CollectionContext);
     const {deckId} = useParams();
     const deck = userDecks.find(d => d.id === Number(deckId));
+    const [deckName, setDeckName] = useState('')
 
     useEffect(() => {
         if (!deckId) return;
         fetchDeckEntries(deckId);
 
     }, [deckId]);
+
+    useEffect(() => {
+        if (deck?.name) {
+            setDeckName(deck?.name);
+        }
+    }, [deck]);
 
     return (
 
@@ -35,18 +42,6 @@ function DeckEditWindow() {
                     <div className="green-border dropdown-menu-container">
                         <DropdownDetailSummary
                             summaryLeft={deck?.deckName}
-                            summaryRight=""
-                                /*<div className="deck-management">
-                                    <p>Cards in deck: </p>
-                                    <CounterBox cardAmount={cardsInDeck}/>
-                                    <p>Delete deck</p>
-                                    <ButtonSmall
-                                        buttonContent={<TrashIcon className="trash-icon"/>}
-                                        className="button-minus-round"
-                                        /!*onClick={deleteEntry}*!/
-                                    />
-                                </div>*/
-
                         >
                             <div>
                                 {deckData.map(card => {
