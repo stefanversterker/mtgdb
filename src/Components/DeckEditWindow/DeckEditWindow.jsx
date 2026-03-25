@@ -30,11 +30,10 @@ function DeckEditWindow() {
     }, [deckId]);
 
     useEffect(() => {
-        if (deck?.deckName) {
-            setDeckName(deck?.deckName);
-
+        if (deck) {
+            setDeckName(deck.deckName);
         }
-    }, [deck]);
+    }, [deckId]);
 
     return (
 

@@ -279,7 +279,7 @@ function CollectionContextProvider({children}) {
             /*setDeck(prev => ({ ...prev, deckName: newName }))*/
             setUserDecks(prev => {
                 const updatedDecks = prev.map((deck) =>
-                    deck.id === deckId
+                    deck.id === Number(deckId)
                         ? { ...deck, deckName: newName }
                         : deck
                 );
