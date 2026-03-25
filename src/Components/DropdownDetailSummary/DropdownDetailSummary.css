@@ -17,6 +17,11 @@
     padding: 5px 15px;
 }
 
+.save-button-and-message {
+    display: flex;
+    gap: 0.5rem;
+}
+
 .dropdown-content {
     background-color: var(--light-blue);
     border-radius: 0 0 8px 8px;
@@ -58,6 +63,11 @@
 
 .name-editor-button {
     width: 100%;
+}
+
+.name-editor-button-disabled {
+    width: 100%;
+    opacity: 30%;
 }
 
 

@@ -13,10 +13,24 @@ import {useContext, useEffect, useState} from "react";
 function DeckEditWindow() {
 
     const navigate = useNavigate();
-    const {addCard, loading, userDecks, fetchDeckEntries, deckEntries, cardsInDeck, deckData, updateAmountInDeck, deleteDeckEntry, userEntry, patchDeckName} = useContext(CollectionContext);
+    const {
+        addCard,
+        loading,
+        userDecks,
+        fetchDeckEntries,
+        deckEntries,
+        cardsInDeck,
+        deckData,
+        updateAmountInDeck,
+        deleteDeckEntry,
+        userEntry,
+        patchDeckName,
+        messageStatus
+    } = useContext(CollectionContext);
     const {deckId} = useParams();
     const deck = userDecks.find(d => d.id === Number(deckId));
     const [deckName, setDeckName] = useState('')
+    const isUnchanged = deckName.trim() === deck?.deckName;
 
     /*console.log("userDecks in component:", userDecks);*/
 
@@ -35,6 +49,24 @@ function DeckEditWindow() {
         }
     }, [deckId]);
 
+    function messageClassName() {
+        if (messageStatus === "success") {
+            return "good-news"
+        } else if (messageStatus === "error") {
+            return "bad-news"
+        } else {
+            return ""
+        }
+    }
+
+    function messenger() {
+        if (messageStatus === "success") {
+            return "Name has successfully been saved"
+        } else if (messageStatus === "error") {
+            return "Name could not be saved"
+        }
+    }
+
     return (
 
         <section className="orange-border card-type-container">
@@ -50,6 +82,10 @@ function DeckEditWindow() {
                             value={deckName}
                             onChange={(e) => setDeckName(e.target.value)}
                             onClick={() => patchDeckName(deckId, deckName)}
+                            disabled={isUnchanged}
+                            className={isUnchanged ? "name-editor-button-disabled" : "name-editor-button"}
+                            messageClassName={messageClassName()}
+                            messageChildren={<p>{messenger()}</p>}
 
                         >
                             <div>
@@ -90,7 +126,7 @@ function DeckEditWindow() {
                                     <ButtonSmall
                                         buttonContent={<TrashIcon className="trash-icon"/>}
                                         className="button-minus-round"
-                                    /*onClick={deleteEntry}*/
+                                        /*onClick={deleteEntry}*/
                                     />
                                 </div>
                             </div>

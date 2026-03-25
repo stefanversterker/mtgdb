@@ -13,6 +13,7 @@ function CollectionContextProvider({children}) {
     const [userDecks, setUserDecks] = useState([]); //all decks that belong to a user id. Includes deck id and deck name.
     const [deckEntries, setDeckEntries] = useState([]); //
     const [collectionId, setCollectionId] = useState(null);
+    const [messageStatus, setMessageStatus] = useState(null);
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(true);
     const {user} = useContext(AuthContext);
@@ -280,9 +281,11 @@ function CollectionContextProvider({children}) {
             setUserDecks(prev => {
                 const updatedDecks = prev.map((deck) =>
                     deck.id === Number(deckId)
-                        ? { ...deck, deckName: newName }
+                        ? {...deck, deckName: newName}
                         : deck
                 );
+
+                setMessageStatus("success")
 
                 console.log("updated decks:", updatedDecks);
                 console.log("patchDeckName called", deckId, newName);
@@ -295,6 +298,7 @@ function CollectionContextProvider({children}) {
         } catch (error) {
             console.log("Sorry, deck name could not be changed")
             console.error(error.response);
+            setMessageStatus("error")
         } finally {
 
         }
@@ -480,7 +484,8 @@ function CollectionContextProvider({children}) {
         deleteEntry,
         deleteDeckEntry,
         collectionId,
-        patchDeckName
+        patchDeckName,
+        messageStatus
     };
 
     return (
