@@ -383,12 +383,16 @@ function CollectionContextProvider({children}) {
     async function deleteDeck(deckId) {
 
         try {
-            await axios.delete(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks/${deckId}`, {
+            const response = await axios.delete(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks/${deckId}`, {
                 headers: {
                     'novi-education-project-id': noviId,
                     Authorization: `Bearer ${token}`
                 },
             })
+
+            setUserDecks(prev =>
+                prev.filter(deck => deck.id !== Number(deckId))
+            )
             navigate("/")
         } catch (error) {
             console.log("Could not delete deck")
