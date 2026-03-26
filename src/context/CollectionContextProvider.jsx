@@ -356,6 +356,10 @@ function CollectionContextProvider({children}) {
         }
     }
 
+    async function postNewDeck() {
+        await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks`)
+    }
+
     async function deleteEntry(entryId) {
 
         try {
@@ -463,6 +467,17 @@ function CollectionContextProvider({children}) {
             controller.abort();
         };
     }, [userId]);
+
+    useEffect(() => {
+        if (!messageStatus) return;
+
+        const timer = setTimeout(() => {
+            setMessageStatus(null);
+        }, 3000);
+
+        return () => clearTimeout(timer);
+    }, [messageStatus]);
+
 
     const collectionData = {
         userCollection,
