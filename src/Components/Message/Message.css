@@ -1,0 +1,15 @@
+.message {
+    height: 2rem;
+    border-radius: 7px;
+    color: var(--not-white);
+    text-align: center;
+    padding: 5px;
+}
+
+.good-news {
+    background-color: var(--green);
+}
+
+.bad-news {
+    background-color: var(--red);
+}

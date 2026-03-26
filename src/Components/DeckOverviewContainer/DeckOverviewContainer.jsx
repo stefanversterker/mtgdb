@@ -39,9 +39,9 @@ function DeckOverviewContainer({deckName, deckId, cardAmount}) {
                             <ManaGreen className="mana-symbol"/>
                         </figure>
                     </div>
-                    <div className="deck-summary-buttons">
+                    {/*<div className="deck-summary-buttons">
                         <CounterBox cardAmount={cardAmount}/>
-                    </div>
+                    </div>*/}
                 </div>
             </li>
         </Link>
