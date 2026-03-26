@@ -13,7 +13,7 @@ function Home() {
 
     const navigate = useNavigate();
     /*const [userCollection, setUserCollection] = useState([]);*/
-    const {addCard, collectionId, loading, userDecks, cardsInDeck} = useContext(CollectionContext);
+    const {addCard, collectionId, loading, userDecks, cardsInDeck, postNewDeck} = useContext(CollectionContext);
     /*const [loggedIn, toggleLoggedIn] = useState(false)*/
 
     /*function logInOut() {
@@ -51,7 +51,11 @@ function Home() {
                 <div className="decks-overview-container green-border">
                     <header className="decks-header orange-border">
                         <h1>My Decks</h1>
-                        <Button buttonContent="New deck"></Button>
+                        <Button
+                            buttonContent="New deck"
+                            type="button"
+                            onClick={() => {postNewDeck()}}
+                        />
                     </header>
                     <article className="decks-flow-container pink-border">
                         <Veil>

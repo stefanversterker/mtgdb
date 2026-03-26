@@ -1,6 +1,7 @@
 import {createContext, useContext, useEffect, useState} from "react";
 import {AuthContext} from "./AuthContextProvider.jsx";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export const CollectionContext = createContext({})
 
@@ -20,6 +21,7 @@ function CollectionContextProvider({children}) {
     const userId = user?.id;
     const {token} = useContext(AuthContext);
     const noviId = 'b8985a1c-c1b7-4c00-9777-666019e0877d';
+    const navigate = useNavigate();
     const cardsInDeck = deckEntries.reduce(
         (total, entry) => total + entry.cardAmount,
         0
@@ -316,7 +318,7 @@ function CollectionContextProvider({children}) {
                 },
                 {
                     headers: {
-                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        'novi-education-project-id': 'noviId',
                         Authorization: `Bearer ${token}`
                     },
                 })
@@ -342,7 +344,7 @@ function CollectionContextProvider({children}) {
                 },
                 {
                     headers: {
-                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        'novi-education-project-id': noviId,
                         Authorization: `Bearer ${token}`
                     },
                 })
@@ -357,7 +359,42 @@ function CollectionContextProvider({children}) {
     }
 
     async function postNewDeck() {
-        await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks`)
+
+        try {
+            const response = await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks`, {
+                    memberId: userId,
+                    deckName: "--new deck",
+                },
+                {
+                    headers: {
+                        'novi-education-project-id': noviId,
+                        Authorization: `Bearer ${token}`
+                    },
+                })
+
+            setUserDecks(prev => [...prev, response.data])
+        } catch (error) {
+            console.log("No deck today, sorry")
+        } finally {
+
+        }
+    }
+
+    async function deleteDeck(deckId) {
+
+        try {
+            await axios.delete(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks/${deckId}`, {
+                headers: {
+                    'novi-education-project-id': noviId,
+                    Authorization: `Bearer ${token}`
+                },
+            })
+            navigate("/")
+        } catch (error) {
+            console.log("Could not delete deck")
+        } finally {
+
+        }
     }
 
     async function deleteEntry(entryId) {
@@ -500,7 +537,9 @@ function CollectionContextProvider({children}) {
         deleteDeckEntry,
         collectionId,
         patchDeckName,
-        messageStatus
+        messageStatus,
+        postNewDeck,
+        deleteDeck
     };
 
     return (

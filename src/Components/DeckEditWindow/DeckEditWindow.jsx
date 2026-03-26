@@ -25,7 +25,8 @@ function DeckEditWindow() {
         deleteDeckEntry,
         userEntry,
         patchDeckName,
-        messageStatus
+        messageStatus,
+        deleteDeck
     } = useContext(CollectionContext);
     const {deckId} = useParams();
     const deck = userDecks.find(d => d.id === Number(deckId));
@@ -126,7 +127,7 @@ function DeckEditWindow() {
                                     <ButtonSmall
                                         buttonContent={<TrashIcon className="trash-icon"/>}
                                         className="button-minus-round"
-                                        /*onClick={deleteEntry}*/
+                                        onClick={() => deleteDeck(deckId)}
                                     />
                                 </div>
                             </div>
