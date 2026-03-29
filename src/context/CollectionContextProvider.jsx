@@ -165,16 +165,27 @@ function CollectionContextProvider({children}) {
         try {
             toggleError(false);
 
+            if (!cardList || cardList.length === 0) {
+                setTargetData([]);
+                return;
+            }
+
+            console.log("cardList:", cardList);
 
             const identifiers = cardList
                 .filter(entry =>
-                    entry.cardId &&
+                    typeof entry.cardId === "string" &&
                     entry.cardId.includes("-")
                 )
                 .map(entry => ({id: entry.cardId}));
 
-            /*console.log("FETCH SOURCE:", source);
-            console.log("IDENTIFIERS:", identifiers);*/
+            /*console.log("FETCH SOURCE:", source);*/
+            console.log("IDENTIFIERS:", identifiers);
+
+            if (identifiers.length === 0) {
+                setTargetData([]);
+                return;
+            }
 
             const scryfallResponse = await axios.post(
                 `https://api.scryfall.com/cards/collection`,
@@ -185,8 +196,12 @@ function CollectionContextProvider({children}) {
             setTargetData(scryfallResponse.data.data)
 
         } catch (error) {
-            toggleError(true)
-            console.error("kapot")
+            if (axios.isCancel(error) || error.name === "CanceledError") {
+                return;
+            }
+
+            toggleError(true);
+            console.error("kapot", error);
         } finally {
 
         }
@@ -318,7 +333,7 @@ function CollectionContextProvider({children}) {
                 },
                 {
                     headers: {
-                        'novi-education-project-id': 'noviId',
+                        'novi-education-project-id': noviId,
                         Authorization: `Bearer ${token}`
                     },
                 })
@@ -543,7 +558,10 @@ function CollectionContextProvider({children}) {
         patchDeckName,
         messageStatus,
         postNewDeck,
-        deleteDeck
+        deleteDeck,
+        userId,
+        fetchCardId,
+        fetchCollectionId,
     };
 
     return (

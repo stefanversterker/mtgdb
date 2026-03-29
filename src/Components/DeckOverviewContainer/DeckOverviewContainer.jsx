@@ -5,14 +5,24 @@ import ManaColorless from "/src/assets/symbols/mana-colorless.svg?react";
 import ManaGreen from "/src/assets/symbols/mana-green.svg?react";
 import ManaRed from "/src/assets/symbols/mana-red.svg?react";
 import ManaWhite from "/src/assets/symbols/mana-white.svg?react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import CounterBox from "../CounterBox/CounterBox.jsx";
 import {CollectionContext} from "../../context/CollectionContextProvider.jsx";
 import {useContext} from "react";
+import colorIdentifier from "../../Helpers/colorIdentifier.js";
+
+const manaMap = {
+    B: <ManaBlack className="mana-symbol"/>,
+    R: <ManaRed className="mana-symbol"/>,
+    W: <ManaWhite className="mana-symbol"/>,
+    U: <ManaBlue className="mana-symbol"/>,
+    G: <ManaGreen className="mana-symbol"/>
+};
 
 function DeckOverviewContainer({deckName, deckId, cardAmount}) {
-    const {addCard, collectionId, loading, userDecks} = useContext(CollectionContext);
+    const {addCard, collectionId, loading, userDecks, deckData} = useContext(CollectionContext);
+
 
     return (
 
@@ -23,21 +33,9 @@ function DeckOverviewContainer({deckName, deckId, cardAmount}) {
                 </div>
                 <div className="symbols-and-buttons purple-border">
                     <div className="mana-symbols">
-                        <figure className="symbol-container">
-                            <ManaWhite className="mana-symbol"/>
-                        </figure>
-                        <figure className="symbol-container">
-                            <ManaBlue className="mana-symbol"/>
-                        </figure>
-                        <figure className="symbol-container">
-                            <ManaBlack className="mana-symbol"/>
-                        </figure>
-                        <figure className="symbol-container">
-                            <ManaRed className="mana-symbol"/>
-                        </figure>
-                        <figure className="symbol-container">
-                            <ManaGreen className="mana-symbol"/>
-                        </figure>
+                            {colorIdentifier(deckData).map((color) => (
+                                <figure className="symbol-container" key={color}>{manaMap[color]}</figure>
+                            ))}
                     </div>
                     {/*<div className="deck-summary-buttons">
                         <CounterBox cardAmount={cardAmount}/>
