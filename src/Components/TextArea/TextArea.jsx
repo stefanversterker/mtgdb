@@ -1,7 +1,7 @@
 import './TextArea.css'
 import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 
-function TextArea({htmlFor, labelText, name}) {
+function TextArea({htmlFor, labelText, name, value, onChange}) {
 
     return (
 
@@ -12,6 +12,8 @@ function TextArea({htmlFor, labelText, name}) {
                     className="textarea"
                     name={name}
                     id={htmlFor}
+                    value={value}
+                    onChange={onChange}
                     cols="30"
                     rows="10"
                 >
