@@ -23,8 +23,6 @@ function Home() {
     return (
 
         <main className="main-container blue-border">
-            {console.log("Home userId:", userId)}
-            {console.log("loading:", loading)}
             <section className="main-container">
                 <Collection
                     headerButtonContent="Edit collection"

@@ -13,7 +13,7 @@ function UserCard({creatureType, bio, userName, profilePic}) {
                         <h1 className="user-input">{userName}</h1>
                     </article>
                     <figure className="user-image-container pink-border">
-                        <img src={profilePic} alt="nacho"/>
+                        <img src={profilePic} alt={`profile picture of ${userName}`} />
                     </figure>
                     <article className="creature-type-container purple-border">
                         <h1 className="user-input">{creatureType}</h1>

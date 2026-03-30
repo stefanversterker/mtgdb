@@ -89,7 +89,7 @@ function CollectionContextProvider({children}) {
         }
     }
 
-    function addCardToDeck(card) {
+    function addCardToDeck(card, deckId) {
         if (!collectionId) return;
         console.log("Card clicked:", card.id);
         const inDeck = deckEntries.find((entry) => {
@@ -100,7 +100,7 @@ function CollectionContextProvider({children}) {
             updateAmountInDeck(inDeck.id, +1)
         } else if (!inDeck) {
             console.log("not in deck")
-            postDeckEntry(card.id)
+            postDeckEntry(card.id, deckId)
         }
     }
 
@@ -347,13 +347,15 @@ function CollectionContextProvider({children}) {
         }
     }
 
-    async function postDeckEntry(cardId) {
+    async function postDeckEntry(cardId, deckId) {
         toggleError(false);
+
+        console.log(deckId)
 
 
         try {
             const response = await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/deckEntries`, {
-                    deckId: collectionId,
+                    deckId: Number(deckId),
                     cardId: cardId,
                     cardAmount: 1
                 },
@@ -367,7 +369,8 @@ function CollectionContextProvider({children}) {
             /*console.log(response.status);*/
             setDeckEntries(prev => [...prev, response.data]);
         } catch (error) {
-            console.log('Sorry, we could not add this card to your collection');
+            console.log('Sorry, we could not add this card to your deck');
+            console.log(deckId)
         } finally {
 
         }

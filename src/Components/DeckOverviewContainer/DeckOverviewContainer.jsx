@@ -32,10 +32,27 @@ function DeckOverviewContainer({deckName, deckId, cardAmount}) {
                     <h3 className="deck-title">{deckName}</h3>
                 </div>
                 <div className="symbols-and-buttons purple-border">
-                    <div className="mana-symbols">
+                    {/*<div className="mana-symbols">
                             {colorIdentifier(deckData).map((color) => (
                                 <figure className="symbol-container" key={color}>{manaMap[color]}</figure>
                             ))}
+                    </div>*/}
+                    <div className="mana-symbols">
+                        <figure className="symbol-container">
+                            <ManaWhite className="mana-symbol"/>
+                        </figure>
+                        <figure className="symbol-container">
+                            <ManaBlue className="mana-symbol"/>
+                        </figure>
+                        <figure className="symbol-container">
+                            <ManaBlack className="mana-symbol"/>
+                        </figure>
+                        <figure className="symbol-container">
+                            <ManaRed className="mana-symbol"/>
+                        </figure>
+                        <figure className="symbol-container">
+                            <ManaGreen className="mana-symbol"/>
+                        </figure>
                     </div>
                     {/*<div className="deck-summary-buttons">
                         <CounterBox cardAmount={cardAmount}/>

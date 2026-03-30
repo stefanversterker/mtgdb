@@ -48,7 +48,7 @@ function DeckEditWindow() {
         if (deck) {
             setDeckName(deck.deckName);
         }
-    }, [deckId]);
+    }, [deck]);
 
     function messageClassName() {
         if (messageStatus === "success") {
