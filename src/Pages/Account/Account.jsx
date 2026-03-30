@@ -6,6 +6,7 @@ import {useContext, useEffect, useState} from 'react';
 import axios from 'axios';
 import {AuthContext} from "../../context/AuthContextProvider.jsx";
 import {useNavigate} from "react-router-dom";
+import nacho from "/src/assets/testcards/img_nacho_yawn.jpeg"
 
 function Account() {
     const navigate = useNavigate();
@@ -50,7 +51,7 @@ function Account() {
                         creatureType={userData[0]?.creature_type}
                         userName={userData[0]?.user_name}
                         bio={userData[0]?.bio}
-                        /*profilePic={`https://novi-backend-api-wgsgz.ondigitalocean.app${userData[0]?.imageUrl}`}*/
+                        profilePic={nacho}
                     >
                     </UserCard>
                 </Veil>

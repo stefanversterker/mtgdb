@@ -1,6 +1,7 @@
 import {createContext, useContext, useEffect, useState} from "react";
 import {AuthContext} from "./AuthContextProvider.jsx";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export const CollectionContext = createContext({})
 
@@ -20,6 +21,7 @@ function CollectionContextProvider({children}) {
     const userId = user?.id;
     const {token} = useContext(AuthContext);
     const noviId = 'b8985a1c-c1b7-4c00-9777-666019e0877d';
+    const navigate = useNavigate();
     const cardsInDeck = deckEntries.reduce(
         (total, entry) => total + entry.cardAmount,
         0
@@ -87,7 +89,7 @@ function CollectionContextProvider({children}) {
         }
     }
 
-    function addCardToDeck(card) {
+    function addCardToDeck(card, deckId) {
         if (!collectionId) return;
         console.log("Card clicked:", card.id);
         const inDeck = deckEntries.find((entry) => {
@@ -98,7 +100,7 @@ function CollectionContextProvider({children}) {
             updateAmountInDeck(inDeck.id, +1)
         } else if (!inDeck) {
             console.log("not in deck")
-            postDeckEntry(card.id)
+            postDeckEntry(card.id, deckId)
         }
     }
 
@@ -163,16 +165,27 @@ function CollectionContextProvider({children}) {
         try {
             toggleError(false);
 
+            if (!cardList || cardList.length === 0) {
+                setTargetData([]);
+                return;
+            }
+
+            console.log("cardList:", cardList);
 
             const identifiers = cardList
                 .filter(entry =>
-                    entry.cardId &&
+                    typeof entry.cardId === "string" &&
                     entry.cardId.includes("-")
                 )
                 .map(entry => ({id: entry.cardId}));
 
-            /*console.log("FETCH SOURCE:", source);
-            console.log("IDENTIFIERS:", identifiers);*/
+            /*console.log("FETCH SOURCE:", source);*/
+            console.log("IDENTIFIERS:", identifiers);
+
+            if (identifiers.length === 0) {
+                setTargetData([]);
+                return;
+            }
 
             const scryfallResponse = await axios.post(
                 `https://api.scryfall.com/cards/collection`,
@@ -183,8 +196,12 @@ function CollectionContextProvider({children}) {
             setTargetData(scryfallResponse.data.data)
 
         } catch (error) {
-            toggleError(true)
-            console.error("kapot")
+            if (axios.isCancel(error) || error.name === "CanceledError") {
+                return;
+            }
+
+            toggleError(true);
+            console.error("kapot", error);
         } finally {
 
         }
@@ -316,7 +333,7 @@ function CollectionContextProvider({children}) {
                 },
                 {
                     headers: {
-                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        'novi-education-project-id': noviId,
                         Authorization: `Bearer ${token}`
                     },
                 })
@@ -330,19 +347,21 @@ function CollectionContextProvider({children}) {
         }
     }
 
-    async function postDeckEntry(cardId) {
+    async function postDeckEntry(cardId, deckId) {
         toggleError(false);
+
+        console.log(deckId)
 
 
         try {
             const response = await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/deckEntries`, {
-                    deckId: collectionId,
+                    deckId: Number(deckId),
                     cardId: cardId,
                     cardAmount: 1
                 },
                 {
                     headers: {
-                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        'novi-education-project-id': noviId,
                         Authorization: `Bearer ${token}`
                     },
                 })
@@ -350,14 +369,54 @@ function CollectionContextProvider({children}) {
             /*console.log(response.status);*/
             setDeckEntries(prev => [...prev, response.data]);
         } catch (error) {
-            console.log('Sorry, we could not add this card to your collection');
+            console.log('Sorry, we could not add this card to your deck');
+            console.log(deckId)
         } finally {
 
         }
     }
 
     async function postNewDeck() {
-        await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks`)
+
+        try {
+            const response = await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks`, {
+                    memberId: userId,
+                    deckName: "--new deck",
+                },
+                {
+                    headers: {
+                        'novi-education-project-id': noviId,
+                        Authorization: `Bearer ${token}`
+                    },
+                })
+
+            setUserDecks(prev => [...prev, response.data])
+        } catch (error) {
+            console.log("No deck today, sorry")
+        } finally {
+
+        }
+    }
+
+    async function deleteDeck(deckId) {
+
+        try {
+            const response = await axios.delete(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks/${deckId}`, {
+                headers: {
+                    'novi-education-project-id': noviId,
+                    Authorization: `Bearer ${token}`
+                },
+            })
+
+            setUserDecks(prev =>
+                prev.filter(deck => deck.id !== Number(deckId))
+            )
+            navigate("/")
+        } catch (error) {
+            console.log("Could not delete deck")
+        } finally {
+
+        }
     }
 
     async function deleteEntry(entryId) {
@@ -500,7 +559,12 @@ function CollectionContextProvider({children}) {
         deleteDeckEntry,
         collectionId,
         patchDeckName,
-        messageStatus
+        messageStatus,
+        postNewDeck,
+        deleteDeck,
+        userId,
+        fetchCardId,
+        fetchCollectionId,
     };
 
     return (
