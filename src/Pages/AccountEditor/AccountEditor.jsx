@@ -10,7 +10,8 @@ import UserInfoForm from "../../Components/UserInfoForm/UserInfoForm.jsx";
 import UserCard from "../../Components/UserCard/UserCard.jsx";
 import Button from "../../Components/Button/Button.jsx";
 import { useNavigate } from "react-router-dom";
-import {useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import {AuthContext} from "../../context/AuthContextProvider.jsx";
 
 function AccountEditor() {
     const navigate = useNavigate();
@@ -20,20 +21,41 @@ function AccountEditor() {
     const [passwordValue, setPasswordValue] = useState("")
     const [bioValue, setBioValue] = useState("")
     const [creatureValue, setCreatureValue] = useState("")
+    const {user, userData, setUserData, fetchUserData} = useContext(AuthContext);
+
+    useEffect(() => {
+        void fetchUserData();
+        /*setFirstNameValue(userData?.first_name || "")*/
+
+    }, [])
+
+    useEffect(() => {
+        if (user?.id) {
+            fetchUserData(user.id);
+        }
+    }, [user]);
+
+    useEffect(() => {
+
+            setFirstNameValue(userData.first_name || "")
+            setLastNameValue(userData.last_name || "")
+            setBioValue(userData.bio || "")
+            setCreatureValue(userData.creature_type ||"")
+
+        console.log(userData.first_name)
+    }, [userData])
+
+    console.log("firstNameValue:", firstNameValue);
 
     return (
 
         <main className="main-container blue-border">
                 <UserInfoForm
                     onSubmit={() => navigate("/account")}
-                    firstNameValue={firstNameValue}
+                    firstNameValue={firstNameValue} // I changed this back again
                     onChangeFirstName={(e) => setFirstNameValue(e.target.value)}
                     lastNameValue={lastNameValue}
                     onChangeLastName={(e) => setLastNameValue(e.target.value)}
-                    emailValue={emailValue}
-                    onChangeEmail={(e) => setEmailValue(e.target.value)}
-                    passwordValue={passwordValue}
-                    onChangePassword={(e) => setPasswordValue(e.target.value)}
                     bioValue={bioValue}
                     onChangeBio={(e) => setBioValue(e.target.value)}
                     creatureValue={creatureValue}

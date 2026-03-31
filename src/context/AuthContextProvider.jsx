@@ -21,7 +21,7 @@ function AuthContextProvider({children}) {
         const token = localStorage.getItem('token');
 
         try {
-            const response = await axios.get('https://novi-backend-api-wgsgz.ondigitalocean.app/api/members/',
+            const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/members/${auth.user.id}`,
                 {
                     headers: {
                         'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
@@ -29,7 +29,7 @@ function AuthContextProvider({children}) {
                     }
                 })
             setUserData(response.data)
-            console.log(response)
+            /*console.log(response)*/
         }
         catch(e) {
             console.error("kapot!")
@@ -65,6 +65,12 @@ function AuthContextProvider({children}) {
 
         }
     }, []);
+
+    /*useEffect(() => {
+        if (auth.user?.id) {
+            fetchUserData(auth.user.id);
+        }
+    }, [auth.user]);*/
 
 
 

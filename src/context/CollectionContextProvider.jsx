@@ -76,7 +76,7 @@ function CollectionContextProvider({children}) {
 
     function addCard(card) {
         if (!collectionId) return;
-        console.log("Card clicked:", card.id);
+        /*console.log("Card clicked:", card.id);*/
         const inCollection = userCollection.find((entry) => {
             return card.id === entry.cardId
         });
@@ -91,7 +91,7 @@ function CollectionContextProvider({children}) {
 
     function addCardToDeck(card, deckId) {
         if (!collectionId) return;
-        console.log("Card clicked:", card.id);
+        /*console.log("Card clicked:", card.id);*/
         const inDeck = deckEntries.find((entry) => {
             return card.id === entry.cardId
         });
@@ -170,7 +170,7 @@ function CollectionContextProvider({children}) {
                 return;
             }
 
-            console.log("cardList:", cardList);
+            /*console.log("cardList:", cardList);*/
 
             const identifiers = cardList
                 .filter(entry =>
@@ -180,7 +180,7 @@ function CollectionContextProvider({children}) {
                 .map(entry => ({id: entry.cardId}));
 
             /*console.log("FETCH SOURCE:", source);*/
-            console.log("IDENTIFIERS:", identifiers);
+            /*console.log("IDENTIFIERS:", identifiers);*/
 
             if (identifiers.length === 0) {
                 setTargetData([]);
@@ -230,7 +230,7 @@ function CollectionContextProvider({children}) {
 
     async function patchCollectionEntry(amount, entryId) {
 
-        console.log(userCollection)
+        /*console.log(userCollection)*/
 
         try {
 
@@ -304,17 +304,17 @@ function CollectionContextProvider({children}) {
 
                 setMessageStatus("success")
 
-                console.log("updated decks:", updatedDecks);
-                console.log("patchDeckName called", deckId, newName);
+                /*console.log("updated decks:", updatedDecks);
+                console.log("patchDeckName called", deckId, newName);*/
 
                 return updatedDecks;
             });
 
-            console.log("updated decks:", updatedDecks)
+            /*console.log("updated decks:", updatedDecks)*/
 
         } catch (error) {
             console.log("Sorry, deck name could not be changed")
-            console.error(error.response);
+            /*console.error(error.response);*/
             setMessageStatus("error")
         } finally {
 
@@ -350,7 +350,7 @@ function CollectionContextProvider({children}) {
     async function postDeckEntry(cardId, deckId) {
         toggleError(false);
 
-        console.log(deckId)
+        /*console.log(deckId)*/
 
 
         try {
@@ -370,7 +370,7 @@ function CollectionContextProvider({children}) {
             setDeckEntries(prev => [...prev, response.data]);
         } catch (error) {
             console.log('Sorry, we could not add this card to your deck');
-            console.log(deckId)
+            /*console.log(deckId)*/
         } finally {
 
         }
@@ -492,10 +492,10 @@ function CollectionContextProvider({children}) {
                 },
             })
             setDeckEntries(response.data)
-            console.log(response)
+            /*console.log(response)*/
         } catch (error) {
             console.log('Sorry, we could find your cards');
-            console.log(deckId)
+            /*console.log(deckId)*/
         }
     }
 

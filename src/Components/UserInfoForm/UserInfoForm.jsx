@@ -20,6 +20,8 @@ function UserInfoForm({
                           onChangePassword,
                       }) {
 
+    console.log("UserInfoForm firstNameValue:", firstNameValue);
+
     return (
 
         <section className="info-form-wrapper">
@@ -51,7 +53,7 @@ function UserInfoForm({
                     value={bioValue}
                     onChange={onChangeBio}
                 />
-                <Input
+                {/*<Input
                     labelText="email address:"
                     name="email"
                     type="email"
@@ -64,7 +66,7 @@ function UserInfoForm({
                     type="password"
                     value={passwordValue}
                     onChange={onChangePassword}
-                />
+                />*/}
                 <Button
                     type="submit"
                     buttonContent="Submit"
