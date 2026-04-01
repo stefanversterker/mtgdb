@@ -9,24 +9,46 @@ import TextArea from "../../Components/TextArea/TextArea.jsx";
 import UserInfoForm from "../../Components/UserInfoForm/UserInfoForm.jsx";
 import UserCard from "../../Components/UserCard/UserCard.jsx";
 import Button from "../../Components/Button/Button.jsx";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthContextProvider.jsx";
+import axios from "axios";
 
 function AccountEditor() {
     const navigate = useNavigate();
     const [firstNameValue, setFirstNameValue] = useState("")
     const [lastNameValue, setLastNameValue] = useState("")
-    const [emailValue, setEmailValue] = useState("")
-    const [passwordValue, setPasswordValue] = useState("")
+    const [userNameValue, setUserNameValue] = useState("")
     const [bioValue, setBioValue] = useState("")
     const [creatureValue, setCreatureValue] = useState("")
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        userName: "",
+        creatureType: "",
+        bio: "",
+    })
     const {user, userData, setUserData, fetchUserData} = useContext(AuthContext);
+
+    async function patchUserData() {
+        console.log("PATCH CALLED");
+        try {
+
+            await axios.patch(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/members/${user.id}`,
+                    formData,
+                {
+                    headers: {
+                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    }
+                })
+        } catch (error) {
+            console.log("Sorry, deck name could not be changed")
+        }
+    }
 
     useEffect(() => {
         void fetchUserData();
-        /*setFirstNameValue(userData?.first_name || "")*/
-
     }, [])
 
     useEffect(() => {
@@ -36,31 +58,62 @@ function AccountEditor() {
     }, [user]);
 
     useEffect(() => {
+        setFormData({
+            firstName: userData.firstName || "",
+            lastName: userData.lastName || "",
+            userName: userData.userName || "",
+            creatureType: userData.creatureType || "",
+            bio: userData.bio || "",
+        });
+    }, [userData]);
 
-            setFirstNameValue(userData.first_name || "")
-            setLastNameValue(userData.last_name || "")
-            setBioValue(userData.bio || "")
-            setCreatureValue(userData.creature_type ||"")
-
-        console.log(userData.first_name)
-    }, [userData])
-
-    console.log("firstNameValue:", firstNameValue);
+    /*console.log("firstNameValue:", firstNameValue);*/
 
     return (
 
         <main className="main-container blue-border">
-                <UserInfoForm
-                    onSubmit={() => navigate("/account")}
-                    firstNameValue={firstNameValue} // I changed this back again
-                    onChangeFirstName={(e) => setFirstNameValue(e.target.value)}
-                    lastNameValue={lastNameValue}
-                    onChangeLastName={(e) => setLastNameValue(e.target.value)}
-                    bioValue={bioValue}
-                    onChangeBio={(e) => setBioValue(e.target.value)}
-                    creatureValue={creatureValue}
-                    onChangeCreatureType={(e) => setCreatureValue(e.target.value)}
-                />
+            <UserInfoForm
+                onSubmit={async(e) => {
+                    e.preventDefault();
+                    await patchUserData();
+                    navigate("/account")
+                }}
+                firstNameValue={formData.firstName}
+                onChangeFirstName={(e) =>
+                    setFormData({
+                        ...formData,
+                        firstName: e.target.value
+                    })
+                }
+                lastNameValue={formData.lastName}
+                onChangeLastName={(e) =>
+                    setFormData({
+                        ...formData,
+                        lastName: e.target.value
+                    })
+                }
+                userNameValue={formData.userName}
+                onChangeUserName={(e) =>
+                    setFormData({
+                        ...formData,
+                        userName: e.target.value
+                    })
+                }
+                bioValue={formData.bio}
+                onChangeBio={(e) =>
+                    setFormData({
+                        ...formData,
+                        bio: e.target.value
+                    })
+                }
+                creatureValue={formData.creatureType}
+                onChangeCreatureType={(e) =>
+                    setFormData({
+                        ...formData,
+                        creatureType: e.target.value
+                    })
+                }
+            />
         </main>
     )
 }

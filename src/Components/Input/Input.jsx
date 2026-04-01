@@ -2,7 +2,7 @@ import './Input.css'
 
 function Input({htmlFor, labelText, type, id, name, value, onChange, placeHolder, required, className}) {
 
-    console.log("Input value:", value);
+    /*console.log("Input value:", value);*/
 
     return (
 

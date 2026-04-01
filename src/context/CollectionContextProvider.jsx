@@ -282,7 +282,7 @@ function CollectionContextProvider({children}) {
 
         try {
             await axios.patch(
-                `https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks/${deckId}`, // <-- Where can I get the current deck id from?
+                `https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks/${deckId}`,
                 {
                     deckName: newName,
                 },

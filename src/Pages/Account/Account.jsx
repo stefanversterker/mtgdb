@@ -30,9 +30,9 @@ function Account() {
                 </header>
                 <Veil className="user-card container" veilTitle="My Card">
                     <UserCard
-                        creatureType={userData[0]?.creature_type}
-                        userName={userData[0]?.user_name}
-                        bio={userData[0]?.bio}
+                        creatureType={userData?.creatureType}
+                        userName={userData?.userName}
+                        bio={userData?.bio}
                         profilePic={nacho}
                     >
                     </UserCard>
