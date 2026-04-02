@@ -1,14 +1,3 @@
 .paginating-button {
     width: 130px;
 }
-
-/*.disabled-button {
-    width: 130px;
-    opacity: 0.4;
-    cursor: default;
-}
-
-.disabled-button:hover,
-.disabled-button:active{
-    box-shadow: inset 1px 1px 6px var(--dark-blue);
-}*/
