@@ -85,7 +85,7 @@ function DeckEditWindow() {
                             onChange={(e) => setDeckName(e.target.value)}
                             onClick={() => patchDeckName(deckId, deckName)}
                             disabled={isUnchanged}
-                            className={isUnchanged ? "name-editor-button-disabled" : "name-editor-button"}
+                            className={isUnchanged ? "disabled-button" : "button"}
                             messageClassName={messageClassName()}
                             messageChildren={<p>{messenger()}</p>}
 

@@ -312,11 +312,11 @@
     "members": [
       {
         "id": 1,
-        "first_name": "Stefan",
-        "last_name": "Verster",
-        "user_name": "Angry Mongoose",
-        "creature_type": "Rodent",
-        "bio": "Squeak"
+        "firstName": "Stefan",
+        "lastName": "Verster",
+        "userName": "Angry Mongoose",
+        "creatureType": "Rodent",
+        "bio": "Its diet consists of fruits, plants, small woodland animals, large woodland animals, woodlands, fruit groves, fruit farmers, and small cities."
       }
     ],
     "userCollections": [
