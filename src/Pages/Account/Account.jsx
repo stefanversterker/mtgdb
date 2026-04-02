@@ -10,28 +10,10 @@ import nacho from "/src/assets/testcards/img_nacho_yawn.jpeg"
 
 function Account() {
     const navigate = useNavigate();
-    const [userData, setUserData] = useState({});
-    const {user} = useContext(AuthContext);
+    /*const [userData, setUserData] = useState({});*/
+    const {user, userData, setUserData, fetchUserData} = useContext(AuthContext);
 
     useEffect(() => {
-        async function fetchUserData() {
-            const token = localStorage.getItem('token');
-
-            try {
-                const response = await axios.get('https://novi-backend-api-wgsgz.ondigitalocean.app/api/members/',
-                    {
-                        headers: {
-                            'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
-                            Authorization: `Bearer ${localStorage.getItem('token')}`,
-                        }
-                    })
-                setUserData(response.data)
-                console.log(response)
-            }
-            catch(e) {
-                console.error("kapot!")
-            }
-        }
 
         void fetchUserData();
     }, [])
@@ -48,9 +30,9 @@ function Account() {
                 </header>
                 <Veil className="user-card container" veilTitle="My Card">
                     <UserCard
-                        creatureType={userData[0]?.creature_type}
-                        userName={userData[0]?.user_name}
-                        bio={userData[0]?.bio}
+                        creatureType={userData?.creatureType}
+                        userName={userData?.userName}
+                        bio={userData?.bio}
                         profilePic={nacho}
                     >
                     </UserCard>

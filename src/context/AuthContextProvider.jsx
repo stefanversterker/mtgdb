@@ -2,18 +2,39 @@ import {useNavigate} from 'react-router-dom';
 import {createContext, useEffect, useState} from "react";
 import {jwtDecode} from "jwt-decode";
 import isTokenValid from "../Helpers/isTokenValid.js";
+import axios from "axios";
 
 
 export const AuthContext = createContext({})
 
 function AuthContextProvider({children}) {
     const navigate = useNavigate();
+    const [userData, setUserData] = useState({});
     const [auth, toggleAuth] = useState({
         isAuth: false,
         user: null,
         status: 'pending',
         token: null,
     })
+
+    async function fetchUserData() {
+        const token = localStorage.getItem('token');
+
+        try {
+            const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/members/${auth.user.id}`,
+                {
+                    headers: {
+                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    }
+                })
+            setUserData(response.data)
+            /*console.log(response)*/
+        }
+        catch(e) {
+            console.error("kapot!")
+        }
+    }
 
     useEffect(() => {
         const jwtToken = localStorage.getItem('token')
@@ -45,6 +66,12 @@ function AuthContextProvider({children}) {
         }
     }, []);
 
+    /*useEffect(() => {
+        if (auth.user?.id) {
+            fetchUserData(auth.user.id);
+        }
+    }, [auth.user]);*/
+
 
 
 
@@ -52,6 +79,7 @@ function login(userDetails) {
     localStorage.setItem('token', userDetails.token)
     const decoded = jwtDecode(userDetails.token);
     console.log("Je bent ingelogd");
+    console.log(userDetails)
     toggleAuth({
         isAuth: true,
         status: 'done',
@@ -86,6 +114,9 @@ function logout() {
         token: auth.token,
         login,
         logout,
+        userData,
+        setUserData,
+        fetchUserData,
     };
 
     return (
