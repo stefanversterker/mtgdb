@@ -7,11 +7,13 @@ import Button from "../../Components/Button/Button.jsx";
 import { useNavigate } from "react-router-dom";
 import UserInfoForm from "../../Components/UserInfoForm/UserInfoForm.jsx";
 import EmailPasswordForm from "../../Components/EmailPasswordForm/EmailPasswordForm.jsx";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {AuthContext} from "../../context/AuthContextProvider.jsx";
 
 function SignUp() {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    /*const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")*/
+    const { newUser, email, setEmail, password, setPassword } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -31,7 +33,11 @@ function SignUp() {
                     /*console.log(password)*/
                 }}
                 buttonContent="Sign up"
-                /*handleSubmit={}*/
+                handleSubmit={async(e) => {
+                    e.preventDefault();
+                    await newUser(email, password);
+                    navigate("/log-in")
+                }}
             />
         </main>
     )

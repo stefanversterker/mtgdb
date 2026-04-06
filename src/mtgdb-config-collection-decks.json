@@ -55,8 +55,7 @@
           "member"
         ],
         "POST": [
-          "admin",
-          "member"
+          "anonymous"
         ],
         "PUT": [
           "admin",
@@ -81,8 +80,8 @@
           "required": true
         },
         {
-          "name": "memberId",
-          "type": "reference:members",
+          "name": "userId",
+          "type": "reference:users",
           "required": true
         }
       ],
@@ -92,8 +91,7 @@
           "member"
         ],
         "POST": [
-          "admin",
-          "member"
+          "anonymous"
         ],
         "PUT": [
           "admin",
@@ -165,8 +163,8 @@
           "required": true
         },
         {
-          "name": "memberId",
-          "type": "reference:members",
+          "name": "userId",
+          "type": "reference:users",
           "required": true
         },
         {
@@ -635,27 +633,27 @@
     "userDecks": [
       {
         "id": 1,
-        "memberId": 1,
+        "userId": 1,
         "deckName": "Goblin kebab"
       },
       {
         "id": 2,
-        "memberId": 1,
+        "userId": 1,
         "deckName": "Boerenkool met worst"
       },
       {
         "id": 3,
-        "memberId": 1,
+        "userId": 1,
         "deckName": "Zombie stew"
       },
       {
         "id": 4,
-        "memberId": 1,
+        "userId": 1,
         "deckName": "Veni vidi vicious"
       },
       {
         "id": 5,
-        "memberId": 1,
+        "userId": 1,
         "deckName": "Elvish gangstas in da wood"
       }
     ],

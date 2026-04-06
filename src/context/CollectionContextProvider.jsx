@@ -380,7 +380,7 @@ function CollectionContextProvider({children}) {
 
         try {
             const response = await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userDecks`, {
-                    memberId: userId,
+                    userId: userId,
                     deckName: "--new deck",
                 },
                 {
@@ -466,7 +466,7 @@ function CollectionContextProvider({children}) {
     async function fetchDecks() {
 
         try {
-            const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/members/${userId}/userDecks`, {
+            const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/users/${userId}/userDecks`, {
                 headers: {
                     'novi-education-project-id': noviId,
                     Authorization: `Bearer ${token}`
