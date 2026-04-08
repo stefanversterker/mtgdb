@@ -12,12 +12,33 @@ function AuthContextProvider({children}) {
     const [userData, setUserData] = useState({});
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("");
+    /*const [memberExists, toggleMemberExists] = useState(true);*/
+    /*const [CollectionExists, toggleCollectionExists] = useState(true);*/
+    const [userInitialised, toggleUserInitialised] = useState(false)
     const [auth, toggleAuth] = useState({
         isAuth: false,
         user: null,
         status: 'pending',
         token: null,
     });
+
+    async function initUser() {
+        console.log("initUser started");
+
+        const member = await fetchMember()
+        const userCollection = await fetchCollection()
+
+        if (!member?.length) {
+            await newMember(auth.user?.id);
+        }
+        if (!userCollection?.length) {
+            await newCollection(auth.user?.id);
+        }
+        console.log("initUser finished");
+        toggleUserInitialised(true)
+
+
+    }
 
     async function newUser(email, password) {
 
@@ -34,7 +55,7 @@ function AuthContextProvider({children}) {
             })
 
             console.log(response)
-            const newUserId = response?.data.id
+            /*const newUserId = response?.data.id*/
             /*await newCollection(newUserId)*/
             /*await newMember(newUserId)*/
         } catch (e) {
@@ -48,11 +69,11 @@ function AuthContextProvider({children}) {
             await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/members`,
                 {
                     userId: newUserId,
-                    firstName: "",
-                    lastName: "",
-                    userName: "",
-                    creatureType: "",
-                    bio: "",
+                    firstName: null,
+                    lastName: null,
+                    userName: null,
+                    creatureType: null,
+                    bio: null,
                 }, {
                     headers: {
                         'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
@@ -71,15 +92,51 @@ function AuthContextProvider({children}) {
 
             await axios.post(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/userCollections`,
                 {
-                    memberId: newUserId,
+                    userId: newUserId,
                 }, {
                     headers: {
                         'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     }
                 })
-        } catch(e) {
+        } catch (e) {
             console.error("Unable to create new collection");
+        }
+    }
+
+    async function fetchMember() {
+
+        try {
+            const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/users/${auth.user.id}/members`,
+                {
+                    headers: {
+                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    }
+                })
+
+            return response.data
+
+        } catch (e) {
+            console.error("Unable to find member");
+        }
+    }
+
+    async function fetchCollection() {
+
+        try {
+            const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/users/${auth.user.id}/userCollections`,
+                {
+                    headers: {
+                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    }
+                })
+
+            return response.data
+
+        } catch (e) {
+            console.error("Unable to find collection")
         }
     }
 
@@ -131,14 +188,17 @@ function AuthContextProvider({children}) {
         }
     }, []);
 
-    /*useEffect(() => {
-        if (auth.user?.id) {
-            fetchUserData(auth.user.id);
+    useEffect( () => {
+
+        if (auth.status === 'done' && auth.user?.id) {
+            !userInitialised && initUser()
         }
-    }, [auth.user]);*/
+
+    }, [auth.status, auth.user?.id, userInitialised]);
 
 
     function login(userDetails) {
+        toggleUserInitialised(false)
         localStorage.setItem('token', userDetails.token)
         const decoded = jwtDecode(userDetails.token);
         console.log("Je bent ingelogd");
@@ -157,6 +217,7 @@ function AuthContextProvider({children}) {
     }
 
     function logout() {
+        toggleUserInitialised(false)
         console.log("Je bent uitgelogd");
         localStorage.removeItem('token');
         toggleAuth({
@@ -168,7 +229,6 @@ function AuthContextProvider({children}) {
         navigate("/welcome")
 
     }
-
 
     const authData = {
         isAuth: auth.isAuth,
@@ -190,7 +250,12 @@ function AuthContextProvider({children}) {
     return (
 
         <AuthContext.Provider value={authData}>
-            {auth.status === 'done' ? children : <p>Loading...</p>}
+            {/*{auth.status === 'done' ? children : <p>Loading...</p>}*/}
+            {auth.status === 'done' && (
+                !auth.isAuth || userInitialised
+                    ? children
+                    : <p>Loading...</p>
+            )}
         </AuthContext.Provider>
     );
 }

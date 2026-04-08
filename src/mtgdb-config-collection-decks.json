@@ -55,7 +55,8 @@
           "member"
         ],
         "POST": [
-          "anonymous"
+          "admin",
+          "member"
         ],
         "PUT": [
           "admin",
@@ -91,7 +92,8 @@
           "member"
         ],
         "POST": [
-          "anonymous"
+          "admin",
+          "member"
         ],
         "PUT": [
           "admin",
@@ -310,6 +312,7 @@
     "members": [
       {
         "id": 1,
+        "userId": 1,
         "firstName": "Stefan",
         "lastName": "Verster",
         "userName": "Angry Mongoose",
@@ -320,7 +323,7 @@
     "userCollections": [
       {
         "id": 1,
-        "memberId": 1
+        "userId": 1
       }
     ],
     "collectionEntries": [
