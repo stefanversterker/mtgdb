@@ -1,6 +1,5 @@
 import './CollectionEditor.css'
 import CardDatabase from "../../Components/CardDatabase/CardDatabase.jsx";
-import CardCounter from "../../Components/CardCounter/CardCounter.jsx";
 import Collection from "../../Components/Collection/Collection.jsx";
 import {useNavigate} from "react-router-dom";
 import CounterBox from "../../Components/CounterBox/CounterBox.jsx";
@@ -176,20 +175,20 @@ function CollectionEditor() {
                             amount > 1 ? (
                             <ButtonSmall
                                 buttonContent="-"
-                                className="button-minus"
+                                className="red-minus"
                                 onClick={decreaseAmount}
                             />
                         ) : (
                             <ButtonSmall
-                                buttonContent={<TrashIcon className="trash-icon"/>}
-                                className="button-minus"
+                                buttonContent=/*{<TrashIcon className="trash-icon"/>}*/"x"
+                                className="red-minus"
                                 onClick={deleteEntry}
                             />
                         )}
                     </div>
                     <ButtonSmall
                         buttonContent="+"
-                        className="button-plus"
+                        className="green-plus"
                         onClick={increaseAmount}
                     />
                 </div>

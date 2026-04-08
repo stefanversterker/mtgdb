@@ -244,58 +244,6 @@
           "member"
         ]
       }
-    },
-    {
-      "name": "images",
-      "fields": [
-        {
-          "name": "id",
-          "type": "number",
-          "required": false
-        },
-        {
-          "name": "imageUrl",
-          "type": "image",
-          "required": false
-        },
-        {
-          "name": "contentType",
-          "type": "string",
-          "required": false
-        },
-        {
-          "name": "length",
-          "type": "number",
-          "required": false
-        },
-        {
-          "name": "base64",
-          "type": "string",
-          "required": false
-        }
-      ],
-      "permissions": {
-        "GET": [
-          "admin",
-          "member"
-        ],
-        "POST": [
-          "admin",
-          "member"
-        ],
-        "PUT": [
-          "admin",
-          "member"
-        ],
-        "PATCH": [
-          "admin",
-          "member"
-        ],
-        "DELETE": [
-          "admin",
-          "member"
-        ]
-      }
     }
   ],
   "users": [

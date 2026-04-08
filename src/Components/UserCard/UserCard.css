@@ -1,5 +1,7 @@
 .user-card-container {
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .user-card {
@@ -23,36 +25,41 @@
     position: absolute;
     top: 5%;
     left: 8%;
-    width: 57%;
+    width: 60%;
     height: 5%;
-    font-size: clamp(3px, 2vw, 32px);
+    /*font-size: clamp(3px, 2vw, 32px);*/
 }
 
 .user-image-container {
     position: absolute;
     top: 11.6%;
-    left: 7.8%;
-    width: 84.5%;
+    left: 8%;
+    width: 84%;
     height: 44.2%;
     overflow: clip;
+}
+
+.user-image-container img {
+    width: 100%;
+    height: auto
 }
 
 .creature-type-container {
     position: absolute;
     top: 56.65%;
-    left: 7.8%;
-    width: 84.5%;
+    left: 8%;
+    width: 85%;
     height: 5%;
-    font-size: clamp(3px, 2vw, 32px);
+    /*font-size: clamp(3px, 2vw, 32px);*/
 }
 
 .user-bio-container {
     position: absolute;
     top: 63%;
-    left: 7.8%;
-    width: 84.5%;
+    left: 8%;
+    width: 85%;
     height: 28%;
-    font-size: clamp(3px, 1.8vw, 32px);
+    /*font-size: clamp(3px, 1.8vw, 32px);*/
     padding: 1%;
 }
 

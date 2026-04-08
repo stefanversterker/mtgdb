@@ -1,7 +1,6 @@
 import './CardListItem.css';
 import CardManagement from "../CardManagement/CardManagement.jsx";
 import ButtonMagnify from "../ButtonMagnify/ButtonMagnify.jsx";
-import CardCounter from "../CardCounter/CardCounter.jsx";
 import CounterBox from "../CounterBox/CounterBox.jsx";
 import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 /*import TrashIcon from "../../assets/symbols/trash.svg";*/
@@ -26,7 +25,7 @@ function CardListItem({cardName, cardAmount, lightBoxSource, onClickMinus, onCli
                                 />
                             ) : (
                                 <ButtonSmall
-                                    buttonContent={<TrashIcon className="trash-icon"/>}
+                                    buttonContent=/*{<TrashIcon className="trash-icon"/>}*/"x"
                                     className="button-minus"
                                     onClick={onClickTrash}
                                 />

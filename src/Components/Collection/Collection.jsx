@@ -27,7 +27,7 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
         <section className="collection-overview-container green-border">
 
             <header className="collection-header orange-border">
-                <h1>Collection</h1>
+                <h1>My Collection</h1>
                 <Button buttonContent={headerButtonContent} onClick={headerButtonClick}/>
             </header>
             <div className="collection-flow-container pink-border">

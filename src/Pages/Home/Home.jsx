@@ -6,7 +6,6 @@ import {useNavigate} from "react-router-dom";
 import {useContext, useEffect, useState} from 'react'
 import Collection from "../../Components/Collection/Collection.jsx";
 import CounterBox from "../../Components/CounterBox/CounterBox.jsx";
-import CardCounter from "../../Components/CardCounter/CardCounter.jsx";
 import {CollectionContext} from "../../context/CollectionContextProvider.jsx";
 
 function Home() {

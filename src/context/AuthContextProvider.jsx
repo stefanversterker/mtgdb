@@ -12,8 +12,6 @@ function AuthContextProvider({children}) {
     const [userData, setUserData] = useState({});
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("");
-    /*const [memberExists, toggleMemberExists] = useState(true);*/
-    /*const [CollectionExists, toggleCollectionExists] = useState(true);*/
     const [userInitialised, toggleUserInitialised] = useState(false)
     const [auth, toggleAuth] = useState({
         isAuth: false,
@@ -250,7 +248,6 @@ function AuthContextProvider({children}) {
     return (
 
         <AuthContext.Provider value={authData}>
-            {/*{auth.status === 'done' ? children : <p>Loading...</p>}*/}
             {auth.status === 'done' && (
                 !auth.isAuth || userInitialised
                     ? children

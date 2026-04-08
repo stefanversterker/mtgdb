@@ -24,8 +24,7 @@ function NavBar() {
                 <div className="auth-buttons">
                     {!isAuth ?
                     <div className="auth-buttons">
-                        <Button buttonContent="Sign up"/>
-                        <Button buttonContent="Log in" onClick={() => login()}/>
+
                     </div>
                         :
                     <Button buttonContent="Log out" onClick={() => logout()}/>

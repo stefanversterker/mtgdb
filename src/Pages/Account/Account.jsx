@@ -21,14 +21,14 @@ function Account() {
     return (
 
         <main className="main-container blue-border">
-            <section className="account-container">
-                <header className="user-card-header">
+            <section className="account-container orange-border">
+                <header className="user-card-header brown-border">
                     <h1 className="section-title">My Card</h1>
                     <Button buttonContent="Edit"
                             type="button"
                             onClick={() => navigate("/account/edit-account")}/>
                 </header>
-                <Veil className="user-card container" veilTitle="My Card">
+                <Veil className="user-card-container brown-border" veilTitle="My Card">
                     <UserCard
                         creatureType={userData?.creatureType}
                         userName={userData?.userName}
