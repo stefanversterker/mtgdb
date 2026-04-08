@@ -21,7 +21,9 @@ function AccountEditor() {
     const [userNameValue, setUserNameValue] = useState("")
     const [bioValue, setBioValue] = useState("")
     const [creatureValue, setCreatureValue] = useState("")
+
     const [formData, setFormData] = useState({
+        id: null,
         firstName: "",
         lastName: "",
         userName: "",
@@ -29,9 +31,15 @@ function AccountEditor() {
         bio: "",
     })
     const {user, userData, setUserData, fetchUserData} = useContext(AuthContext);
+    const isUnchanged =
+        formData.firstName === userData.firstName &&
+        formData.lastName === userData.lastName &&
+        formData.userName === userData.userName &&
+        formData.creatureType === userData.creatureType &&
+        formData.bio === userData.bio;
 
     async function patchUserData() {
-        console.log("PATCH CALLED");
+
         try {
 
             await axios.patch(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/members/${user.id}`,
@@ -59,6 +67,7 @@ function AccountEditor() {
 
     useEffect(() => {
         setFormData({
+            id: userData.id || null,
             firstName: userData.firstName || "",
             lastName: userData.lastName || "",
             userName: userData.userName || "",
@@ -73,6 +82,9 @@ function AccountEditor() {
 
         <main className="main-container blue-border">
             <UserInfoForm
+                disabled={isUnchanged}
+                className={isUnchanged ? "disabled-button" : "button"}
+                onClick={() => navigate("/account")}
                 onSubmit={async(e) => {
                     e.preventDefault();
                     await patchUserData();

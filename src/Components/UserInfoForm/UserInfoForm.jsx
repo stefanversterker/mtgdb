@@ -20,6 +20,9 @@ function UserInfoForm({
                           onChangeBio,
                           onChangeEmail,
                           onChangePassword,
+                          disabled,
+                          className,
+                          onClick
                       }) {
 
     /*console.log("UserInfoForm firstNameValue:", firstNameValue);*/
@@ -48,7 +51,7 @@ function UserInfoForm({
                         name="user-name"
                         type="text"
                         value={userNameValue}
-                        onChange={onChangeCreatureType}
+                        onChange={onChangeUserName}
                     />
                     <Input
                         labelText="creature type:"
@@ -65,6 +68,11 @@ function UserInfoForm({
                     <Button
                         type="submit"
                         buttonContent="Submit"
+                        disabled={disabled}
+                        className={className}
+                    />
+                    <Button
+                        type="button" buttonContent="Back" onClick={onClick}
                     />
                 </form>
             </Veil>

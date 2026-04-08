@@ -81,8 +81,8 @@
           "required": true
         },
         {
-          "name": "memberId",
-          "type": "reference:members",
+          "name": "userId",
+          "type": "reference:users",
           "required": true
         }
       ],
@@ -165,8 +165,8 @@
           "required": true
         },
         {
-          "name": "memberId",
-          "type": "reference:members",
+          "name": "userId",
+          "type": "reference:users",
           "required": true
         },
         {
@@ -312,17 +312,18 @@
     "members": [
       {
         "id": 1,
-        "first_name": "Stefan",
-        "last_name": "Verster",
-        "user_name": "Angry Mongoose",
-        "creature_type": "Rodent",
-        "bio": "Squeak"
+        "userId": 1,
+        "firstName": "Stefan",
+        "lastName": "Verster",
+        "userName": "Angry Mongoose",
+        "creatureType": "Rodent",
+        "bio": "Its diet consists of fruits, plants, small woodland animals, large woodland animals, woodlands, fruit groves, fruit farmers, and small cities."
       }
     ],
     "userCollections": [
       {
         "id": 1,
-        "memberId": 1
+        "userId": 1
       }
     ],
     "collectionEntries": [
@@ -635,27 +636,27 @@
     "userDecks": [
       {
         "id": 1,
-        "memberId": 1,
+        "userId": 1,
         "deckName": "Goblin kebab"
       },
       {
         "id": 2,
-        "memberId": 1,
+        "userId": 1,
         "deckName": "Boerenkool met worst"
       },
       {
         "id": 3,
-        "memberId": 1,
+        "userId": 1,
         "deckName": "Zombie stew"
       },
       {
         "id": 4,
-        "memberId": 1,
+        "userId": 1,
         "deckName": "Veni vidi vicious"
       },
       {
         "id": 5,
-        "memberId": 1,
+        "userId": 1,
         "deckName": "Elvish gangstas in da wood"
       }
     ],

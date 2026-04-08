@@ -19,3 +19,14 @@
 .button:active {
     box-shadow: inset 4px 4px 10px var(--dark-blue);
 }
+
+.disabled-button:hover,
+.disabled-button:active{
+    box-shadow: inset 1px 1px 6px var(--dark-blue);
+}
+
+.disabled-button {
+    width: 130px;
+    opacity: 0.4;
+    cursor: default;
+}
