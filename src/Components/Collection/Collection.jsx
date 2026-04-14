@@ -9,6 +9,7 @@ import CounterBox from "../CounterBox/CounterBox.jsx";
 import Veil from "../Veil/Veil.jsx";
 import Button from "../Button/Button.jsx";
 import {CollectionContext} from "../../context/CollectionContextProvider.jsx";
+import Message from "../Message/Message.jsx";
 
 function Collection({children, headerButtonClick, headerButtonContent}) {
 
@@ -34,10 +35,14 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
                 <Veil>
                     <div className="card-flow orange-border">
                         {loading ? (
-                            <p>Loading...</p>
+                            <Message className="good-news">Loading...</Message>
                         ) : error ? (
-                            <p>Sorry, we were unable to find your cards</p>
-                        ) : (
+                            <Message className="bad-news">Sorry, we were unable to find your cards</Message>
+                        ) : userCollection.length === 0 ?
+                            <div className="message-container pink-border">
+                                <Message className="good-news">Your collection is empty, add some cards!</Message>
+                            </div> :
+                        (
                             userCollectionData.map(card => {
                                 const userEntry = userCollection.find(
                                     entry => entry.cardId === card.id

@@ -7,6 +7,7 @@ import {useContext, useEffect, useState} from 'react'
 import Collection from "../../Components/Collection/Collection.jsx";
 import CounterBox from "../../Components/CounterBox/CounterBox.jsx";
 import {CollectionContext} from "../../context/CollectionContextProvider.jsx";
+import Message from "../../Components/Message/Message.jsx";
 
 function Home() {
 
@@ -47,15 +48,18 @@ function Home() {
                     </header>
                     <article className="decks-flow-container pink-border">
                         <Veil>
-                            <div className="orange-border decks-flow">
-                                {userDecks?.map(deck => {
-                                    return (
-                                        <div key={deck.id}>
-                                            <DeckOverviewContainer deckName={deck.deckName} cardAmount={cardsInDeck} deckId={deck.id}/>
-                                        </div>
-                                    )
-                                })}
-                            </div>
+                            {userDecks.length === 0 ?
+                                <Message className="good-news">Awfully quiet in here, time to make your first deck!</Message> :
+                                (<div className="orange-border decks-flow">
+                                    {userDecks?.map(deck => {
+                                        return (
+                                            <div key={deck.id}>
+                                                <DeckOverviewContainer deckName={deck.deckName} cardAmount={cardsInDeck}
+                                                                       deckId={deck.id}/>
+                                            </div>
+                                        )
+                                    })}
+                                </div>)}
                         </Veil>
                     </article>
                 </div>

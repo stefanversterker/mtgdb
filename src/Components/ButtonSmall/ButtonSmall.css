@@ -24,6 +24,14 @@
     width: 1.5rem;
 }
 
+.button-edge-right {
+    border-radius: 5px 0 0 5px;
+}
+
+.button-edge-left {
+    border-radius: 0 5px 5px 0;
+}
+
 .add-button {
     background-color: var(--green);
     width: 3rem;

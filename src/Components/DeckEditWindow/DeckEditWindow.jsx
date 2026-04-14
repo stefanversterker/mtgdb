@@ -57,7 +57,7 @@ function DeckEditWindow() {
         } else if (messageStatus === "error") {
             return "bad-news"
         } else {
-            return ""
+            return null
         }
     }
 
@@ -86,6 +86,7 @@ function DeckEditWindow() {
                             onClick={() => patchDeckName(deckId, deckName)}
                             disabled={isUnchanged}
                             className={isUnchanged ? "disabled-button" : "button"}
+
                             messageClassName={messageClassName()}
                             messageChildren={<p>{messenger()}</p>}
 

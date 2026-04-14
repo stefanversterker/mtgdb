@@ -1,3 +1,8 @@
 .paginating-button {
     width: 130px;
 }
+
+.card-counter-box {
+    display: flex;
+}
+

@@ -20,20 +20,20 @@ function CardListItem({cardName, cardAmount, lightBoxSource, onClickMinus, onCli
                             cardAmount > 1 ? (
                                 <ButtonSmall
                                     buttonContent="-"
-                                    className="button-minus"
+                                    className="red-minus button-edge-right"
                                     onClick={onClickMinus}
                                 />
                             ) : (
                                 <ButtonSmall
                                     buttonContent=/*{<TrashIcon className="trash-icon"/>}*/"x"
-                                    className="button-minus"
+                                    className="red-minus button-edge-right"
                                     onClick={onClickTrash}
                                 />
                             )}
                     </div>
                     <ButtonSmall
                         buttonContent="+"
-                        className="button-plus"
+                        className="green-plus button-edge-left"
                         onClick={onClickPlus}
                     /></div>
                 <CounterBox cardAmount={cardAmount}/>

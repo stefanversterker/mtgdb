@@ -164,8 +164,6 @@ function CollectionEditor() {
                 userCollection={userCollection}
                 setUserCollection={setUserCollection}
                 updateAmount={updateAmount}
-                /*userId={userId}
-                setUserId={setUserId}*/
 
             >
                 {({amount, increaseAmount, decreaseAmount, deleteEntry}) =>(
@@ -175,20 +173,20 @@ function CollectionEditor() {
                             amount > 1 ? (
                             <ButtonSmall
                                 buttonContent="-"
-                                className="red-minus"
+                                className="red-minus button-edge-right"
                                 onClick={decreaseAmount}
                             />
                         ) : (
                             <ButtonSmall
-                                buttonContent=/*{<TrashIcon className="trash-icon"/>}*/"x"
-                                className="red-minus"
+                                buttonContent="x"
+                                className="red-minus button-edge-right"
                                 onClick={deleteEntry}
                             />
                         )}
                     </div>
                     <ButtonSmall
                         buttonContent="+"
-                        className="green-plus"
+                        className="green-plus button-edge-left"
                         onClick={increaseAmount}
                     />
                 </div>

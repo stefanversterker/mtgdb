@@ -26,6 +26,6 @@ function DeckEditor() {
         </main>
 )
 }
-/*() => addCardToDeck(entry.id)*/
+
 
 export default DeckEditor
