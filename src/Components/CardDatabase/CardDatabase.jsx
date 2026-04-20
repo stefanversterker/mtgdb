@@ -8,6 +8,7 @@ import {useState} from 'react'
 import {useEffect} from 'react'
 import queryBuilder from '/src/Helpers/queryBuilder.js'
 import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
+import Message from "../Message/Message.jsx";
 
 
 function CardDatabase({onClickAdd}) {
@@ -100,7 +101,7 @@ function CardDatabase({onClickAdd}) {
         >
 
             {loading ? <p>Loading...</p> :
-                error ? <p>Sorry, we were unable to find your cards</p> : data.map((card) => (
+                error ? <Message className="bad-news">No such card, please broaden your search</Message> : data.map((card) => (
                     <div key={card.id}>
                         <Card cardImage={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}
                               management={<CardManagement

@@ -2,6 +2,7 @@ import {useNavigate} from 'react-router-dom';
 import {createContext, useEffect, useState} from "react";
 import {jwtDecode} from "jwt-decode";
 import isTokenValid from "../Helpers/isTokenValid.js";
+import {useNoviId} from "./NoviIdProvider.jsx";
 import axios from "axios";
 
 
@@ -13,6 +14,7 @@ function AuthContextProvider({children}) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("");
     const [userInitialised, toggleUserInitialised] = useState(false)
+    const {noviId} = useNoviId()
     const [auth, toggleAuth] = useState({
         isAuth: false,
         user: null,
@@ -47,7 +49,7 @@ function AuthContextProvider({children}) {
                 roles: ["member"]
             }, {
                 headers: {
-                    'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                    'novi-education-project-id': noviId,
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 }
             })
@@ -74,7 +76,7 @@ function AuthContextProvider({children}) {
                     bio: null,
                 }, {
                     headers: {
-                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        'novi-education-project-id': noviId,
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     }
                 })
@@ -93,7 +95,7 @@ function AuthContextProvider({children}) {
                     userId: newUserId,
                 }, {
                     headers: {
-                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        'novi-education-project-id': noviId,
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     }
                 })
@@ -108,7 +110,7 @@ function AuthContextProvider({children}) {
             const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/users/${auth.user.id}/members`,
                 {
                     headers: {
-                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        'novi-education-project-id': noviId,
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     }
                 })
@@ -126,7 +128,7 @@ function AuthContextProvider({children}) {
             const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/users/${auth.user.id}/userCollections`,
                 {
                     headers: {
-                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        'novi-education-project-id': noviId,
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     }
                 })
@@ -145,7 +147,7 @@ function AuthContextProvider({children}) {
             const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/members/${auth.user.id}`,
                 {
                     headers: {
-                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        'novi-education-project-id': noviId,
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     }
                 })

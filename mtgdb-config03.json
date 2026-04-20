@@ -249,8 +249,8 @@
   "users": [
     {
       "id": 1,
-      "email": "stefanversterker@gmail.com",
-      "password": "bla123",
+      "email": "mtgdbtester@novifrontend.nl",
+      "password": "Zwarte2Lotus6",
       "roles": [
         "member"
       ]
@@ -263,8 +263,8 @@
         "userId": 1,
         "firstName": "Stefan",
         "lastName": "Verster",
-        "userName": "Angry Mongoose",
-        "creatureType": "Rodent",
+        "userName": "Nacho",
+        "creatureType": "Not A Dog",
         "bio": "Its diet consists of fruits, plants, small woodland animals, large woodland animals, woodlands, fruit groves, fruit farmers, and small cities."
       }
     ],
