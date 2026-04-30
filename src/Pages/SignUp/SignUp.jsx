@@ -9,6 +9,7 @@ import UserInfoForm from "../../Components/UserInfoForm/UserInfoForm.jsx";
 import EmailPasswordForm from "../../Components/EmailPasswordForm/EmailPasswordForm.jsx";
 import {useContext, useState} from "react";
 import {AuthContext} from "../../context/AuthContextProvider.jsx";
+import Message from "../../Components/Message/Message.jsx";
 
 function SignUp() {
     /*const [email, setEmail] = useState("")
@@ -20,6 +21,7 @@ function SignUp() {
     return (
 
         <main className="main-container blue-border">
+
             <EmailPasswordForm
                 header="Sign up"
                 emailValue={email}

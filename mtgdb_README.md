@@ -6,6 +6,9 @@
 * Screenshot
 * Gebruikte technieken en frameworks
 * Installatie stappenplan
+  * API configureren met het project ID van de student
+  * API configureren met je eigen project ID
+  * Het mtgdb project openen en runnen
 * Inloggegevens
 * NPM commando's
 

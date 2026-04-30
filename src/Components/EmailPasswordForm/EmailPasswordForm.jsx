@@ -9,7 +9,7 @@ function EmailPasswordForm({className, children, header, handleSubmit, emailValu
 
         <section className="sign-up-in-out pink-border">
             <header>
-                <h1>{header}</h1>
+                <h1 className="header">{header}</h1>
             </header>
             <div className="sign-form green-border">
                 <Veil>

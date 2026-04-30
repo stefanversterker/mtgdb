@@ -21,7 +21,6 @@ function CollectionContextProvider({children}) {
     const {user} = useContext(AuthContext);
     const userId = user?.id;
     const {token} = useContext(AuthContext);
-    /*const noviId = 'b8985a1c-c1b7-4c00-9777-666019e0877d';*/
     const {noviId} = useNoviId()
     const navigate = useNavigate();
     const cardsInDeck = deckEntries.reduce(
