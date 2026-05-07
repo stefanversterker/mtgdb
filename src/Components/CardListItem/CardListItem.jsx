@@ -34,7 +34,18 @@ function CardListItem({cardName, cardAmount, lightBoxSource, onClickMinus, onCli
                         onClick={onClickPlus}
                     />
                 </div>
-                <CounterBox cardAmount={cardAmount}/>
+                <CounterBox cardAmount={cardAmount}
+                            className={
+                    cardAmount > 4 &&
+                    cardName !== "Swamp" &&
+                    cardName !== "Mountain" &&
+                    cardName !== "Plains" &&
+                    cardName !== "Island" &&
+                    cardName !== "Forest" ?
+                        "number-does-not-comply" :
+                        ""
+                }
+                />
             </CardManagement>
         </article>
     )

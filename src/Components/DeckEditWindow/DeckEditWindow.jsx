@@ -115,9 +115,12 @@ function DeckEditWindow() {
                             </ul>
                             <footer className="deck-management">
                                 <div className="deck-management-line-container">
-                                    <dt>Cards in deck: </dt>
+                                    <dt>Cards in deck:</dt>
                                     <dd>
-                                        <CounterBox cardAmount={cardsInDeck} className="card-total"/>
+                                        <CounterBox
+                                            cardAmount={cardsInDeck}
+                                            className={cardsInDeck < 60 ? "number-does-not-comply card-total" :"card-total"}
+                                        />
                                     </dd>
                                 </div>
                                 <div className="deck-management-line-container">
