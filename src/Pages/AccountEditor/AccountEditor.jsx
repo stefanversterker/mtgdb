@@ -1,26 +1,16 @@
 import './AccountEditor.css'
-import Veil from "../../Components/Veil/Veil.jsx";
-import Dropdown from "../../Components/Dropdown/Dropdown.jsx";
-import DropdownDetailSummary from "../../Components/DropdownDetailSummary/DropdownDetailSummary.jsx";
-import ButtonSmall from "../../Components/ButtonSmall/ButtonSmall.jsx";
-import ButtonEdit from "../../Components/ButtonEdit/ButtonEdit.jsx";
-import Input from "../../Components/Input/Input.jsx";
-import TextArea from "../../Components/TextArea/TextArea.jsx";
 import UserInfoForm from "../../Components/UserInfoForm/UserInfoForm.jsx";
-import UserCard from "../../Components/UserCard/UserCard.jsx";
-import Button from "../../Components/Button/Button.jsx";
+
 import {useNavigate} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthContextProvider.jsx";
+
 import axios from "axios";
+import {useNoviId} from "../../context/NoviIdProvider.jsx";
 
 function AccountEditor() {
     const navigate = useNavigate();
-    const [firstNameValue, setFirstNameValue] = useState("")
-    const [lastNameValue, setLastNameValue] = useState("")
-    const [userNameValue, setUserNameValue] = useState("")
-    const [bioValue, setBioValue] = useState("")
-    const [creatureValue, setCreatureValue] = useState("")
+    const {noviId} = useNoviId()
 
     const [formData, setFormData] = useState({
         id: null,
@@ -46,7 +36,7 @@ function AccountEditor() {
                     formData,
                 {
                     headers: {
-                        'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                        'novi-education-project-id': noviId,
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     }
                 })

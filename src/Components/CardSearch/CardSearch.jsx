@@ -2,12 +2,6 @@ import './CardSearch.css'
 import Veil from "../Veil/Veil.jsx";
 import Input from "../Input/Input.jsx";
 import Dropdown from "../Dropdown/Dropdown.jsx";
-import ManaBlack from "/src/assets/symbols/mana-black.svg?react";
-import ManaBlue from "/src/assets/symbols/mana-blue.svg?react";
-import ManaColorless from "/src/assets/symbols/mana-colorless.svg?react";
-import ManaGreen from "/src/assets/symbols/mana-green.svg?react";
-import ManaRed from "/src/assets/symbols/mana-red.svg?react";
-import ManaWhite from "/src/assets/symbols/mana-white.svg?react";
 import Button from "../Button/Button.jsx";
 import ManaRangeSlider from "../ManaRangeSlider/ManaRangeSlider.jsx";
 
@@ -46,12 +40,15 @@ function CardSearch({
 
         <section className="card-search-container orange-border">
             <header className="card-search-header">
+
                 <h1>{displayTitle}</h1>
                 {button}
             </header>
             <section className="search-menu brown-border">
+                {/*Onzichtbare header omdat een section altijd een header moet hebben*/}
+                <h3 className="hidden">--search menu--</h3>
                 <Veil>
-                    <div className="key-search">
+                    <article className="key-search">
                         <Input
                             placeHolder="Card name"
                             type="text"
@@ -63,8 +60,8 @@ function CardSearch({
                             }
                             }
                         />
-                    </div>
-                    <div className="card-spec-dropdowns">
+                    </article>
+                    <article className="card-spec-dropdowns">
                         <Dropdown
                             selectedValue={cardType}
                             setSelectedValue={setCardType}
@@ -90,14 +87,14 @@ function CardSearch({
                             <option value="green">green</option>
                             <option value="colorless">colorless</option>
                         </Dropdown>
-                    </div>
-                    <div className="sort-cmc-search-container">
+                    </article>
+                    <fieldset className="sort-cmc-search-container">
                         <Dropdown
                             selectedValue={`${sortType}-${sortDir}`}
                             setSelectedValue={handleSortChange}
                         >
-                            <option value="name-asc">sort: A-B</option>
-                            <option value="name-desc">sort: B-A</option>
+                            <option value="name-asc">sort: A-Z</option>
+                            <option value="name-desc">sort: Z-A</option>
                             <option value="cmc-asc">sort: cmc, 0-10</option>
                             <option value="cmc-desc">sort: cmc, 10-0</option>
                         </Dropdown>
@@ -107,17 +104,19 @@ function CardSearch({
                                 setCmcRange={setCmcRange}
                             />
                         </div>
-                    </div>
+                    </fieldset>
                 </Veil>
             </section>
             <section className="card-flow-container pink-border">
+                {/*Onzichtbare header omdat een section altijd een header moet hebben*/}
+                <h3 className="hidden">--card flow--</h3>
                 <Veil>
-                    <ul className="card-flow green-border">
+                    <div className="card-flow green-border">
                         {children}
-                    </ul>
+                    </div>
                 </Veil>
             </section>
-            <section className="paginating-button-container">
+            <nav className="paginating-button-container">
                 <Button buttonContent="Previous"
                         className={prevButtonClass}
                         type="button"
@@ -130,7 +129,7 @@ function CardSearch({
                         onClick={nextClick}
                         disabled={nextDisabled}
                 />
-            </section>
+            </nav>
 
 
 

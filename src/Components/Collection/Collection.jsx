@@ -1,14 +1,12 @@
 import './Collection.css'
 import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
 import Card from "../../Components/Card/Card.jsx";
-import axios from 'axios';
 import {useContext, useState} from 'react'
-import {useEffect} from 'react'
-import {jwtDecode} from "jwt-decode";
 import CounterBox from "../CounterBox/CounterBox.jsx";
 import Veil from "../Veil/Veil.jsx";
 import Button from "../Button/Button.jsx";
 import {CollectionContext} from "../../context/CollectionContextProvider.jsx";
+import Message from "../Message/Message.jsx";
 
 function Collection({children, headerButtonClick, headerButtonContent}) {
 
@@ -27,17 +25,21 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
         <section className="collection-overview-container green-border">
 
             <header className="collection-header orange-border">
-                <h1>Collection</h1>
+                <h1>My Collection</h1>
                 <Button buttonContent={headerButtonContent} onClick={headerButtonClick}/>
             </header>
             <div className="collection-flow-container pink-border">
                 <Veil>
-                    <div className="card-flow orange-border">
+                    <ul className="card-flow orange-border">
                         {loading ? (
-                            <p>Loading...</p>
+                            <Message className="good-news">Loading...</Message>
                         ) : error ? (
-                            <p>Sorry, we were unable to find your cards</p>
-                        ) : (
+                            <Message className="bad-news">Sorry, we were unable to find your cards</Message>
+                        ) : userCollection.length === 0 ?
+                            <div className="message-container pink-border">
+                                <Message className="good-news">Your collection is empty, add some cards!</Message>
+                            </div> :
+                        (
                             userCollectionData.map(card => {
                                 const userEntry = userCollection.find(
                                     entry => entry.cardId === card.id
@@ -48,7 +50,7 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
                                 const amount = userEntry?.cardAmount ?? 0;
 
                                 return (
-                                    <div key={card.id}>
+                                    <li key={card.id}>
                                         <Card
                                             cardImage={
                                                 card.image_uris?.png ??
@@ -72,11 +74,11 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
                                             }
                                             cardImageAlt={card.name}
                                         />
-                                    </div>
+                                    </li>
                                 );
                             })
                         )}
-                    </div>
+                    </ul>
                 </Veil>
             </div>
         </section>

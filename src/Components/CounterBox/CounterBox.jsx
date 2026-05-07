@@ -1,5 +1,4 @@
 import './CounterBox.css'
-/*import { Routes, Route } from 'react-router-dom';*/
 
 function CounterBox({cardAmount, className}) {
     return (

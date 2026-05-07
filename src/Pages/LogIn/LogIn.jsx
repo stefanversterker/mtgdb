@@ -6,6 +6,8 @@ import Button from "../../Components/Button/Button.jsx";
 import {useContext, useState} from "react";
 import {AuthContext} from "../../context/AuthContextProvider.jsx";
 import axios from "axios";
+import {useNoviId} from "../../context/NoviIdProvider.jsx";
+import Message from "../../Components/Message/Message.jsx";
 
 
 function LogIn() {
@@ -13,6 +15,7 @@ function LogIn() {
     const [password, setPassword] = useState("");
     const [error, toggleError] = useState(false);
     const { login } = useContext(AuthContext);
+    const { noviId } = useNoviId()
 
 async function handleSubmit(e){
     e.preventDefault();
@@ -24,13 +27,13 @@ async function handleSubmit(e){
             password: password,
         }, {
             headers: {
-                'novi-education-project-id': 'b8985a1c-c1b7-4c00-9777-666019e0877d',
+                'novi-education-project-id': noviId,
             }
         });
         console.log(response)
         login(response.data);
     } catch(e) {
-        console.error("kapot!");
+        console.error("Login failed");
         toggleError(true);
     }
 }
@@ -39,11 +42,12 @@ async function handleSubmit(e){
 
         <main className="main-container blue-border">
             <section className="sign-up-in-out pink-border">
+                {error && <Message className="bad-news">Incorrect email and/or password</Message>}
                 <header>
-                    <h1>Log in</h1>
+                    <h1 className="header">Log in</h1>
                 </header>
                 <div className="sign-form green-border">
-                    <Veil>
+                    <Veil >
                         <form className="form" onSubmit={handleSubmit}>
                             <Input
                                 labelText="email address:"

@@ -3,12 +3,12 @@ import CardSearch from "../../Components/CardSearch/CardSearch.jsx";
 import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
 import {useNavigate} from "react-router-dom";
 import Card from "../../Components/Card/Card.jsx";
-import ButtonAdd from "../../Components/ButtonAdd/ButtonAdd.jsx";
 import axios from 'axios';
 import {useState} from 'react'
 import {useEffect} from 'react'
 import queryBuilder from '/src/Helpers/queryBuilder.js'
 import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
+import Message from "../Message/Message.jsx";
 
 
 function CardDatabase({onClickAdd}) {
@@ -101,18 +101,21 @@ function CardDatabase({onClickAdd}) {
         >
 
             {loading ? <p>Loading...</p> :
-                error ? <p>Sorry, we were unable to find your cards</p> : data.map((card) => (
-                    <div key={card.id}>
-                        <Card cardImage={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}
-                              management={<CardManagement
-                                  lightBoxSource={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}>
-                                  <ButtonSmall buttonContent="Add"
-                                               className="button-small add-button"
-                                               onClick={() => onClickAdd(card)}
-                                  />
-                              </CardManagement>} cardImageAlt={card.name}
-                        />
-                    </div>
+                error ? <Message className="bad-news">No such card, please broaden your
+                    search</Message> : data.map((card) => (
+                    <ul key={card.id}>
+                        <li>
+                            <Card cardImage={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}
+                                  management={<CardManagement
+                                      lightBoxSource={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}>
+                                      <ButtonSmall buttonContent="Add"
+                                                   className="button-small add-button"
+                                                   onClick={() => onClickAdd(card)}
+                                      />
+                                  </CardManagement>} cardImageAlt={card.name}
+                            />
+                        </li>
+                    </ul>
                 ))
             }
         </CardSearch>

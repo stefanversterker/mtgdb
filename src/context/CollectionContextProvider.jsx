@@ -1,5 +1,6 @@
 import {createContext, useContext, useEffect, useState} from "react";
 import {AuthContext} from "./AuthContextProvider.jsx";
+import {useNoviId} from "./NoviIdProvider.jsx";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
@@ -20,7 +21,7 @@ function CollectionContextProvider({children}) {
     const {user} = useContext(AuthContext);
     const userId = user?.id;
     const {token} = useContext(AuthContext);
-    const noviId = 'b8985a1c-c1b7-4c00-9777-666019e0877d';
+    const {noviId} = useNoviId()
     const navigate = useNavigate();
     const cardsInDeck = deckEntries.reduce(
         (total, entry) => total + entry.cardAmount,

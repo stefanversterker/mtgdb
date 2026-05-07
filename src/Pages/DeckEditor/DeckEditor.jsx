@@ -5,8 +5,6 @@ import DeckEditWindow from "../../Components/DeckEditWindow/DeckEditWindow.jsx";
 import icy_manipulator from "../../assets/testcards/icy_manipulator__s6__cn249_lnen.jpg";
 import Card from "../../Components/Card/Card.jsx";
 import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
-import ButtonAdd from "../../Components/ButtonAdd/ButtonAdd.jsx";
-import ButtonMagnify from "../../Components/ButtonMagnify/ButtonMagnify.jsx";
 import CardDatabase from "../../Components/CardDatabase/CardDatabase.jsx";
 import { useParams } from "react-router-dom";
 
@@ -15,7 +13,7 @@ import {useContext} from "react";
 
 function DeckEditor() {
 
-    const {addCardToDeck, loading, userDecks, fetchDeckEntries, deckEntries, cardsInDeck, deckData, updateAmountInDeck, deleteDeckEntry, userEntry} = useContext(CollectionContext);
+    const {addCardToDeck} = useContext(CollectionContext);
     const { deckId } = useParams();
     return (
 
@@ -28,6 +26,6 @@ function DeckEditor() {
         </main>
 )
 }
-/*() => addCardToDeck(entry.id)*/
+
 
 export default DeckEditor
