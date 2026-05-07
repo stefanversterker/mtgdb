@@ -101,18 +101,21 @@ function CardDatabase({onClickAdd}) {
         >
 
             {loading ? <p>Loading...</p> :
-                error ? <Message className="bad-news">No such card, please broaden your search</Message> : data.map((card) => (
-                    <div key={card.id}>
-                        <Card cardImage={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}
-                              management={<CardManagement
-                                  lightBoxSource={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}>
-                                  <ButtonSmall buttonContent="Add"
-                                               className="button-small add-button"
-                                               onClick={() => onClickAdd(card)}
-                                  />
-                              </CardManagement>} cardImageAlt={card.name}
-                        />
-                    </div>
+                error ? <Message className="bad-news">No such card, please broaden your
+                    search</Message> : data.map((card) => (
+                    <ul key={card.id}>
+                        <li>
+                            <Card cardImage={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}
+                                  management={<CardManagement
+                                      lightBoxSource={card.image_uris?.png ?? card.card_faces?.[0]?.image_uris?.png}>
+                                      <ButtonSmall buttonContent="Add"
+                                                   className="button-small add-button"
+                                                   onClick={() => onClickAdd(card)}
+                                      />
+                                  </CardManagement>} cardImageAlt={card.name}
+                            />
+                        </li>
+                    </ul>
                 ))
             }
         </CardSearch>

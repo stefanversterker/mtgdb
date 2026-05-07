@@ -2,12 +2,8 @@ import './CollectionEditor.css'
 import CardDatabase from "../../Components/CardDatabase/CardDatabase.jsx";
 import Collection from "../../Components/Collection/Collection.jsx";
 import {useNavigate} from "react-router-dom";
-import CounterBox from "../../Components/CounterBox/CounterBox.jsx";
 import ButtonSmall from "../../Components/ButtonSmall/ButtonSmall.jsx";
-import TrashIcon from "/src/assets/symbols/trash.svg?react";
 import {useContext, useEffect, useState} from "react";
-import axios from "axios";
-import {jwtDecode} from "jwt-decode";
 import {CollectionContext} from "../../context/CollectionContextProvider.jsx";
 import {AuthContext} from "../../context/AuthContextProvider.jsx";
 
@@ -31,7 +27,9 @@ function CollectionEditor() {
 
             >
                 {({amount, increaseAmount, decreaseAmount, deleteEntry}) =>(
-                <div className="card-counter-box">
+                <div className="card-counter-box"
+                     role="stepper"
+                >
                     <div>
                         {
                             amount > 1 ? (

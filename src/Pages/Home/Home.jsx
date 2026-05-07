@@ -37,7 +37,7 @@ function Home() {
                 >
 
                 </Collection>
-                <div className="decks-overview-container green-border">
+                <section className="decks-overview-container green-border">
                     <header className="decks-header orange-border">
                         <h1>My Decks</h1>
                         <Button
@@ -50,19 +50,19 @@ function Home() {
                         <Veil>
                             {userDecks.length === 0 ?
                                 <Message className="good-news">Awfully quiet in here, time to make your first deck!</Message> :
-                                (<div className="orange-border decks-flow">
+                                (<ul className="orange-border decks-flow">
                                     {userDecks?.map(deck => {
                                         return (
-                                            <div key={deck.id}>
+                                            <li key={deck.id}>
                                                 <DeckOverviewContainer deckName={deck.deckName} cardAmount={cardsInDeck}
                                                                        deckId={deck.id}/>
-                                            </div>
+                                            </li>
                                         )
                                     })}
-                                </div>)}
+                                </ul>)}
                         </Veil>
                     </article>
-                </div>
+                </section>
             </section>
         </main>
     )

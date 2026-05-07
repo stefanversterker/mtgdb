@@ -1,10 +1,7 @@
 import './Collection.css'
 import CardManagement from "../../Components/CardManagement/CardManagement.jsx";
 import Card from "../../Components/Card/Card.jsx";
-import axios from 'axios';
 import {useContext, useState} from 'react'
-import {useEffect} from 'react'
-import {jwtDecode} from "jwt-decode";
 import CounterBox from "../CounterBox/CounterBox.jsx";
 import Veil from "../Veil/Veil.jsx";
 import Button from "../Button/Button.jsx";
@@ -33,7 +30,7 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
             </header>
             <div className="collection-flow-container pink-border">
                 <Veil>
-                    <div className="card-flow orange-border">
+                    <ul className="card-flow orange-border">
                         {loading ? (
                             <Message className="good-news">Loading...</Message>
                         ) : error ? (
@@ -53,7 +50,7 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
                                 const amount = userEntry?.cardAmount ?? 0;
 
                                 return (
-                                    <div key={card.id}>
+                                    <li key={card.id}>
                                         <Card
                                             cardImage={
                                                 card.image_uris?.png ??
@@ -77,11 +74,11 @@ function Collection({children, headerButtonClick, headerButtonContent}) {
                                             }
                                             cardImageAlt={card.name}
                                         />
-                                    </div>
+                                    </li>
                                 );
                             })
                         )}
-                    </div>
+                    </ul>
                 </Veil>
             </div>
         </section>

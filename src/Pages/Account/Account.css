@@ -12,5 +12,9 @@
 .user-card-header {
     display: flex;
     justify-content: space-between;
+    padding: 0 20px;
+}
 
+.edit-button {
+    height: 40px;
 }

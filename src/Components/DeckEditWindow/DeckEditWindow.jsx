@@ -34,11 +34,6 @@ function DeckEditWindow() {
     const [deckName, setDeckName] = useState('')
     const isUnchanged = deckName.trim() === deck?.deckName;
 
-    /*console.log("userDecks in component:", userDecks);*/
-
-    /*console.log(deckName);*/
-    /*console.log(deckId);*/
-
     useEffect(() => {
         if (!deckId) return;
         fetchDeckEntries(deckId);
@@ -80,7 +75,6 @@ function DeckEditWindow() {
                 <Veil>
                     <div className="green-border dropdown-menu-container">
                         <DropdownDetailSummary
-                            /*summaryLeft={deck?.deckName}*/
                             value={deckName}
                             onChange={(e) => setDeckName(e.target.value)}
                             onClick={() => patchDeckName(deckId, deckName)}
@@ -91,7 +85,7 @@ function DeckEditWindow() {
                             messageChildren={<p>{messenger()}</p>}
 
                         >
-                            <div>
+                            <ul>
                                 {deckData.map(card => {
 
                                     const entry = deckEntries.find(
@@ -103,7 +97,7 @@ function DeckEditWindow() {
                                     const amount = entry.cardAmount;
 
                                     return (
-                                        <div key={card.id}>
+                                        <li key={card.id}>
                                             <CardListItem
                                                 cardName={card.name}
                                                 cardAmount={amount}
@@ -115,14 +109,16 @@ function DeckEditWindow() {
                                                     card.card_faces?.[0]?.image_uris?.png
                                                 }
                                             />
-                                        </div>
+                                        </li>
                                     );
                                 })}
-                            </div>
-                            <div className="deck-management">
+                            </ul>
+                            <footer className="deck-management">
                                 <div className="deck-management-line-container">
-                                    <p>Cards in deck: </p>
-                                    <CounterBox cardAmount={cardsInDeck} className="card-total"/>
+                                    <dt>Cards in deck: </dt>
+                                    <dd>
+                                        <CounterBox cardAmount={cardsInDeck} className="card-total"/>
+                                    </dd>
                                 </div>
                                 <div className="deck-management-line-container">
                                     <p>Delete deck</p>
@@ -132,7 +128,7 @@ function DeckEditWindow() {
                                         onClick={() => deleteDeck(deckId)}
                                     />
                                 </div>
-                            </div>
+                            </footer>
                         </DropdownDetailSummary>
 
                     </div>

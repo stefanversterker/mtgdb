@@ -34,7 +34,13 @@ Voor het maken van de MTGDB app heb ik gebruikgemaakt van de volgende technieken
 * pagina opbouw: html
 * opmaak: css
 * logica: javascript
-* app architectuur: react
+* app architectuur: react 19.2.0
+* build tool en development server: Vite 7.2.4
+* api communicatie: axios 1.13.3
+* token decoding: jwt-decode: 4.0.0
+* syntax checking, code kwaliteit en stijl consistentie: ESLint 9.39.1
+* slider: @radix-ui/react-slider 1.3.6
+* lightbox: yet-another-react-lightbox: 3.28.0
 
 ## Installatie stappenplan
 API configureren met het project ID van de student:

@@ -13,7 +13,7 @@ import {useContext} from "react";
 
 function DeckEditor() {
 
-    const {addCardToDeck, loading, userDecks, fetchDeckEntries, deckEntries, cardsInDeck, deckData, updateAmountInDeck, deleteDeckEntry, userEntry} = useContext(CollectionContext);
+    const {addCardToDeck} = useContext(CollectionContext);
     const { deckId } = useParams();
     return (
 

@@ -10,7 +10,6 @@ import nacho from "/src/assets/testcards/img_nacho_yawn.jpeg"
 
 function Account() {
     const navigate = useNavigate();
-    /*const [userData, setUserData] = useState({});*/
     const {user, userData, setUserData, fetchUserData} = useContext(AuthContext);
 
     useEffect(() => {
@@ -26,7 +25,9 @@ function Account() {
                     <h1 className="section-title">My Card</h1>
                     <Button buttonContent="Edit"
                             type="button"
-                            onClick={() => navigate("/account/edit-account")}/>
+                            onClick={() => navigate("/account/edit-account")}
+                            className="edit-button"
+                    />
                 </header>
                 <Veil className="user-card-container brown-border" veilTitle="My Card">
                     <UserCard

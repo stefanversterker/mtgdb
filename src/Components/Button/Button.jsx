@@ -3,7 +3,6 @@ import './Button.css'
 function Button({buttonContent, onClick, className, type, disabled}) {
     return (
 
-        <div>
             <button
                 className={`button ${className}`}
                 type={type}
@@ -12,7 +11,6 @@ function Button({buttonContent, onClick, className, type, disabled}) {
             >
                 {buttonContent}
             </button>
-        </div>
     )
 }
 
