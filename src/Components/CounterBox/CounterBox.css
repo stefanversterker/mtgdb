@@ -13,3 +13,7 @@
 .square-counterbox {
     border-radius: 0;
 }
+
+.number-does-not-comply {
+    color: #cf0000;
+}
