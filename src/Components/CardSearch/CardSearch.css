@@ -13,6 +13,7 @@
     justify-content: space-between;
     align-items: baseline;
     color: var(--dark-blue);
+    margin: 0;
 }
 
 .key-search {
@@ -94,5 +95,13 @@
         justify-content: space-between;
         flex-direction: row;
         gap: 0.5rem;
+    }
+
+    .card-search-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        color: var(--dark-blue);
+        margin: 0 1.2rem;
     }
 }

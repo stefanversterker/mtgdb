@@ -4,7 +4,6 @@ import {Routes, Route, Navigate} from 'react-router-dom';
 import Home from './Pages/Home/Home.jsx';
 import CollectionEditor from './Pages/CollectionEditor/CollectionEditor.jsx';
 import DeckEditor from './Pages/DeckEditor/DeckEditor.jsx';
-import Wishlist from './Pages/Wishlist/Wishlist.jsx';
 import SignUp from "./Pages/SignUp/SignUp.jsx";
 import LogIn from "./Pages/LogIn/LogIn.jsx";
 import Account from "./Pages/Account/Account.jsx";
@@ -25,7 +24,6 @@ function App() {
                 <Route path="/" element={isAuth === true ? <Home/> : <Navigate to="/welcome"/>}/>
                 <Route path="/collection-editor" element={isAuth === true ? <CollectionEditor/> : <Navigate to="/welcome"/>}/>
                 <Route path="/deck-editor" element={isAuth === true ? <DeckEditor/> : <Navigate to="/welcome"/>}/>
-               {/* <Route path="/wishlist" element={isAuth === true ? <Wishlist/> : <Navigate to="/welcome"/>}/>*/}
                 <Route path="/account" element={isAuth === true ? <Account/> : <Navigate to="/welcome"/>}/>
                 <Route path="/account/edit-account" element={isAuth === true ? <AccountEditor/> : <Navigate to="/welcome"/>}/>
                 <Route path="/sign-up" element={<SignUp/>}/>

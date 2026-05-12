@@ -4,13 +4,12 @@
     justify-content: space-between;
     align-items: baseline;
     color: var(--dark-blue);
-    /*margin: 0 1.2rem;*/
+    margin: 0 0 1rem 0;
 }
 
 .collection-container {
     display: flex;
     flex-direction: column;
-    /*gap: 0.5rem;*/
     height: 100%;
     width: 48.75rem;
 }
@@ -46,5 +45,6 @@
         justify-content: space-between;
         align-items: baseline;
         color: var(--dark-blue);
+        margin: 0 1.2rem;
     }
 }

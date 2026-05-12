@@ -16,7 +16,7 @@ const manaMap = {
     G: <ManaGreen className="mana-symbol"/>
 };
 
-function DeckOverviewContainer({deckName, deckId, cardAmount}) {
+function DeckOverviewContainer({deckName, deckId}) {
     const {addCard, collectionId, loading, userDecks, deckData} = useContext(CollectionContext);
 
 

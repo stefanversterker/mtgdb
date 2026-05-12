@@ -27,7 +27,6 @@
     left: 8%;
     width: 60%;
     height: 5%;
-    /*font-size: clamp(3px, 2vw, 32px);*/
 }
 
 .user-image-container {
@@ -50,7 +49,6 @@
     left: 8%;
     width: 85%;
     height: 5%;
-    /*font-size: clamp(3px, 2vw, 32px);*/
 }
 
 .user-bio-container {
@@ -59,7 +57,6 @@
     left: 8%;
     width: 85%;
     height: 28%;
-    /*font-size: clamp(3px, 1.8vw, 32px);*/
     padding: 1%;
 }
 

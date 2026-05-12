@@ -6,13 +6,10 @@ import {useNoviId} from "./NoviIdProvider.jsx";
 import { useRef } from "react";
 import axios from "axios";
 
-
 export const AuthContext = createContext({})
 
-const isInitializingRef = useRef(false);
-
-
 function AuthContextProvider({children}) {
+    const isInitializingRef = useRef(false);
     const navigate = useNavigate();
     const [userData, setUserData] = useState({});
     const [email, setEmail] = useState("")
@@ -62,10 +59,6 @@ function AuthContextProvider({children}) {
                 }
             })
 
-            console.log(response)
-            /*const newUserId = response?.data.id*/
-            /*await newCollection(newUserId)*/
-            /*await newMember(newUserId)*/
         } catch (e) {
             console.error("Unable to create new user");
         }
@@ -160,7 +153,6 @@ function AuthContextProvider({children}) {
                     }
                 })
             setUserData(response.data)
-            /*console.log(response)*/
         } catch (e) {
             console.error("kapot!")
         }

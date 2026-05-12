@@ -1,7 +1,5 @@
 import './ButtonSmall.css'
 
-/*import { Routes, Route } from 'react-router-dom';*/
-
 function ButtonSmall({buttonContent, className, onClick}) {
     return (
 

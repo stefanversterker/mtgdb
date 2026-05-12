@@ -3,7 +3,6 @@ import Veil from "../../Components/Veil/Veil.jsx";
 import UserCard from "../../Components/UserCard/UserCard.jsx";
 import Button from "../../Components/Button/Button.jsx";
 import {useContext, useEffect, useState} from 'react';
-import axios from 'axios';
 import {AuthContext} from "../../context/AuthContextProvider.jsx";
 import {useNavigate} from "react-router-dom";
 import nacho from "/src/assets/testcards/img_nacho_yawn.jpeg"

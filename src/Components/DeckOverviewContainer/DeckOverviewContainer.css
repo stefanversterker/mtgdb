@@ -24,14 +24,12 @@
 .deck-summary-buttons {
     display: flex;
     justify-content: flex-start;
-    /*width: 15%;*/
     gap: 0.5rem;
     flex-shrink: 0;
 }
 
 .deck-title {
     display: flex;
-    /*width: 65%;*/
     flex-shrink: 1;
     color: var(--not-black);
     text-decoration: none;
@@ -41,8 +39,8 @@
     display: flex;
     justify-content: flex-start;
     gap: 0.3rem;
-    /*width: 20%;*/
 }
+
 .symbol-container {
     display: flex;
     justify-content: flex-start;

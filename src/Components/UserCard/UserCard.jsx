@@ -1,6 +1,5 @@
 import './UserCard.css'
 import user_card from '/src/assets/card.png'
-import nacho from '/src/assets/testcards/img_nacho_yawn.jpeg'
 
 function UserCard({creatureType, bio, userName, profilePic}) {
     return (

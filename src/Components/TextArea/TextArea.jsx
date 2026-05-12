@@ -1,5 +1,4 @@
 import './TextArea.css'
-import ButtonSmall from "../ButtonSmall/ButtonSmall.jsx";
 
 function TextArea({htmlFor, labelText, name, value, onChange}) {
 
