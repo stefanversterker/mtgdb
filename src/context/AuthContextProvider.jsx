@@ -3,10 +3,14 @@ import {createContext, useEffect, useState} from "react";
 import {jwtDecode} from "jwt-decode";
 import isTokenValid from "../Helpers/isTokenValid.js";
 import {useNoviId} from "./NoviIdProvider.jsx";
+import { useRef } from "react";
 import axios from "axios";
 
 
 export const AuthContext = createContext({})
+
+const isInitializingRef = useRef(false);
+
 
 function AuthContextProvider({children}) {
     const navigate = useNavigate();
@@ -25,19 +29,23 @@ function AuthContextProvider({children}) {
     async function initUser() {
         console.log("initUser started");
 
-        const member = await fetchMember()
-        const userCollection = await fetchCollection()
+        try {
+            const member = await fetchMember()
+            const userCollection = await fetchCollection()
 
-        if (!member?.length) {
-            await newMember(auth.user?.id);
+            if (member && member.length === 0) {
+                await newMember(auth.user?.id);
+            }
+            if (!userCollection?.length) {
+                await newCollection(auth.user?.id);
+            }
+
+            toggleUserInitialised(true)
+            console.log("initUser finished");
+
+        } catch (e) {
+            console.error("initUser failed", e);
         }
-        if (!userCollection?.length) {
-            await newCollection(auth.user?.id);
-        }
-        console.log("initUser finished");
-        toggleUserInitialised(true)
-
-
     }
 
     async function newUser(email, password) {
@@ -188,12 +196,19 @@ function AuthContextProvider({children}) {
         }
     }, []);
 
-    useEffect( () => {
+    useEffect(() => {
+        if (
+            auth.status === 'done' &&
+            auth.user?.id &&
+            !userInitialised &&
+            !isInitializingRef.current
+        ) {
+            isInitializingRef.current = true;
 
-        if (auth.status === 'done' && auth.user?.id) {
-            !userInitialised && initUser()
+            initUser().finally(() => {
+                isInitializingRef.current = false;
+            });
         }
-
     }, [auth.status, auth.user?.id, userInitialised]);
 
 
